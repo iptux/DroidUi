@@ -1,7 +1,8 @@
 Script Layer for Android
 
 
-sl4a.py		Wrapper for android.Android, make it more pythonic
-sms_export.py	Export sms messages. Result should be placed in /sdcard/sl4a/ directory
-txtReader.py	Read txt file out. Just put text file in /sdcard/book
-
+sl4a.py			Wrapper for android.Android, make it more pythonic
+sms_export.py		Export sms messages. Result should be placed in /sdcard/sl4a/ directory
+txtReader.py		Read txt file out. Just put text file in /sdcard/book
+DroidUi.py		wrapper library for FullScreenUi
+DroidConstants.py	constants used by DroidUi.py
