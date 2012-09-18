@@ -44,6 +44,7 @@ class DroidUi:
 		self.objmap = {}
 		self.dirty = True
 		self.layout = ''
+		self.title = None
 		self._click_cb = {}
 		self._key_cb = {BACK: self.quit, MENU: noneHandler}
 		self._optionMenu = []
@@ -167,13 +168,17 @@ class DroidUi:
 		if self.dirty:
 			self.layout = self._layout()
 			self.dirty = False
-		self._a.fullShow(self.layout)
+
+		if self.title is not None:
+			self._a.fullShow(self.layout, self.title)
+		else:
+			self._a.fullShow(self.layout)
 		self.showed = True
 
 		self._a.clearOptionsMenu()
 		for m in self._optionMenu:
 			self._a.addOptionsMenuItem(*m)
-	def mainloop(self):
+	def mainloop(self, title = None):
 		'''main loop'''
 		# support serial call to mainloop
 		if not hasattr(DroidUi, 'n'):
@@ -183,6 +188,7 @@ class DroidUi:
 			DroidUi.n += 1
 			DroidUi.queue.append(self)
 
+		if title is not None: self.title = title
 		self.show()
 
 		try: self._mainloop(DroidUi.n)
@@ -228,7 +234,7 @@ class _View(ET._Element):
 		if cnf.has_key('id'):
 			self.setid(cnf['id'])
 			del cnf['id']
-		else:self._setid('%s#%x' % (self.widgetName, id(self)) )
+		else: self.setid('%s#%x' % (self.widgetName, id(self)) )
 
 		self.config(**cnf)
 	def set(self, key, value):
@@ -273,8 +279,8 @@ class _View(ET._Element):
 		if value is None and self.droid.showed:
 			value = self.droid.call('fullQueryDetail', self.id)[key]
 		return value
-	def mainloop(self):
-		self.droid.mainloop()
+	def mainloop(self, title = None):
+		self.droid.mainloop(title)
 	def quit(self, data = None):
 		return self.droid.quit(data)
 
