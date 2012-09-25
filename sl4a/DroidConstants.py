@@ -5,15 +5,15 @@ TRUE = 'true'
 FALSE = 'false'
 
 # key
-BACK = '4'
-UP = '19'
-LEFT = '20'
-RIGHT = '21'
-DOWN = '22'
-VOLUME_UP = '24'
-VOLUME_DOWN = '25'
-MENU = '82'
-SEARCH = '84'
+BACK = 4
+UP = 19
+LEFT = 20
+RIGHT = 21
+DOWN = 22
+VOLUME_UP = 24
+VOLUME_DOWN = 25
+MENU = 82
+SEARCH = 84
 
 # layout_width and layout_height
 WRAP_CONTENT = 'wrap_content'

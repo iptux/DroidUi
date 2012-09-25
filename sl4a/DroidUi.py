@@ -113,9 +113,9 @@ class DroidUi:
 		if OVERRRIDE is True, the key's default behaviour will be overrided
 		by default, BACK key quit current layout, MENU key shows menu if there's one'''
 		assert callable(callback)
-		if self._key_cb.has_key(key): warnings.warn('key callback is override: key = %s' % key)
+		if self._key_cb.has_key(key): warnings.warn('key callback is override: key = %d' % key)
 		self._key_cb[key] = callback
-		if override: self._a.fullKeyOverride([int(key)])
+		if override: self._a.fullKeyOverride([key])
 	def reg_event(self, name, handler):
 		'''register event handler
 		HANDLER should accept 1 param which contains event data
