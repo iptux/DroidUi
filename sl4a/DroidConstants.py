@@ -89,3 +89,8 @@ GONE = 'gone'
 NONE = 'none'
 HORIZONTAL = 'horizontal'
 VERTICAL = 'vertical'
+
+
+def joinattr(*attrs):
+	'''join many attribute together'''
+	return '|'.join(attrs)

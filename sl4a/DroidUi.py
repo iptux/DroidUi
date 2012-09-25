@@ -203,11 +203,6 @@ class DroidUi:
 				DroidUi.n -= 1
 
 
-def joinattr(*attrs):
-	'''join many attribute together'''
-	return '|'.join(attrs)
-
-
 class _View(ET._Element):
 	'''View element'''
 	widgetName = ''
