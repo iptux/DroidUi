@@ -158,6 +158,7 @@ class DroidUi:
 		self.dirty = True
 	def _layout(self):
 		'''get the xml content stands for this layout'''
+		if self.root is None: self.root = TextView(self, text = "You havn't set any View for this layout :(", padding = '30dp')
 		self.root.set('xmlns:android', 'http://schemas.android.com/apk/res/android')
 		tree = ET.ElementTree(self.root)
 		layout = _memory()
@@ -527,7 +528,7 @@ if __name__ == '__main__':
 		return True
 	droid = DroidUi()
 	layout = TextView(droid, text = 'Hello')
-	Button(droid, text = 'hello', command = callback)
+	EditText(droid, text = 'hello', command = callback)
 	Button(droid, text = 'Quit', command = droid.quit)
 	droid.addOptionMenu('Menu', callback)
 	droid.addOptionMenu('Exit', droid.quit)
