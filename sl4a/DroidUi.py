@@ -69,7 +69,7 @@ class DroidUi:
 			return True
 	def _key(self, data):
 		'''key event handler'''
-		key = data['key']
+		key = int(data['key'])
 		if self._key_cb.has_key(key):
 			self._key_cb[key]()
 			return True
