@@ -187,9 +187,9 @@ class _Alert(_Dialog):
 	def no(self, data):
 		self.result = False
 
-def message(title, message):
+def message(title, message, text = 'OK'):
 	'''show a message'''
-	_Alert(title, message, 'OK', None).main()
+	_Alert(title, message, text, None).main()
 
 def askyesno(title, message):
 	'''ask yes or no
