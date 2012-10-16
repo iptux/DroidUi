@@ -235,7 +235,9 @@ class _View(ET._Element):
 		self.config(**cnf)
 	def set(self, key, value):
 		if key.find(':') == -1: key = "android:%s" % key
-		ET._Element.set(self, key, str(value))
+		if not isinstance(value, unicode):
+			value = str(value)
+		ET._Element.set(self, key, value)
 	def get(self, key, default = None):
 		return ET._Element.get(self, "android:%s" % key, default)
 	def setid(self, id):
@@ -256,6 +258,10 @@ class _View(ET._Element):
 		'''require focus on this view'''
 		if self.droid.showed: warnings.warn('focus required after showed: %s', str(self))
 		else: self.append(ET.Element('requestFocus', {}))
+	def property(self, key, value):
+		if not self.droid.showed: return
+		if not isinstance(value, unicode): value = str(value)
+		self.droid.call('fullSetProperty', self.id, key, value)
 	def configure(self, **kw):
 		'''configure view properties'''
 		# command is used as click handler
@@ -267,13 +273,14 @@ class _View(ET._Element):
 			self.set(k, v)
 			if showed:
 				self.droid._setdirty()
-				self.droid.call('fullSetProperty', self.id, k, str(v))
+				self.property(k, v)
 	config = configure
 	def cget(self, key):
 		'''get property value, should i remove this interface?'''
 		value = self.get(key)
 		if value is None and self.droid.showed:
-			value = self.droid.call('fullQueryDetail', self.id)[key]
+			try: value = self.droid.call('fullQueryDetail', self.id)[key]
+			except KeyError: pass
 		return value
 	def mainloop(self, title = None):
 		self.droid.mainloop(title)
