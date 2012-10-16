@@ -6,6 +6,13 @@ import sl4a
 from DroidConstants import *
 
 
+# you can change them for custom Button text
+YES = 'Yes'
+NO = 'No'
+OK = 'OK'
+CANCEL = 'Cancel'
+
+
 class _Dialog:
 	'''basic dialog for android'''
 	DialogType = {
@@ -28,7 +35,7 @@ class _Dialog:
 	def create(self, type, *args):
 		'''create dialog, for TYPE, see DialogType'''
 		self.call(self.DialogType[type], *args)
-	def buttons(self, yes = 'Yes', no = 'No', cancel = None):
+	def buttons(self, yes = YES, no = NO, cancel = None):
 		'''set button text'''
 		if yes: self.call('dialogSetPositiveButtonText', str(yes))
 		if no: self.call('dialogSetNegativeButtonText', str(no))
@@ -88,7 +95,7 @@ class _Dialog:
 def _askstring(title, message, default, type):
 	d = _Dialog()
 	d.create('input', title, message, str(default), type)
-	d.buttons('OK', 'Cancel')
+	d.buttons(OK, CANCEL)
 	d.show()
 	d.main()
 	return d.result['value']
@@ -112,7 +119,7 @@ def askvalue(title, message, value = 50, max = 100):
 	'''get a value using seekbar'''
 	d = _Dialog()
 	d.create('seekbar', value, max, title, message)
-	d.buttons('OK', 'Cancel')
+	d.buttons(OK, CANCEL)
 	d.show()
 	d.main()
 	r = None
@@ -155,7 +162,7 @@ def _choose(title, items, multi):
 	d = _Dialog()
 	d.create('alert', title)
 	d.list(items, multi)
-	d.buttons('OK', 'Cancel')
+	d.buttons(OK, CANCEL)
 	d.show()
 	d.handle()
 	if d.result is None: return None
@@ -187,21 +194,21 @@ class _Alert(_Dialog):
 	def no(self, data):
 		self.result = False
 
-def message(title, message, text = 'OK'):
+def message(title, message, text = OK):
 	'''show a message'''
 	_Alert(title, message, text, None).main()
 
 def askyesno(title, message):
 	'''ask yes or no
 	RETURN: True on Yes, False on No, or None if cancelled'''
-	d = _Alert(title, message, 'Yes', 'No')
+	d = _Alert(title, message, YES, NO)
 	d.main()
 	return d.result
 
 def askyesnocancel(title, message):
 	'''ask yes or no or cancel
 	RETURN: True on Yes, False on No, or None if cancelled'''
-	d = _Alert(title, message, 'Yes', 'No', 'Cancel')
+	d = _Alert(title, message, YES, NO, CALCEL)
 	d.main()
 	return d.result
 
