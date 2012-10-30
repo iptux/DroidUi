@@ -7,3 +7,4 @@ txtReader.py		Read txt file out. Just put text file in /sdcard/book
 DroidUi.py		wrapper library for FullScreenUi
 DroidConstants.py	constants used by DroidUi.py
 DroidDialog.py		dialog wrapper library for UiFacade
+sudoku.py		a simple sudoku game using DroidUi
