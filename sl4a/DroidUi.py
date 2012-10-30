@@ -243,7 +243,7 @@ class _View(ET._Element):
 	def setid(self, id):
 		'''set widget id'''
 		if hasattr(self, 'id') and self.id:
-			self.droid.unreg_obj(id)
+			self.droid.unreg_obj(self.id)
 		self.id = id
 		self.set('id', '@+id/' + id)
 		self.droid.reg_obj(id, self)
@@ -258,7 +258,7 @@ class _View(ET._Element):
 		'''require focus on this view'''
 		if self.droid.showed: warnings.warn('focus required after showed: %s', str(self))
 		else: self.append(ET.Element('requestFocus', {}))
-	def property(self, key, value):
+	def setProperty(self, key, value):
 		if not self.droid.showed: return
 		if not isinstance(value, unicode): value = str(value)
 		self.droid.call('fullSetProperty', self.id, key, value)
@@ -273,14 +273,16 @@ class _View(ET._Element):
 			self.set(k, v)
 			if showed:
 				self.droid._setdirty()
-				self.property(k, v)
+				self.setProperty(k, v)
 	config = configure
 	def cget(self, key):
 		'''get property value, should i remove this interface?'''
-		value = self.get(key)
-		if value is None and self.droid.showed:
+		value = None
+		if self.droid.showed:
 			try: value = self.droid.call('fullQueryDetail', self.id)[key]
 			except KeyError: pass
+		if value is None:
+			value = self.get(key)
 		return value
 	def mainloop(self, title = None):
 		self.droid.mainloop(title)
