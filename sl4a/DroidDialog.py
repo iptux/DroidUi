@@ -180,6 +180,16 @@ def choose(title, items):
 	RETURN: a tuple of chosen items, or None if cancelled'''
 	return _choose(title, items, True)
 
+def pick(title, items):
+	'''choose one items from ITEMS
+	RETURN:  the selected item, or None if cancelled'''
+	d = _Dialog()
+	d.create('alert', title)
+	d.call('dialogSetItems', items)
+	d.show()
+	r = d.response()
+	return r.has_key('item') and items[r['item']] or None
+
 ###############################################################
 # alert dialog
 
@@ -211,6 +221,16 @@ def askyesnocancel(title, message):
 	d = _Alert(title, message, YES, NO, CALCEL)
 	d.main()
 	return d.result
+
+def info(what):
+	'''show information INFO to user'''
+	d = _Dialog()
+	d.call('makeToast', what)
+
+def notify(title, message):
+	'''Displays a notification'''
+	d = _Dialog()
+	d.call('notify', title, message)
 
 ###############################################################
 # progress dialog
