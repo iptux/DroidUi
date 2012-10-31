@@ -224,13 +224,11 @@ def askyesnocancel(title, message):
 
 def info(what):
 	'''show information INFO to user'''
-	d = _Dialog()
-	d.call('makeToast', what)
+	_Dialog().call('makeToast', what)
 
 def notify(title, message):
 	'''Displays a notification'''
-	d = _Dialog()
-	d.call('notify', title, message)
+	_Dialog().call('notify', title, message)
 
 ###############################################################
 # progress dialog
