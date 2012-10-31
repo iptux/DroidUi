@@ -201,7 +201,7 @@ class DroidUi:
 			# or, show previous screen
 			else:
 				DroidUi.queue[DroidUi.n - 1].show()
-				DroidUi.n -= 1
+			DroidUi.n -= 1
 
 
 class _View(ET._Element):
@@ -271,8 +271,8 @@ class _View(ET._Element):
 		showed = self.droid.showed
 		for k, v in kw.items():
 			self.set(k, v)
+			self.droid._setdirty()
 			if showed:
-				self.droid._setdirty()
 				self.setProperty(k, v)
 	config = configure
 	def cget(self, key):
