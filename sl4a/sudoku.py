@@ -92,10 +92,17 @@ class Game:
 		if len(value) != self.size * self.size:
 			print 'invalid puzzle:', value
 			return
-		for i in range(self.size):
-			for j in range(self.size):
-				v = int(value[i * self.size + j])
-				self._set(i, j, v)
+		for i in range(self.size * self.size):
+			v = int(value[i])
+			w = self.array[i / self.size][i % self.size]
+			self.value[i] = v
+			w.origin = v
+			if v:
+				w.configure(textColor = 'red')
+			else:
+				v = ''
+				w.configure(texrColor = 'blue')
+			w.configure(text = v)
 		self.hint()
 	def tile(self, x, y):
 		d = {}
@@ -140,11 +147,11 @@ class Game:
 			return None
 		return Dialog.pick('select', valid)
 	def click(self, x, y):
+		if self.array[x][y].origin: return
 		valid = self.tile(x, y).keys()
 		valid.sort()
 		ret = self.getkey(valid)
-		if ret:
-			self.set(x, y, ret)
+		self.set(x, y, ret)
 	def main(self):
 		self.haverun = True
 		self.table.mainloop()
