@@ -156,19 +156,21 @@ class DroidUi:
 	def _setdirty(self):
 		'''set the layout is dirty, so when show(), layout needs to be regenerated'''
 		self.dirty = True
-	def _layout(self):
-		'''get the xml content stands for this layout'''
+	def updateLayout(self):
+		'''update the xml content stands for this layout'''
+		# no need to update layout
+		if not self.dirty: return
+
 		if self.root is None: self.root = TextView(self, text = "You havn't set any View for this layout :(", padding = '30dp')
 		self.root.set('xmlns:android', 'http://schemas.android.com/apk/res/android')
 		tree = ET.ElementTree(self.root)
 		layout = _memory()
 		tree.write(layout)
-		return str(layout)
+		self.layout = str(layout)
+		self.dirty = False
 	def show(self):
 		'''show the layout on screen'''
-		if self.dirty:
-			self.layout = self._layout()
-			self.dirty = False
+		self.updateLayout()
 
 		if self.title is not None:
 			self._a.fullShow(self.layout, self.title)
