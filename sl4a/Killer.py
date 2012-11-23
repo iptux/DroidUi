@@ -11,7 +11,6 @@
 import sl4a
 import DroidDialog as Dialog
 
-a = sl4a.sl4a()
 
 class Killer:
 	def __init__(self):
