@@ -105,37 +105,44 @@ class _Dialog:
 		self.handle()
 		self.dismiss()
 
+def _merge(d, **kw):
+	# set default value for dict
+	for k, v in kw.iteritems():
+	 	if not d.has_key(k): d[k] = v
+
 ###############################################################
 # input dialog
 
-def _askstring(title, message, default, type):
+def _askstring(title, message, default, type, **kw):
 	d = _Dialog()
 	d.create('input', title, message, str(default), type)
-	d.buttons(OK, CANCEL)
+	_merge(kw, yes = OK, no = CANCEL)
+	d.buttons(**kw)
 	d.show()
 	d.main()
 	return d.result['value']
 
-def askstring(title, message, default = ''):
-	return _askstring(title, message, default, TEXT)
+def askstring(title, message, default = '', **kw):
+	return _askstring(title, message, default, TEXT, **kw)
 
-def askpassword(title, message, default = ''):
-	return _askstring(title, message, default, TEXT_PASSWORD)
+def askpassword(title, message, default = '', **kw):
+	return _askstring(title, message, default, TEXT_PASSWORD, **kw)
 
-def askint(title, message, default = 0):
-	return int(_askstring(title, message, default, NUMBER_SIGNED))
+def askint(title, message, default = 0, **kw):
+	return int(_askstring(title, message, default, NUMBER_SIGNED, **kw))
 
-def askfloat(title, message, default = 0.0):
-	return float(_askstring(title, message, default, NUMBER_DECIMAL))
+def askfloat(title, message, default = 0.0, **kw):
+	return float(_askstring(title, message, default, NUMBER_DECIMAL, **kw))
 
 ###############################################################
 # seekbar
 
-def askvalue(title, message, value = 50, max = 100):
+def askvalue(title, message, value = 50, max = 100, **kw):
 	'''get a value using seekbar'''
 	d = _Dialog()
 	d.create('seekbar', value, max, title, message)
-	d.buttons(OK, CANCEL)
+	_merge(kw, yes = OK, no = CANCEL)
+	d.buttons(**kw)
 	d.show()
 	d.main()
 	r = None
@@ -174,11 +181,12 @@ def asktime(time = None):
 ###############################################################
 # list items
 
-def _choose(title, items, multi):
+def _choose(title, items, multi, **kw):
 	d = _Dialog()
 	d.create('alert', title)
 	d.list(items, multi)
-	d.buttons(OK, CANCEL)
+	_merge(kw, yes = OK, no = CANCEL)
+	d.buttons(**kw)
 	d.show()
 	d.handle()
 	if d.result is None: return None
@@ -186,15 +194,15 @@ def _choose(title, items, multi):
 	if multi: return tuple([ items[i] for i in r ])
 	else: return items[r[0]]
 
-def select(title, items):
+def select(title, items, **kw):
 	'''select one item from ITEMS
 	RETURN: the selected item, or None if cancelled'''
-	return _choose(title, items, False)
+	return _choose(title, items, False, **kw)
 
-def choose(title, items):
+def choose(title, items, **kw):
 	'''choose one or more items from ITEMS
 	RETURN: a tuple of chosen items, or None if cancelled'''
-	return _choose(title, items, True)
+	return _choose(title, items, True, **kw)
 
 def pick(title, items):
 	'''choose one items from ITEMS
@@ -224,17 +232,19 @@ def message(title, message, text = OK):
 	'''show a message'''
 	_Alert(title, message, text, None).main()
 
-def askyesno(title, message):
+def askyesno(title, message, **kw):
 	'''ask yes or no
 	RETURN: True on Yes, False on No, or None if cancelled'''
-	d = _Alert(title, message, YES, NO)
+	_merge(kw, yes = YES, no = NO)
+	d = _Alert(title, message, kw['yes'], kw['no'])
 	d.main()
 	return d.result
 
-def askyesnocancel(title, message):
+def askyesnocancel(title, message, **kw):
 	'''ask yes or no or cancel
 	RETURN: True on Yes, False on No, or None if cancelled'''
-	d = _Alert(title, message, YES, NO, CALCEL)
+	_merge(yes = YES, no = NO, cancel = CANCEL)
+	d = _Alert(title, message, kw['yes'], kw['no'], kw['cancel'])
 	d.main()
 	return d.result
 
@@ -274,11 +284,11 @@ def Spinner(title, message, max = 100):
 if __name__ == '__main__':
 	# a sample use of Progress dialog
 	import time
-	p = Progress('title', 'Progress Bar', 300)
+	p = Progress('DroidDialog', 'Sample usage of Progress Bar', 300)
 	p.show()
 	for i in range(30):
 		time.sleep(0.1)
 		p.update(i * 10)
-	print 'done'
 	p.dismiss()
+	print 'done'
 
