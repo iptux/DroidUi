@@ -9,7 +9,7 @@
 
 
 import sl4a
-import DroidDialog as Dialog
+from DroidUi import DroidDialog as Dialog
 
 
 class Killer:

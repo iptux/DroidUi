@@ -8,7 +8,7 @@
 
 
 import DroidUi as Ui
-import DroidDialog as Dialog
+from DroidUi import DroidDialog as Dialog
 
 
 class Game:
