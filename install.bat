@@ -22,4 +22,4 @@ REM install DroidUi in your Android device
 set sl4a=/sdcard/sl4a/scripts/
 
 echo adb push DroidUi "%sl4a%DroidUi/"
-echo adb push sample "%sl4a%"
+echo adb push samples "%sl4a%"
