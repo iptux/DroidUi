@@ -297,14 +297,14 @@ class _View(ET._Element):
 			if showed:
 				self.setProperty(k, v)
 	config = configure
-	def cget(self, key):
+	def cget(self, key, default = None):
 		'''get property value, should i remove this interface?'''
 		value = None
 		if self.droid.showed:
 			try: value = self.droid.call('fullQueryDetail', self.id)[key]
 			except KeyError: pass
 		if value is None:
-			value = self.get(key)
+			value = self.get(key, default)
 		return value
 	def mainloop(self, title = None):
 		self.droid.mainloop(title)
