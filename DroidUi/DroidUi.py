@@ -184,7 +184,10 @@ class DroidUi:
 		tree.write(layout)
 		self.layout = str(layout)
 		self.dirty = False
-	def show(self):
+	def showHook(self):
+		'''called right after layout showed'''
+		pass
+	def _show(self):
 		'''show the layout on screen'''
 		self.updateLayout()
 
@@ -193,6 +196,7 @@ class DroidUi:
 		else:
 			self._a.fullShow(self.layout)
 		self.showed = True
+		self.showHook()
 
 		self._a.clearOptionsMenu()
 		for m in self._optionMenu:
@@ -208,7 +212,7 @@ class DroidUi:
 			DroidUi.queue.append(self)
 
 		if title is not None: self.title = title
-		self.show()
+		self._show()
 
 		try: self._mainloop(DroidUi.n)
 		finally:
@@ -218,7 +222,7 @@ class DroidUi:
 				self._a.fullDismiss()
 			# or, show previous screen
 			else:
-				DroidUi.queue[DroidUi.n - 1].show()
+				DroidUi.queue[DroidUi.n - 1]._show()
 			DroidUi.n -= 1
 
 
