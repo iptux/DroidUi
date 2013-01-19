@@ -33,7 +33,7 @@ import sl4a
 from DroidConstants import *
 
 
-class _memory:
+class _writableString:
 	'''writable string'''
 	def __init__(self, str = ''):
 		self.set(str)
@@ -53,13 +53,13 @@ def noneHandler(data = None):
 class DroidUi:
 	'''layout object, like layout resource in android project'''
 	def __init__(self):
-		self.root = None
-		self.oldroot = None
-		self.loop = True
+		self._root = None
+		self._oldroot = None
+		self._loop = True
 		self.showed = False
 		self.objmap = {}
-		self.dirty = True
-		self.layout = ''
+		self._isLayoutDirty = True
+		self._xmlLayout = ''
 		self.title = None
 		self._click_cb = {}
 		self._key_cb = {BACK: self.quit, MENU: noneHandler}
@@ -90,6 +90,7 @@ class DroidUi:
 			self._key_cb[key]()
 			return True
 	def call(self, fun, *arg):
+		'''sl4a call wrapper'''
 		return getattr(self._a, fun)(*arg)
 	def reg_obj(self, id, obj):
 		'''register widget objects'''
@@ -102,20 +103,20 @@ class DroidUi:
 	def _setroot(self, root):
 		'''set root element of the layout'''
 		# the first root element
-		if self.root is None:
-			self.root = root
+		if self._root is None:
+			self._root = root
 		# second element, wrap them in a LinearLayout
-		elif self.oldroot is None:
-			self.oldroot = self.root
-			self.root = LinearLayout(self, background = '#ff000000')
-			self.oldroot._setroot(self.root)
-			root._setroot(self.root)
-			self.root.append(self.oldroot)
-			self.root.append(root)
+		elif self._oldroot is None:
+			self._oldroot = self._root
+			self._root = LinearLayout(self, background = '#ff000000')
+			self._oldroot._setroot(self._root)
+			root._setroot(self._root)
+			self._root.append(self._oldroot)
+			self._root.append(root)
 		# the third and more, add them to LinearLayout like the first two
-		elif self.root is not self.oldroot:
-			root._setroot(self.root)
-			self.root.append(root)
+		elif self._root is not self._oldroot:
+			root._setroot(self._root)
+			self._root.append(root)
 	def reg_click_cb(self, id, callback):
 		'''register click event handler
 		if widget with id ID is clicked, then CALLBACK will be called'''
@@ -142,7 +143,7 @@ class DroidUi:
 	def quit(self, data = None):
 		'''quit event loop
 		there is a DATA parameter, so quit can be used as a event handler as well as a click handler or key handler'''
-		self.loop = False
+		self._loop = False
 		return True
 	def addOptionMenu(self, text, command, event = None, data = None, icon = None):
 		'''add an option menu item, after MENU key pressed
@@ -156,10 +157,10 @@ class DroidUi:
 		if not data: data = event
 		self.reg_event(event, command)
 		self._optionMenu.append((text, event, data, icon))
-	def _mainloop(self, n):
+	def _eventLoop(self, n):
 		'''event handling loop'''
 		if n == 0: self._a.eventClearBuffer()
-		while self.loop:
+		while self._loop:
 			event = self._a.eventWait()
 			name = event["name"]
 			if self._handler.has_key(name):
@@ -168,22 +169,22 @@ class DroidUi:
 			else:
 				print 'unknown event', event
 		# allow reentry
-		self.loop = True
+		self._loop = True
 	def _setdirty(self):
 		'''set the layout is dirty, so when show(), layout needs to be regenerated'''
-		self.dirty = True
+		self._isLayoutDirty = True
 	def updateLayout(self):
 		'''update the xml content stands for this layout'''
 		# no need to update layout
-		if not self.dirty: return
+		if not self._isLayoutDirty: return
 
-		if self.root is None: self.root = TextView(self, text = "You havn't set any View for this layout :(", padding = '30dp')
-		self.root.set('xmlns:android', 'http://schemas.android.com/apk/res/android')
-		tree = ET.ElementTree(self.root)
-		layout = _memory()
+		if self._root is None: self._root = TextView(self, text = "You havn't set any View for this layout :(", padding = '30dp')
+		self._root.set('xmlns:android', 'http://schemas.android.com/apk/res/android')
+		tree = ET.ElementTree(self._root)
+		layout = _writableString()
 		tree.write(layout)
-		self.layout = str(layout)
-		self.dirty = False
+		self._xmlLayout = str(layout)
+		self._isLayoutDirty = False
 	def showHook(self):
 		'''called right after layout showed'''
 		pass
@@ -192,9 +193,9 @@ class DroidUi:
 		self.updateLayout()
 
 		if self.title is not None:
-			self._a.fullShow(self.layout, self.title)
+			self._a.fullShow(self._xmlLayout, self.title)
 		else:
-			self._a.fullShow(self.layout)
+			self._a.fullShow(self._xmlLayout)
 		self.showed = True
 		self.showHook()
 
@@ -214,7 +215,7 @@ class DroidUi:
 		if title is not None: self.title = title
 		self._show()
 
-		try: self._mainloop(DroidUi.n)
+		try: self._eventLoop(DroidUi.n)
 		finally:
 			self.showed = False
 			# if this is the last screen, just quit
@@ -280,7 +281,7 @@ class _View(ET._Element):
 		'''require focus on this view'''
 		if self.droid.showed: warnings.warn('focus required after showed: %s', str(self))
 		else: self.append(ET.Element('requestFocus', {}))
-	def setProperty(self, key, value):
+	def _property(self, key, value):
 		if not self.droid.showed: return
 		if not isinstance(value, unicode): value = str(value)
 		self.droid.call('fullSetProperty', self.id, key, value)
@@ -295,10 +296,10 @@ class _View(ET._Element):
 			self.set(k, v)
 			self.droid._setdirty()
 			if showed:
-				self.setProperty(k, v)
+				self._property(k, v)
 	config = configure
 	def cget(self, key, default = None):
-		'''get property value, should i remove this interface?'''
+		'''get property value'''
 		value = None
 		if self.droid.showed:
 			try: value = self.droid.call('fullQueryDetail', self.id)[key]
