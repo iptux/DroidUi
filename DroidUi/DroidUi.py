@@ -165,9 +165,9 @@ class DroidUi:
 			name = event["name"]
 			if self._handler.has_key(name):
 				if not self._handler[name](event['data']):
-					print 'unhandled event', event
+					warnings.warn('unhandled event: %s' % str(event))
 			else:
-				print 'unknown event', event
+				warnings.warn('unknown event: %s' % str(event))
 		# allow reentry
 		self._loop = True
 	def _setdirty(self):
