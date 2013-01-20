@@ -52,6 +52,7 @@ def noneHandler(data = None):
 
 class DroidUi:
 	'''layout object, like layout resource in android project'''
+	namespace = 'http://schemas.android.com/apk/res/android'
 	def __init__(self):
 		self._root = None
 		self._oldroot = None
@@ -71,6 +72,36 @@ class DroidUi:
 		}
 		if not hasattr(DroidUi, '_a'):
 			setattr(DroidUi, '_a', sl4a.sl4a())
+	@staticmethod
+	def _parse(element, master):
+		'''build view object from xml Elememt'''
+		for elem in element.getchildren():
+			attrib = {}
+			id = None
+			for k, v in elem.items():
+				# remove namespace mark
+				if k.find(DroidUi.namespace) != -1:
+					k = k[len(DroidUi.namespace) + 2:]
+				# id
+				if k == 'id':
+					id = v = v[v.find('/') + 1:]
+				# set attrib
+				attrib[k] = v
+			exec 'view = %s(master, attrib)' % elem.tag
+			if id:
+				setattr(view.droid, id, view)
+			# iter children
+			DroidUi._parse(elem, view)
+		return master
+	@staticmethod
+	def fromxml(xml):
+		'''build layout object from a string contains xml data'''
+		return DroidUi._parse(ET.fromstring(xml), DroidUi())
+	@staticmethod
+	def fromfile(source):
+		'''build layout object from a xml file
+		SOURCE may be a filename or file object'''
+		return DroidUi._parse(ET.parse(source).getroot(), DroidUi())
 	def _screen(self, data):
 		'''screen event handler'''
 		if data == 'destroy':
@@ -179,7 +210,7 @@ class DroidUi:
 		if not self._isLayoutDirty: return
 
 		if self._root is None: self._root = TextView(self, text = "You havn't set any View for this layout :(", padding = '30dp')
-		self._root.set('xmlns:android', 'http://schemas.android.com/apk/res/android')
+		self._root.set('xmlns:android', DroidUi.namespace)
 		tree = ET.ElementTree(self._root)
 		layout = _writableString()
 		tree.write(layout)
