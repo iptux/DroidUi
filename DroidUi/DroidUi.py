@@ -236,7 +236,8 @@ class _View(ET._Element):
 
 		# combine all configure together
 		cnf = cnf.copy()
-		cnf.update(self.defaultConfig)
+		for k, v in self.defaultConfig.iteritems():
+			cnf.setdefault(k, v)
 		if len(kw): cnf.update(kw)
 
 		if master is None: master = DroidUi()
