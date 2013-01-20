@@ -53,7 +53,9 @@ def noneHandler(data = None):
 class DroidUi:
 	'''layout object, like layout resource in android project'''
 	namespace = 'http://schemas.android.com/apk/res/android'
-	def __init__(self):
+	def __init__(self, source = None):
+		'''init layout object with a xml file
+		SOURCE may be a filename or file object'''
 		self._root = None
 		self._oldroot = None
 		self._loop = True
@@ -72,6 +74,8 @@ class DroidUi:
 		}
 		if not hasattr(DroidUi, '_a'):
 			setattr(DroidUi, '_a', sl4a.sl4a())
+		if source:
+			DroidUi._parse(ET.parse(source).getroot(), self)
 	@staticmethod
 	def _parse(element, master):
 		'''build view object from xml Elememt'''
