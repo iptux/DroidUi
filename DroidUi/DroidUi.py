@@ -362,35 +362,29 @@ class View(_View):
 class AnalogClock(View):
 	widgetName = 'AnalogClock'
 
-class CalendarView(View):
-	widgetName = 'CalendarView'
-
-class DayView(CalendarView):
-	widgetName = 'DayView'
-
-class WeekView(CalendarView):
-	widgetName = 'WeekView'
-
-class ComposingView(View):
-	widgetName = 'ComposingView'
-
-class DragView(View):
-	widgetName = 'DragView'
-
 class ImageView(View):
 	widgetName = 'ImageView'
 
 class AnimatedImageView(ImageView):
 	widgetName = 'AnimatedImageView'
 
-class CheckableImageView(ImageView):
-	widgetName = 'CheckableImageView'
+class StatusBarIconView(AnimatedImageView):
+	widgetName = 'StatusBarIconView'
 
 class ImageButton(ImageView):
 	widgetName = 'ImageButton'
 
 class ZoomButton(ImageButton):
 	widgetName = 'ZoomButton'
+
+class QuickContactBadge(ImageView):
+	widgetName = 'QuickContactBadge'
+
+class KeyboardView(View):
+	widgetName = 'KeyboardView'
+
+class LabelView(View):
+	widgetName = 'LabelView'
 
 class ProgressBar(View):
 	widgetName = 'ProgressBar'
@@ -404,11 +398,11 @@ class RatingBar(_AbsSeekBar):
 class SeekBar(_AbsSeekBar):
 	widgetName = 'SeekBar'
 
+class TextureView(View):
+	widgetName = 'TextureView'
+
 class TextView(View):
 	widgetName = 'TextView'
-
-class ActionMenuButton(TextView):
-	widgetName = 'ActionMenuButton'
 
 class Button(TextView):
 	widgetName = 'Button'
@@ -426,11 +420,11 @@ class CheckBox(CompoundButton):
 class RadioButton(CompoundButton):
 	widgetName = 'RadioButton'
 
+class Switch(CompoundButton):
+	widgetName = 'Switch'
+
 class ToggleButton(CompoundButton):
 	widgetName = 'ToggleButton'
-
-class ExtractButton(Button):
-	widgetName = 'ExtractButton'
 
 class CheckedTextView(TextView):
 	widgetName = 'CheckedTextView'
@@ -438,8 +432,8 @@ class CheckedTextView(TextView):
 class Chronometer(TextView):
 	widgetName = 'Chronometer'
 
-class DateView(TextView):
-	widgetName = 'DateView'
+class DateTimeView(TextView):
+	widgetName = 'DateTimeView'
 
 class DigitalClock(TextView):
 	widgetName = 'DigitalClock'
@@ -457,20 +451,26 @@ class AutoCompleteTextView(EditText):
 class MultiAutoCompleteTextView(AutoCompleteTextView):
 	widgetName = 'MultiAutoCompleteTextView'
 
-class MockView(TextView):
+class _MockView(TextView):
 	widgetName = 'MockView'
 
-class MapView(MockView):
-	widgetName = 'MapView'
-
-class SurfaceView(MockView):
+class SurfaceView(_MockView):
 	widgetName = 'SurfaceView'
+
+class GLSurfaceView(SurfaceView):
+	widgetName = 'GLSurfaceView'
 
 class VideoView(SurfaceView):
 	widgetName = 'VideoView'
 
-class WebView(MockView):
+class WebView(_MockView):
 	widgetName = 'WebView'
+
+class TextClock(TextView):
+	widgetName = 'TextClock'
+
+class ViewAttachView(View):
+	widgetName = 'ViewAttachView'
 
 class ViewGroup(View):
 	widgetName = 'ViewGroup'
@@ -482,8 +482,8 @@ class ViewGroup(View):
 class AbsoluteLayout(ViewGroup):
 	widgetName = 'AbsoluteLayout'
 
-class SlideView(AbsoluteLayout):
-	widgetName = 'SlideView'
+class ActivityChooserView(ViewGroup):
+	widgetName = 'ActivityChooserView'
 
 class _AdapterView(ViewGroup):
 	widgetName = 'AdapterView'
@@ -509,8 +509,20 @@ class Gallery(_AbsSpinner):
 class Spinner(_AbsSpinner):
 	widgetName = 'Spinner'
 
+class _AdapterViewAnimator(_AdapterView):
+	widgetName = 'AdapterViewAnimator'
+
+class AdapterViewFlipper(_AdapterViewAnimator):
+	widgetName = 'AdapterViewFlipper'
+
+class StackView(_AdapterViewAnimator):
+	widgetName = 'StackView'
+
 class FrameLayout(ViewGroup):
 	widgetName = 'FrameLayout'
+
+class CalendarView(FrameLayout):
+	widgetName = 'CalendarView'
 
 class DatePicker(FrameLayout):
 	widgetName = 'DatePicker'
@@ -530,6 +542,9 @@ class ScrollView(FrameLayout):
 class TabHost(FrameLayout):
 	widgetName = 'TabHost'
 
+class FragmentTabHost(TabHost):
+	widgetName = 'FragmentTabHost'
+
 class TimePicker(FrameLayout):
 	widgetName = 'TimePicker'
 
@@ -548,16 +563,25 @@ class ImageSwitcher(ViewSwitcher):
 class TextSwitcher(ViewSwitcher):
 	widgetName = 'TextSwitcher'
 
+class GridLayout(ViewGroup):
+	widgetName = 'GridLayout'
+
 class LinearLayout(ViewGroup):
 	widgetName = 'LinearLayout'
 	defaultConfig = {
-		'orientation': 'vertical',
+		'orientation': VERTICAL,
 		'layout_width': MATCH_PARENT,
 		'layout_height': WRAP_CONTENT,
 	}
 
+class NumberPicker(LinearLayout):
+	widgetName = 'NumberPicker'
+
 class RadioGroup(LinearLayout):
 	widgetName = 'RadioGroup'
+
+class SearchView(LinearLayout):
+	widgetName = 'SearchView'
 
 class TableLayout(LinearLayout):
 	widgetName = 'TableLayout'
@@ -571,6 +595,12 @@ class TabWidget(LinearLayout):
 class ZoomControls(LinearLayout):
 	widgetName = 'ZoomControls'
 
+class PagerTitleStrip(ViewGroup):
+	widgetName = 'PagerTitleStrip'
+
+class PagerTabStrip(PagerTitleStrip):
+	widgetName = 'PagerTabStrip'
+
 class RelativeLayout(ViewGroup):
 	widgetName = 'RelativeLayout'
 
@@ -582,6 +612,15 @@ class TwoLineListItem(RelativeLayout):
 
 class SlidingDrawer(ViewGroup):
 	widgetName = 'SlidingDrawer'
+
+class StaggeredGridView(ViewGroup):
+	widgetName = 'StaggeredGridView'
+
+class ViewPager(ViewGroup):
+	widgetName = 'ViewPager'
+
+class PhotoViewPager(ViewGroup):
+	widgetName = 'PhotoViewPager'
 
 class ViewStub(View):
 	widgetName = 'ViewStub'
