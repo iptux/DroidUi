@@ -28,21 +28,10 @@ under android.
 
 
 import warnings
+import StringIO
 import xml.etree.ElementTree as ET
 import sl4a
 from DroidConstants import *
-
-
-class _writableString:
-	'''writable string'''
-	def __init__(self, str = ''):
-		self.set(str)
-	def set(self, str):
-		self.buffer = str
-	def write(self, what):
-		self.buffer += what
-	def __str__(self):
-		return self.buffer
 
 
 def noneHandler(data = None):
@@ -216,9 +205,9 @@ class DroidUi:
 		if self._root is None: self._root = TextView(self, text = "You havn't set any View for this layout :(", padding = '30dp')
 		self._root.set('xmlns:android', DroidUi.namespace)
 		tree = ET.ElementTree(self._root)
-		layout = _writableString()
+		layout = StringIO.StringIO()
 		tree.write(layout)
-		self._xmlLayout = str(layout)
+		self._xmlLayout = layout.getvalue()
 		self._isLayoutDirty = False
 	def showHook(self):
 		'''called right after layout showed'''
