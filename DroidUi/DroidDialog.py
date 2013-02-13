@@ -18,8 +18,8 @@
 '''
 
 import datetime
-import sl4a
-from DroidConstants import *
+from sl4a import sl4a
+from DroidConstants import TEXT, TEXT_PASSWORD, NUMBER_SIGNED, NUMBER_DECIMAL
 
 
 # you can change them for custom Button text
@@ -43,7 +43,7 @@ class _Dialog:
 	}
 	def __init__(self):
 		if not hasattr(_Dialog, '_a'):
-			setattr(_Dialog, '_a', sl4a.sl4a())
+			setattr(_Dialog, '_a', sl4a())
 		self.result = None
 	def call(self, func, *args):
 		'''wrapper for sl4a.sl4a'''

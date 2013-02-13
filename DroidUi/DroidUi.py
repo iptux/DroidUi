@@ -30,8 +30,8 @@ under android.
 import warnings
 import StringIO
 import xml.etree.ElementTree as ET
-import sl4a
-from DroidConstants import *
+from sl4a import sl4a
+from DroidConstants import BACK, MENU, WRAP_CONTENT, FILL_PARENT, MATCH_PARENT, VERTICAL
 
 
 def noneHandler(data = None):
@@ -62,7 +62,7 @@ class DroidUi:
 			'screen': self._screen,
 		}
 		if not hasattr(DroidUi, '_a'):
-			setattr(DroidUi, '_a', sl4a.sl4a())
+			setattr(DroidUi, '_a', sl4a())
 		if source:
 			DroidUi._parse(ET.parse(source).getroot(), self)
 	@staticmethod

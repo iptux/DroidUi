@@ -18,6 +18,7 @@
 DroidUi - a Python UI library for Android
 '''
 
+from DroidConstants import *
 from DroidUi import *
 from DroidDialog import *
 
