@@ -10,7 +10,33 @@ achieve your simplest goal. And the
 call in [FullScreenUI](https://code.google.com/p/android-scripting/wiki/FullScreenUI)
 need a XML style layout.
 
+But what if you want to control the layout by programming,
+or change the layout dynamically at run time?
 I need a more elegant UI library, that is why [DroidUi](http://iptux.github.com/DroidUi/).
+
+
+Quick Start
+-----------
+
+Let start with `Hello world` example,
+```python
+import DroidUi                                     # yes, you need it
+
+layout = DroidUi.DroidUi()                         # layout object comes first
+hello = DroidUi.Button(layout,                     # add this Button to the layout
+                       text = 'Hello, DroidUi!',   # set the button text
+                       command = layout.quit)      # quit the layout when button clicked
+layout.mainloop()                                  # enter mainloop
+```
+Run this example will give you a big button full of your screen,
+click button will quit this example.
+
+There are mainly two kinds of object in `DroidUi`:
+ * _layout_ objects: container of _View_, can be showed. (`DroidUi.DroidUi`)
+ * _View_ objects: UI element, like View class in Android. (`DroidUi.View`)
+
+DroidUi also support showing a layout from a existing XML layout,
+use `DroidUi.DroidUi.fromxml()` and `DroidUi.DroidUi.fromfile()` to get the layout object
 
 
 Requirement
@@ -28,3 +54,13 @@ Install
 * connect your Android device to your computer.
 * run _install.bat_(on Windows) or _install.sh_(on Linux).
 * then DroidUi installed.
+
+
+Links
+-----
+
+* [DroidUi](http://iptux.github.com/DroidUi/)
+* [DroidUi Wiki](https://github.com/iptux/DroidUi/wiki)
+* [python for android](https://code.google.com/p/python-for-android/)
+* [Scripting Layer for Android](https://code.google.com/p/android-scripting/)
+
