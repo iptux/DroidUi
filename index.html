@@ -43,7 +43,35 @@ achieve your simplest goal. And the
 call in <a href="https://code.google.com/p/android-scripting/wiki/FullScreenUI">FullScreenUI</a>
 need a XML style layout.</p>
 
-<p>I need a more elegant UI library, that is why <a href="http://iptux.github.com/DroidUi/">DroidUi</a>.</p>
+<p>But what if you want to control the layout by programming,
+or change the layout dynamically at run time?
+I need a more elegant UI library, that is why <a href="http://iptux.github.com/DroidUi/">DroidUi</a>.</p>
+
+<h2>Quick Start</h2>
+
+<p>Let start with <code>Hello world</code> example,</p>
+
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">DroidUi</span>                                     <span class="c"># yes, you need it</span>
+
+<span class="n">layout</span> <span class="o">=</span> <span class="n">DroidUi</span><span class="o">.</span><span class="n">DroidUi</span><span class="p">()</span>                         <span class="c"># layout object comes first</span>
+<span class="n">hello</span> <span class="o">=</span> <span class="n">DroidUi</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">layout</span><span class="p">,</span>                     <span class="c"># add this Button to the layout</span>
+                       <span class="n">text</span> <span class="o">=</span> <span class="s">'Hello, DroidUi!'</span><span class="p">,</span>   <span class="c"># set the button text</span>
+                       <span class="n">command</span> <span class="o">=</span> <span class="n">layout</span><span class="o">.</span><span class="n">quit</span><span class="p">)</span>      <span class="c"># quit the layout when button clicked</span>
+<span class="n">layout</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>                                  <span class="c"># enter mainloop</span>
+</pre></div>
+
+<p>Run this example will give you a big button full of your screen,
+click button will quit this example.</p>
+
+<p>There are mainly two kinds of object in <code>DroidUi</code>:</p>
+
+<ul>
+<li>
+<em>layout</em> objects: container of <em>View</em>, can be showed. (<code>DroidUi.DroidUi</code>)</li>
+<li>
+<em>View</em> objects: UI element, like View class in Android. (<code>DroidUi.View</code>)</li>
+</ul><p>DroidUi also support showing a layout from a existing XML layout,
+use <code>DroidUi.DroidUi.fromxml()</code> and <code>DroidUi.DroidUi.fromfile()</code> to get the layout object</p>
 
 <h2>Requirement</h2>
 
@@ -60,6 +88,13 @@ need a XML style layout.</p>
 <li>connect your Android device to your computer.</li>
 <li>run <em>install.bat</em>(on Windows) or <em>install.sh</em>(on Linux).</li>
 <li>then DroidUi installed.</li>
+</ul><h2>Links</h2>
+
+<ul>
+<li><a href="http://iptux.github.com/DroidUi/">DroidUi</a></li>
+<li><a href="https://github.com/iptux/DroidUi/wiki">DroidUi Wiki</a></li>
+<li><a href="https://code.google.com/p/python-for-android/">python for android</a></li>
+<li><a href="https://code.google.com/p/android-scripting/">Scripting Layer for Android</a></li>
 </ul>
         </section>
 
