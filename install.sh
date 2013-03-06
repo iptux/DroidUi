@@ -20,5 +20,5 @@
 sl4a=/sdcard/sl4a/scripts/
 
 adb push DroidUi "${sl4a}DroidUi/"
-adb push samples "${sl4a}"
+adb push examples "${sl4a}"
 
