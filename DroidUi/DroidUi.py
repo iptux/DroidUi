@@ -60,6 +60,7 @@ class DroidUi:
 			'click': self._click,
 			'key': self._key,
 			'screen': self._screen,
+			'itemclick': self._itemclick,
 		}
 		if not hasattr(DroidUi, '_a'):
 			setattr(DroidUi, '_a', sl4a())
@@ -113,6 +114,10 @@ class DroidUi:
 		if self._key_cb.has_key(key):
 			self._key_cb[key]()
 			return True
+	def _itemclick(self, data):
+		'''itemclick event handler'''
+		obj = self.objmap[data['id']]
+		return obj.itemclick(data)
 	def call(self, fun, *arg):
 		'''sl4a call wrapper'''
 		return getattr(self._a, fun)(*arg)
@@ -302,6 +307,9 @@ class _View(ET._Element):
 	def key(self, key, handler):
 		'''set key handler'''
 		self.droid.reg_key_cb(key, handler)
+	def itemclick(self, data):
+		'''default itemclick event handler, should be override'''
+		return False
 	def focus(self):
 		'''require focus on this view'''
 		if self.droid.showed: warnings.warn('focus required after showed: %s', str(self))
