@@ -20,6 +20,29 @@
 TRUE = 'true'
 FALSE = 'false'
 
+# SmsFacade
+INBOX = 'inbox'
+
+# Bluetooth
+BLUETOOTH_UUID = '457807c0-4897-11df-9879-0800200c9a66'
+
+# sensorNumber
+SENSOR_ALL = 1
+ORIENTATION = 1
+ACCELEROMETER = 2
+MAGNETOMETER = 3
+LIGHT = 4
+
+# axis parm
+NO_AXIS = 0
+X = 1
+Y = 2
+XY = 3
+Z = 4
+XZ = 5
+YZ = 6
+XYZ = 7
+
 # key
 KEY_UNKNOWN = 0
 KEY_SOFT_LEFT = 1
