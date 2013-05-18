@@ -120,7 +120,9 @@ def _askstring(title, message, default, type, **kw):
 	d.buttons(**kw)
 	d.show()
 	d.main()
-	return d.result['value']
+	r = None
+	if d.result: r = d.result['value']
+	return r
 
 def askstring(title, message, default = '', **kw):
 	return _askstring(title, message, default, TEXT, **kw)
