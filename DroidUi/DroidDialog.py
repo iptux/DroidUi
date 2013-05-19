@@ -276,7 +276,7 @@ def Progress(title, message, max = 100):
 	'''get a Horizontal Progress dialog'''
 	return _Progress(title, message, max, 'progress')
 
-def Spinner(title, message, max = 100):
+def Loading(title, message, max = 100):
 	'''get a Spinner Progress dialog'''
 	return _Progress(title, message, max, 'spinner')
 
