@@ -263,6 +263,9 @@ class _View(ET._Element):
 	def __init__(self, master = None, cnf = {}, **kw):
 		ET._Element.__init__(self, self.widgetName, {})
 
+		# used by fullSetList
+		self._list = None
+
 		# combine all configure together
 		cnf = cnf.copy()
 		for k, v in self.defaultConfig.iteritems():
@@ -300,6 +303,19 @@ class _View(ET._Element):
 		self.id = id
 		self.set('id', '@+id/' + id)
 		self.droid.reg_obj(id, self)
+	def setlist(self, list):
+		'''Attach a list to widget'''
+		if self.droid.showed:
+			self.droid.call('fullSetList', self.id, list)
+			self._list = list
+		else:
+			warnings.warn('method called when layout not showed')
+	def selected(self):
+		'''get the selected items from the attached list'''
+		if self._list is not None:
+			pos = self.cget('selectedItemPosition')
+			if pos is not None:
+				return self._list[int(pos)]
 	def _setroot(self, root):
 		self.root = root
 		for child in self:
