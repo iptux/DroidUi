@@ -884,15 +884,15 @@ if __name__ == '__main__':
 				msg = D.askstring('Chat', 'Enter a message')
 				if not msg:
 					return
-				b.write(msg + '\n')
+				b.writebin(msg.encode('gb18030'))
 			while True:
-				msg = b.readline()
+				msg = b.readbin()
 				if not msg:
 					break
-				say = D.askstring('Chat', 'message: ' + msg)
+				say = D.askstring('Chat', 'message: ' + msg.decode('gb18030'))
 				if not say:
 					break
-				b.write(say + '\n')
+				b.writebin(say.encode('gb18030'))
 		finally:
 			b.stop()
 			#b.state(False, False)
@@ -921,6 +921,6 @@ if __name__ == '__main__':
 	tests(Bluetooth, ['address', 'local', 'scanMode', 'state', 'discover', 'connections'])
 	tests(Wifi, ['state', 'acquire', 'scan', 'connect', 'associate', 'result', 'release', 'info', 'close'])
 	tests(WakeLock, ['bright', 'dim', 'full', 'partial', 'release'])
-	tests(Misc, ['env', 'clipboard', 'recognize'])
-	#bluetooth()
+	tests(Misc, ['env', 'clipboard', 'barcode'])
+	bluetooth()
 
