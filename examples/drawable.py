@@ -191,6 +191,7 @@ class Drawable(Ui.DroidUi):
 		Ui.DroidUi.__init__(self)
 		self.layout = Ui.LinearLayout(
 			Ui.ScrollView(self),
+			background = '@android:drawable/screen_background_dark_transparent',
 		)
 		for name in NAMES:
 			self.image(self.layout, name)
