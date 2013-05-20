@@ -25,7 +25,7 @@
 
 from base64 import b64encode, b64decode
 from sl4a import sl4a, sl4aError
-from DroidConstants import SENSOR_ALL, BLUETOOTH_UUID, INBOX
+from DroidConstants import SENSOR_ALL, BLUETOOTH_UUID, INBOX, CATEGORY_DEFAULT
 
 
 _a = sl4a()
@@ -455,8 +455,9 @@ class Sms:
 class Intent:
 	'''Wrapper functions for AndroidFacade
 	(http://www.mithril.com.au/android/doc/AndroidFacade.html)'''
-	def __init__(self, action, uri = None, type = None, catagories = None, package = None, clsname = None, flags = 0, **extras):
+	def __init__(self, action, uri = None, type = None, package = None, clsname = None, flags = 0, *categories, **extras):
 		'''Create an Intent'''
+		if len(categories) == 0: categories = (CATEGORY_DEFAULT,)
 		self.intent = _a.makeIntent(action, uri, type, extras, categories, package, clsname, flags)
 	def start(self, wait = False):
 		'''Starts an activity and returns the result'''
