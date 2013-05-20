@@ -498,7 +498,7 @@ class Package:
 	@classmethod
 	def consts(cls, name):
 		'''Get list of constants (static final fields) for a class'''
-		_a.getConstants(name)
+		return _a.getConstants(name)
 
 
 class Preference:
