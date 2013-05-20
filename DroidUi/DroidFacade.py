@@ -495,6 +495,10 @@ class Package:
 	def launch(cls, name):
 		'''Start activity with the given class name'''
 		_a.launch(name)
+	@classmethod
+	def consts(cls, name):
+		'''Get list of constants (static final fields) for a class'''
+		_a.getConstants(name)
 
 
 class Preference:
