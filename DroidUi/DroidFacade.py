@@ -203,7 +203,7 @@ class Battery:
 		return _a.batteryGetVoltage()
 
 
-class SignalStrength:
+class Signal:
 	'''Wrapper functions for SignalStrengthFacade
 	(http://www.mithril.com.au/android/doc/SignalStrengthFacade.html)'''
 	_refs = Count()
@@ -910,7 +910,7 @@ if __name__ == '__main__':
 	tests(Sensing, ['read', 'accuracy', 'light', 'accelerometer', 'magnetometer', 'orientation'])
 	tests(Location, ['read', 'providers', 'last'])
 	tests(Battery, ['read', 'prensent', 'health', 'level', 'plugType', 'status', 'technology', 'temperature', 'voltage'])
-	tests(SignalStrength, ['read'])
+	tests(Signal, ['read'])
 	tests(Phone, ['roaming', 'cellLocation', 'id', 'version', 'number', 'neighboring', 'operator', 'operatorName', 'network', 'type', 'subscriber', 'voiceMailNumber', 'voiceMailAlphaTag', 'volume', 'maxVolume', 'airplane', 'silent', 'vibrate', 'brightness', 'screen',])
 	tests(PhoneState, ['read'])
 	tests(Sim, ['country', 'operator', 'operatorName', 'serial', 'state'])
