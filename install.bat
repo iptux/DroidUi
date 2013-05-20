@@ -21,6 +21,6 @@ REM install DroidUi in your Android device
 
 set sl4a=/sdcard/sl4a/scripts/
 
-adb push DroidUi "%sl4a%DroidUi/"
-adb push examples "%sl4a%"
+call adb push DroidUi "%sl4a%DroidUi/"
+call adb push examples "%sl4a%"
 
