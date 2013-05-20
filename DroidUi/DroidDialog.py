@@ -108,7 +108,7 @@ class _Dialog:
 def _merge(d, **kw):
 	# set default value for dict
 	for k, v in kw.iteritems():
-	 	if not d.has_key(k): d[k] = v
+		d.setdefault(k, v)
 
 ###############################################################
 # input dialog
@@ -245,7 +245,7 @@ def askyesno(title, message, **kw):
 def askyesnocancel(title, message, **kw):
 	'''ask yes or no or cancel
 	RETURN: True on Yes, False on No, or None if cancelled'''
-	_merge(yes = YES, no = NO, cancel = CANCEL)
+	_merge(kw, yes = YES, no = NO, cancel = CANCEL)
 	d = _Alert(title, message, kw['yes'], kw['no'], kw['cancel'])
 	d.main()
 	return d.result
