@@ -351,7 +351,10 @@ class _View(ET._Element):
 			self.set(k, v)
 			self.droid._setdirty()
 			if showed:
-				self._property(k, v)
+				# ignore exception for `show-time' created views
+				# SL4A don't know there IDs in this case
+				try: self._property(k, v)
+				except: pass
 	config = configure
 	def cget(self, key, default = None):
 		'''get property value'''
