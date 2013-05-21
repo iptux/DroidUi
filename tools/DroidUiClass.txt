@@ -1,18 +1,22 @@
 View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 	AnalogClock
 	ImageView
-		AnimatedImageView
-			StatusBarIconView
 		ImageButton
 			ZoomButton
 		QuickContactBadge
 	KeyboardView
-	LabelView
+	MediaRouteButton
 	ProgressBar
 		_AbsSeekBar
 			RatingBar
 			SeekBar
+	Space
+	SurfaceView
+		GLSurfaceView
+		RSSurfaceView
+		VideoView
 	TextureView
+		RSTextureView
 	TextView
 		Button layout_width FILL_PARENT layout_height WRAP_CONTENT
 			CompoundButton
@@ -27,17 +31,13 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 		EditText layout_width MATCH_PARENT layout_height WRAP_CONTENT
 			AutoCompleteTextView
 				MultiAutoCompleteTextView
-		_MockView
-			SurfaceView
-				GLSurfaceView
-				VideoView
-			WebView
+			ExtractEditText
 		TextClock
-	ViewAttachView
 	ViewGroup layout_width MATCH_PARENT layout_height MATCH_PARENT
 		AbsoluteLayout
+			WebView
 		ActivityChooserView
-		_AdapterView
+		AdapterView
 			_AbsListView
 				GridView
 				ListView
@@ -45,10 +45,13 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 			_AbsSpinner
 				Gallery
 				Spinner
-			_AdapterViewAnimator
+			AdapterViewAnimator
 				AdapterViewFlipper
 				StackView
+		DrawerLayout
+		FragmentBreadCrumbs
 		FrameLayout
+			AppWidgetHostView
 			CalendarView
 			DatePicker
 			GestureOverlayView
@@ -78,7 +81,6 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 			DialerFilter
 			TwoLineListItem
 		SlidingDrawer
-		StaggeredGridView
+		SlidingPaneLayout
 		ViewPager
-		PhotoViewPager
 	ViewStub

@@ -378,12 +378,6 @@ class AnalogClock(View):
 class ImageView(View):
 	widgetName = 'ImageView'
 
-class AnimatedImageView(ImageView):
-	widgetName = 'AnimatedImageView'
-
-class StatusBarIconView(AnimatedImageView):
-	widgetName = 'StatusBarIconView'
-
 class ImageButton(ImageView):
 	widgetName = 'ImageButton'
 
@@ -396,8 +390,8 @@ class QuickContactBadge(ImageView):
 class KeyboardView(View):
 	widgetName = 'KeyboardView'
 
-class LabelView(View):
-	widgetName = 'LabelView'
+class MediaRouteButton(View):
+	widgetName = 'MediaRouteButton'
 
 class ProgressBar(View):
 	widgetName = 'ProgressBar'
@@ -411,8 +405,26 @@ class RatingBar(_AbsSeekBar):
 class SeekBar(_AbsSeekBar):
 	widgetName = 'SeekBar'
 
+class Space(View):
+	widgetName = 'Space'
+
+class SurfaceView(View):
+	widgetName = 'SurfaceView'
+
+class GLSurfaceView(SurfaceView):
+	widgetName = 'GLSurfaceView'
+
+class RSSurfaceView(SurfaceView):
+	widgetName = 'RSSurfaceView'
+
+class VideoView(SurfaceView):
+	widgetName = 'VideoView'
+
 class TextureView(View):
 	widgetName = 'TextureView'
+
+class RSTextureView(TextureView):
+	widgetName = 'RSTextureView'
 
 class TextView(View):
 	widgetName = 'TextView'
@@ -464,26 +476,11 @@ class AutoCompleteTextView(EditText):
 class MultiAutoCompleteTextView(AutoCompleteTextView):
 	widgetName = 'MultiAutoCompleteTextView'
 
-class _MockView(TextView):
-	widgetName = 'MockView'
-
-class SurfaceView(_MockView):
-	widgetName = 'SurfaceView'
-
-class GLSurfaceView(SurfaceView):
-	widgetName = 'GLSurfaceView'
-
-class VideoView(SurfaceView):
-	widgetName = 'VideoView'
-
-class WebView(_MockView):
-	widgetName = 'WebView'
+class ExtractEditText(EditText):
+	widgetName = 'ExtractEditText'
 
 class TextClock(TextView):
 	widgetName = 'TextClock'
-
-class ViewAttachView(View):
-	widgetName = 'ViewAttachView'
 
 class ViewGroup(View):
 	widgetName = 'ViewGroup'
@@ -495,13 +492,16 @@ class ViewGroup(View):
 class AbsoluteLayout(ViewGroup):
 	widgetName = 'AbsoluteLayout'
 
+class WebView(AbsoluteLayout):
+	widgetName = 'WebView'
+
 class ActivityChooserView(ViewGroup):
 	widgetName = 'ActivityChooserView'
 
-class _AdapterView(ViewGroup):
+class AdapterView(ViewGroup):
 	widgetName = 'AdapterView'
 
-class _AbsListView(_AdapterView):
+class _AbsListView(AdapterView):
 	widgetName = 'AbsListView'
 
 class GridView(_AbsListView):
@@ -513,7 +513,7 @@ class ListView(_AbsListView):
 class ExpandableListView(ListView):
 	widgetName = 'ExpandableListView'
 
-class _AbsSpinner(_AdapterView):
+class _AbsSpinner(AdapterView):
 	widgetName = 'AbsSpinner'
 
 class Gallery(_AbsSpinner):
@@ -522,17 +522,26 @@ class Gallery(_AbsSpinner):
 class Spinner(_AbsSpinner):
 	widgetName = 'Spinner'
 
-class _AdapterViewAnimator(_AdapterView):
+class AdapterViewAnimator(AdapterView):
 	widgetName = 'AdapterViewAnimator'
 
-class AdapterViewFlipper(_AdapterViewAnimator):
+class AdapterViewFlipper(AdapterViewAnimator):
 	widgetName = 'AdapterViewFlipper'
 
-class StackView(_AdapterViewAnimator):
+class StackView(AdapterViewAnimator):
 	widgetName = 'StackView'
+
+class DrawerLayout(ViewGroup):
+	widgetName = 'DrawerLayout'
+
+class FragmentBreadCrumbs(ViewGroup):
+	widgetName = 'FragmentBreadCrumbs'
 
 class FrameLayout(ViewGroup):
 	widgetName = 'FrameLayout'
+
+class AppWidgetHostView(FrameLayout):
+	widgetName = 'AppWidgetHostView'
 
 class CalendarView(FrameLayout):
 	widgetName = 'CalendarView'
@@ -626,14 +635,11 @@ class TwoLineListItem(RelativeLayout):
 class SlidingDrawer(ViewGroup):
 	widgetName = 'SlidingDrawer'
 
-class StaggeredGridView(ViewGroup):
-	widgetName = 'StaggeredGridView'
+class SlidingPaneLayout(ViewGroup):
+	widgetName = 'SlidingPaneLayout'
 
 class ViewPager(ViewGroup):
 	widgetName = 'ViewPager'
-
-class PhotoViewPager(ViewGroup):
-	widgetName = 'PhotoViewPager'
 
 class ViewStub(View):
 	widgetName = 'ViewStub'
