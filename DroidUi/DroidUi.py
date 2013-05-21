@@ -217,7 +217,7 @@ class DroidUi:
 	def showHook(self):
 		'''called right after layout showed'''
 		pass
-	def _show(self):
+	def show(self):
 		'''show the layout on screen'''
 		self.updateLayout()
 
@@ -242,7 +242,7 @@ class DroidUi:
 			DroidUi.queue.append(self)
 
 		if title is not None: self.title = title
-		self._show()
+		self.show()
 
 		try: self._eventLoop(DroidUi.n)
 		finally:
@@ -252,7 +252,7 @@ class DroidUi:
 				self._a.fullDismiss()
 			# or, show previous screen
 			else:
-				DroidUi.queue[DroidUi.n - 1]._show()
+				DroidUi.queue[DroidUi.n - 1].show()
 			DroidUi.n -= 1
 
 
@@ -366,6 +366,8 @@ class _View(ET._Element):
 		self.droid.mainloop(title)
 	def quit(self, data = None):
 		return self.droid.quit(data)
+	def show(self):
+		return self.droid.show()
 
 
 #####################################################################
