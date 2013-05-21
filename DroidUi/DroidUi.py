@@ -282,6 +282,7 @@ class _View(ET._Element):
 			self.root = master.root
 			self.droid = master.droid
 		self.master = master
+		self.droid._setdirty()
 
 		if cnf.has_key('id'):
 			self.setid(cnf['id'])
