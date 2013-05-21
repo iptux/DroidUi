@@ -260,7 +260,10 @@ class _View(ET._Element):
 	'''View element'''
 	widgetName = ''
 	defaultConfig = {}
-	def __init__(self, master = None, cnf = {}, **kw):
+	def __init__(self, master = None, cnf = {}, pos = None, **kw):
+		'''MASTER parent of the view
+		CNF view element configure
+		POS position to insert in the parent view, at the end if None'''
 		ET._Element.__init__(self, self.widgetName, {})
 
 		# used by fullSetList
@@ -278,7 +281,9 @@ class _View(ET._Element):
 			self.root = self
 			self.droid = master
 		else:
-			master.append(self)
+			if pos is None:
+				pos = len(master)
+			master.insert(pos, self)
 			self.root = master.root
 			self.droid = master.droid
 		self.master = master
