@@ -11,26 +11,26 @@ import DroidUi as Ui
 
 
 def FlashLight():
-	droid = Ui.DroidUi()
+	phone = Ui.Phone()
+	lock = Ui.WakeLock()
 
 	try:
 		# no screen dim
-		droid.call('wakeLockAcquireBright')
+		lock.bright()
 
 		# set max screen brightness, but has no effect
-		old_bright = droid.call('setScreenBrightness', 255)
+		old_bright = phone.brightness(255)
 
 		# show a white black screen
 		gui = Ui.TextView(droid, background = '#ffffffff')
 		gui.mainloop('FlashLight')
 
 		# restore screen brightness
-		droid.call('setScreenBrightness', old_bright)
+		phone.brightness(old_bright)
 	finally:
-		droid.call('wakeLockRelease')
+		lock.release()
 
 
 if __name__ == '__main__':
 	FlashLight()
-
 
