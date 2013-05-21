@@ -457,6 +457,7 @@ class Intent:
 	(http://www.mithril.com.au/android/doc/AndroidFacade.html)'''
 	def __init__(self, action, uri = None, type = None, package = None, clsname = None, flags = 0, *categories, **extras):
 		'''Create an Intent'''
+		if isinstance(uri, Uri): uri = uri.uri
 		if len(categories) == 0: categories = (CATEGORY_DEFAULT,)
 		self.intent = _a.makeIntent(action, uri, type, extras, categories, package, clsname, flags)
 	def start(self, wait = False):
