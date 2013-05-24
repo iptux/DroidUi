@@ -463,7 +463,7 @@ class Intent:
 	def start(self, wait = False):
 		'''Starts an activity and returns the result'''
 		if wait:
-			return _a.startActivityForResult(self.intent)
+			return _a.startActivityForResultIntent(self.intent)
 		else:
 			_a.startActivityIntent(self.intent)
 	def broadcast(self):
