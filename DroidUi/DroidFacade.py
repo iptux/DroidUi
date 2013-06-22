@@ -911,11 +911,11 @@ class Misc:
 	@classmethod
 	def dtmf(cls, number, duration):
 		'''Generate DTMF tones for the given phone number
-		number (String) 
+		number (String)
 		duration (Integer) duration of each tone in milliseconds (default=100)'''
 		return _a.generateDtmfTones(number, duration)
 
-	
+
 if __name__ == '__main__':
 	import time
 	def bluetooth(server = False):

@@ -160,7 +160,7 @@ ACTION_SEARCH = 'android.intent.action.SEARCH'
 ACTION_WEB_SEARCH = 'android.intent.action.WEB_SEARCH'
 ACTION_FACTORY_TEST = 'android.intent.action.FACTORY_TEST'
 
-# Standard Broadcast Actions 
+# Standard Broadcast Actions
 ACTION_TIME_TICK = 'android.intent.action.TIME_TICK'
 ACTION_TIME_CHANGED = 'android.intent.action.TIME_SET'
 ACTION_TIMEZONE_CHANGED = 'android.intent.action.TIMEZONE_CHANGED'
@@ -266,7 +266,7 @@ ACTION_USER_SWITCHED = 'android.intent.action.USER_SWITCHED'
 ACTION_VOICE_COMMAND = 'android.intent.action.VOICE_COMMAND'
 ACTION_WALLPAPER_CHANGED = 'android.intent.action.WALLPAPER_CHANGED'
 
-# Standard Categories 
+# Standard Categories
 CATEGORY_DEFAULT = 'android.intent.category.DEFAULT'
 CATEGORY_BROWSABLE = 'android.intent.category.BROWSABLE'
 CATEGORY_TAB = 'android.intent.category.TAB'
@@ -303,7 +303,7 @@ CATEGORY_SAMPLE_CODE = 'android.intent.category.SAMPLE_CODE'
 CATEGORY_THEME_PACKAGE_INSTALLED_STATE_CHANGE = 'com.tmobile.intent.category.THEME_PACKAGE_INSTALL_STATE_CHANGE'
 CATEGORY_UNIT_TEST = 'android.intent.category.UNIT_TEST'
 
-# Standard Extra Data 
+# Standard Extra Data
 EXTRA_ALARM_COUNT = 'android.intent.extra.ALARM_COUNT'
 EXTRA_BCC = 'android.intent.extra.BCC'
 EXTRA_CC = 'android.intent.extra.CC'
