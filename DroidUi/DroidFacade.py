@@ -23,6 +23,7 @@
 # Update: 2013-05-19 04:11
 
 
+import warnings
 from base64 import b64encode, b64decode
 from sl4a import sl4a, sl4aError
 from DroidConstants import SENSOR_ALL, BLUETOOTH_UUID, INBOX, CATEGORY_DEFAULT
@@ -32,10 +33,15 @@ _a = sl4a()
 
 
 class Event:
+	'''Wrapper functions for EventFacade
+	(http://www.mithril.com.au/android/doc/EventFacade.html)'''
 	def __init__(self, droid, **handler):
 		assert isinstance(droid, sl4a)
 		self.droid = droid
-		self.handler = handler
+		self._handler = {}
+		self._loop = True
+		for e, h in handler.iteritems():
+			self.reg(e, h)
 	def clear(self):
 		'''Clears all events from the event buffer'''
 		self.droid.eventClearBuffer()
@@ -60,6 +66,42 @@ class Event:
 		timeout (Integer) the maximum time to wait (in ms)
 		returns: (Event) Map of event properties'''
 		return self.droid.eventWait(name, timeout)
+	def register(self, name, handler):
+		'''register event handler
+		NAME    the event name
+		HANDLER should accept 1 param which contains event data
+		HANDLER should return True if the event is handled properly'''
+		assert callable(handler)
+		if self._handler.has_key(name): warnings.warn('event handler is override: ev = %s' % name)
+		self._handler[name] = handler
+	reg = register
+	def unregister(self, name):
+		'''unregister event handler
+		NAME    the event name'''
+		if self._handler.has_key(name):
+			handler = self._handler[name]
+			del self._handler[name]
+			return handler
+		else:
+			warnings.warn('no registered event handler: ev = %s' % name)
+	unreg = unregister
+	def quit(self, data = None):
+		'''quit event loop
+		there is a DATA parameter, so quit can be used as a event handler as well as a click handler or key handler'''
+		self._loop = False
+		return True
+	def loop(self):
+		'''event hanlding loop'''
+		while self._loop:
+			event = self.wait()
+			name = event["name"]
+			if self._handler.has_key(name):
+				if not self._handler[name](event['data']):
+					warnings.warn('unhandled event: %s' % str(event))
+			else:
+				warnings.warn('unknown event: %s' % str(event))
+		# reset to allow reentry
+		self._loop = True
 
 
 class Broadcast(Event):
@@ -71,9 +113,11 @@ class Broadcast(Event):
 		category (String)
 		enqueue (Boolean) Should this events be added to the event queue or only dispatched'''
 		self.droid.eventRegisterForBroadcast(category, enqueue)
+	reg = register
 	def unregister(self, category):
 		'''Stop listening for a broadcast signal'''
 		self.droid.eventUnregisterForBroadcast(category)
+	unreg = unregister
 
 
 class Uri:
