@@ -31,6 +31,51 @@ from DroidConstants import SENSOR_ALL, BLUETOOTH_UUID, INBOX, CATEGORY_DEFAULT
 _a = sl4a()
 
 
+class Event:
+	def __init__(self, droid, **handler):
+		assert isinstance(droid, sl4a)
+		self.droid = droid
+		self.handler = handler
+	def clear(self):
+		'''Clears all events from the event buffer'''
+		self.droid.eventClearBuffer()
+	def poll(self, count = 1):
+		'''Returns and removes the oldest COUNT events
+		(i.e. location or sensor update, etc.) from the event buffer'''
+		return self.droid.eventPoll(count)
+	def post(self, name, data, enqueue = False)
+		'''Post an event to the event queue
+		name (String) Name of event
+		data (String) Data contained in event
+		enqueue (Boolean) Set to False if you don't want your events to be added to the event queue, just dispatched'''
+		self.droid.eventPost(name, data, enqueue)
+	def wait(self, timeout = None):
+		'''Blocks until an event occurs. The returned event is removed from the buffer
+		timeout (Integer) the maximum time to wait (in ms)
+		returns: (Event) Map of event properties'''
+		return self.droid.eventWait(timeout)
+	def waitFor(self, name, timeout = None):
+		'''Blocks until an event with the supplied name occurs. The returned event is not removed from the buffer
+		name (String)
+		timeout (Integer) the maximum time to wait (in ms)
+		returns: (Event) Map of event properties'''
+		return self.droid.eventWait(name, timeout)
+
+
+class Broadcast(Event):
+	def categories(self):
+		'''Lists all the broadcast signals we are listening for'''
+		return self.droid.eventGetBrodcastCategories()
+	def register(self, category, enqueue = True):
+		'''Registers a listener for a new broadcast signal
+		category (String)
+		enqueue (Boolean) Should this events be added to the event queue or only dispatched'''
+		self.droid.eventRegisterForBroadcast(category, enqueue)
+	def unregister(self, category):
+		'''Stop listening for a broadcast signal'''
+		self.droid.eventUnregisterForBroadcast(category)
+
+
 class Uri:
 	def __init__(self, init = ''):
 		self.set(init)
