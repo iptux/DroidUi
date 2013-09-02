@@ -22,7 +22,7 @@ def FlashLight():
 		old_bright = phone.brightness(255)
 
 		# show a white black screen
-		gui = Ui.TextView(droid, background = '#ffffffff')
+		gui = Ui.TextView(background = '#ffffffff')
 		gui.mainloop('FlashLight')
 
 		# restore screen brightness
