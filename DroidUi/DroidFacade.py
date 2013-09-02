@@ -49,7 +49,7 @@ class Event:
 		'''Returns and removes the oldest COUNT events
 		(i.e. location or sensor update, etc.) from the event buffer'''
 		return self.droid.eventPoll(count)
-	def post(self, name, data, enqueue = False)
+	def post(self, name, data, enqueue = False):
 		'''Post an event to the event queue
 		name (String) Name of event
 		data (String) Data contained in event
