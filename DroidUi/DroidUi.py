@@ -425,17 +425,11 @@ class SurfaceView(View):
 class GLSurfaceView(SurfaceView):
 	widgetName = 'GLSurfaceView'
 
-class RSSurfaceView(SurfaceView):
-	widgetName = 'RSSurfaceView'
-
 class VideoView(SurfaceView):
 	widgetName = 'VideoView'
 
 class TextureView(View):
 	widgetName = 'TextureView'
-
-class RSTextureView(TextureView):
-	widgetName = 'RSTextureView'
 
 class TextView(View):
 	widgetName = 'TextView'
@@ -467,9 +461,6 @@ class CheckedTextView(TextView):
 
 class Chronometer(TextView):
 	widgetName = 'Chronometer'
-
-class DateTimeView(TextView):
-	widgetName = 'DateTimeView'
 
 class DigitalClock(TextView):
 	widgetName = 'DigitalClock'
@@ -505,9 +496,6 @@ class AbsoluteLayout(ViewGroup):
 
 class WebView(AbsoluteLayout):
 	widgetName = 'WebView'
-
-class ActivityChooserView(ViewGroup):
-	widgetName = 'ActivityChooserView'
 
 class AdapterView(ViewGroup):
 	widgetName = 'AdapterView'

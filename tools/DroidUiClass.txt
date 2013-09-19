@@ -13,10 +13,8 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 	Space
 	SurfaceView
 		GLSurfaceView
-		RSSurfaceView
 		VideoView
 	TextureView
-		RSTextureView
 	TextView
 		Button layout_width FILL_PARENT layout_height WRAP_CONTENT
 			CompoundButton
@@ -26,7 +24,6 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 				ToggleButton
 		CheckedTextView
 		Chronometer
-		DateTimeView
 		DigitalClock
 		EditText layout_width MATCH_PARENT layout_height WRAP_CONTENT
 			AutoCompleteTextView
@@ -36,7 +33,6 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 	ViewGroup layout_width MATCH_PARENT layout_height MATCH_PARENT
 		AbsoluteLayout
 			WebView
-		ActivityChooserView
 		AdapterView
 			_AbsListView
 				GridView
