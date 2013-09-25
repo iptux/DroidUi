@@ -1,24 +1,22 @@
 # DroidUi - a Python UI library for Android
 
 Now Python is able to run on Android platform thanks to
-[Scripting Layer for Android](https://code.google.com/p/android-scripting/)
-and [python for android](https://code.google.com/p/python-for-android/)
-project. But the [User Interface Facade](http://www.mithril.com.au/android/doc/UiFacade.html)
+[Scripting Layer for Android][SL4A] and [Python for Android][Py4A]
+project. But the [User Interface Facade][UiFacade]
 is hard to use. Most of the time, more than one call is needed to
 achieve your simplest goal. And the 
-[fullShow](https://code.google.com/p/android-scripting/wiki/ApiReference#fullShow)
-call in [FullScreenUI](https://code.google.com/p/android-scripting/wiki/FullScreenUI)
+[fullShow][] call in [FullScreenUI][]
 need a XML style layout.
 
 But what if you want to control the layout by programming,
 or change the layout dynamically at run time?
-I need a more elegant UI library, that is why [DroidUi](http://iptux.github.com/DroidUi/).
+I need a more elegant UI library, that is why [DroidUi][].
 
 
 Quick Start
 -----------
 
-Let start with `Hello world` example,
+Let's start with `Hello world` example,
 ```python
 import DroidUi                                     # yes, you need it
 
@@ -43,14 +41,14 @@ Requirement
 -----------
 
 * an Android device.
-* [Scripting Layer for Android](https://code.google.com/p/android-scripting/) [r6](https://code.google.com/p/android-scripting/downloads/detail?name=sl4a_r6.apk) and above installed.
-* [python for android](https://code.google.com/p/python-for-android/) [r5](https://code.google.com/p/python-for-android/downloads/detail?name=PythonForAndroid_r5.apk) and above installed.
+* [Scripting Layer for Android][SL4A] [r6][SL4A_r6] or above installed.
+* [Python for Android][Py4A] [r5][Py4A_r5] or above installed.
 
 
 Install
 -------
 
-* make sure [adb](http://developer.android.com/tools/help/adb.html) is installed on your computer.
+* make sure [adb][] is installed on your computer.
 * connect your Android device to your computer.
 * run _install.bat_(on Windows) or _install.sh_(on Linux).
 * then DroidUi installed.
@@ -59,8 +57,21 @@ Install
 Links
 -----
 
-* [DroidUi](http://iptux.github.com/DroidUi/)
-* [DroidUi Wiki](https://github.com/iptux/DroidUi/wiki)
-* [python for android](https://code.google.com/p/python-for-android/)
-* [Scripting Layer for Android](https://code.google.com/p/android-scripting/)
+* [DroidUi][]
+* [DroidUi Wiki][Wiki]
+* [Python for Android][Py4A]
+* [Scripting Layer for Android][SL4A]
+
+
+
+[SL4A]: https://code.google.com/p/android-scripting/
+[Py4A]: https://code.google.com/p/python-for-android/
+[UiFacade]: http://www.mithril.com.au/android/doc/UiFacade.html
+[fullShow]: https://code.google.com/p/android-scripting/wiki/ApiReference#fullShow
+[FullScreenUI]: https://code.google.com/p/android-scripting/wiki/FullScreenUI
+[DroidUi]: http://iptux.github.com/DroidUi/
+[SL4A_r6]: https://code.google.com/p/android-scripting/downloads/detail?name=sl4a_r6.apk
+[Py4A_r5]: https://code.google.com/p/python-for-android/downloads/detail?name=PythonForAndroid_r5.apk
+[adb]: http://developer.android.com/tools/help/adb.html
+[Wiki]: https://github.com/iptux/DroidUi/wiki
 
