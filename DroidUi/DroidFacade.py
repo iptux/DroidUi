@@ -29,7 +29,11 @@ from sl4a import sl4a, sl4aError, _a
 from DroidConstants import SENSOR_ALL, BLUETOOTH_UUID, INBOX, CATEGORY_DEFAULT
 
 
-class Event:
+class _Facade(object):
+	pass
+
+
+class Event(_Facade):
 	'''Wrapper functions for EventFacade
 	(http://www.mithril.com.au/android/doc/EventFacade.html)'''
 
@@ -130,7 +134,7 @@ class Broadcast(Event):
 	unreg = unregister
 
 
-class Uri:
+class Uri(_Facade):
 
 	def __init__(self, init = ''):
 		self.set(init)
@@ -158,7 +162,7 @@ class Uri:
 		return _a.view(self.uri, type, extras)
 
 
-class Count:
+class Count(object):
 	'''reference count'''
 
 	def __init__(self, init = 0):
@@ -191,7 +195,7 @@ class Count:
 			callback(*args, **kwargs)
 
 
-class Sensing:
+class Sensing(_Facade):
 	'''Wrapper functions for SensorManagerFacade
 	(http://www.mithril.com.au/android/doc/SensorManagerFacade.html)'''
 
@@ -231,7 +235,7 @@ class Sensing:
 		return _a.sensorsReadOrientation()
 
 
-class Location:
+class Location(_Facade):
 	'''Wrapper functions for LocationFacade
 	(http://www.mithril.com.au/android/doc/LocationFacade.html)'''
 
@@ -268,7 +272,7 @@ class Location:
 		return _a.geocode(latitude, longitude, maxResults)
 
 
-class Battery:
+class Battery(_Facade):
 	'''Wrapper functions for BatteryManagerFacade
 	(http://www.mithril.com.au/android/doc/BatteryManagerFacade.html)'''
 
@@ -348,7 +352,7 @@ class Battery:
 		return _a.batteryGetVoltage()
 
 
-class Signal:
+class Signal(_Facade):
 	'''Wrapper functions for SignalStrengthFacade
 	(http://www.mithril.com.au/android/doc/SignalStrengthFacade.html)'''
 
@@ -365,7 +369,7 @@ class Signal:
 		return _a.readSignalStrengths()
 
 
-class Phone:
+class Phone(_Facade):
 	'''Wrapper functions for PhoneFacade and SettingsFacade
 	(http://www.mithril.com.au/android/doc/PhoneFacade.html)'''
 
@@ -515,7 +519,7 @@ class Phone:
 			return _a.setScreenTimeout(timeout)
 
 
-class PhoneState:
+class PhoneState(_Facade):
 	'''Wrapper functions for PhoneFacade
 	(http://www.mithril.com.au/android/doc/PhoneFacade.html)'''
 
@@ -532,7 +536,7 @@ class PhoneState:
 		return _a.readPhoneState()
 
 
-class Sim:
+class Sim(_Facade):
 	'''Wrapper functions for PhoneFacade
 	(http://www.mithril.com.au/android/doc/PhoneFacade.html)'''
 
@@ -563,7 +567,7 @@ class Sim:
 		return _a.getSimOperatorName()
 
 
-class Contact:
+class Contact(_Facade):
 	'''Wrapper functions for ContactsFacade
 	(http://www.mithril.com.au/android/doc/ContactsFacade.html)'''
 
@@ -601,7 +605,7 @@ class Contact:
 		return _a.viewContacts()
 
 
-class Sms:
+class Sms(_Facade):
 	'''Wrapper functions for BluetoothFacade
 	(http://www.mithril.com.au/android/doc/BluetoothFacade.html)'''
 
@@ -646,7 +650,7 @@ class Sms:
 		return _a.smsDeleteMessage(id)
 
 
-class Intent:
+class Intent(_Facade):
 	'''Wrapper functions for AndroidFacade
 	(http://www.mithril.com.au/android/doc/AndroidFacade.html)'''
 
@@ -668,7 +672,7 @@ class Intent:
 		_a.sendBroadcastIntent(self.intent)
 
 
-class Package:
+class Package(_Facade):
 	'''Wrapper functions for ApplicationManagerFacade
 	(http://www.mithril.com.au/android/doc/ApplicationManagerFacade.html)'''
 
@@ -708,7 +712,7 @@ class Package:
 		return _a.getConstants(name)
 
 
-class Preference:
+class Preference(_Facade):
 	'''Wrapper functions for PreferencesFacade
 	(http://www.mithril.com.au/android/doc/PreferencesFacade.html)'''
 
@@ -728,7 +732,7 @@ class Preference:
 		return _a.prefPutValue(key, value, self.file)
 
 
-class Wifi:
+class Wifi(_Facade):
 	'''Wrapper functions for WifiFacade
 	(http://www.mithril.com.au/android/doc/WifiFacade.html)'''
 
@@ -784,7 +788,7 @@ class Wifi:
 		return _a.wifiDisconnect()
 
 
-class Bluetooth:
+class Bluetooth(_Facade):
 	'''Wrapper functions for BluetoothFacade
 	(http://www.mithril.com.au/android/doc/BluetoothFacade.html)'''
 
@@ -912,7 +916,7 @@ class Bluetooth:
 		return _a.bluetoothDiscoveryCancel()
 
 
-class Camera:
+class Camera(_Facade):
 	'''Wrapper functions for CameraFacade
 	(http://www.mithril.com.au/android/doc/CameraFacade.html)'''
 
@@ -931,7 +935,7 @@ class Camera:
 		return _a.cameraInteractiveCapturePicture(path)
 
 
-class Player:
+class Player(_Facade):
 	'''Wrapper functions for MediaPlayerFacade
 	(http://www.mithril.com.au/android/doc/MediaPlayerFacade.html)'''
 
@@ -1015,7 +1019,7 @@ class Player:
 		return _a.getMaxMediaVolume()
 
 
-class Recorder:
+class Recorder(_Facade):
 	'''Wrapper functions for MediaRecorderFacade
 	(http://www.mithril.com.au/android/doc/MediaRecorderFacade.html)'''
 
@@ -1061,7 +1065,7 @@ class Recorder:
 		return _a.startInteractiveVideoRecording(path)
 
 
-class WakeLock:
+class WakeLock(_Facade):
 	'''Wrapper functions for WakeLockFacade
 	(http://www.mithril.com.au/android/doc/WakeLockFacade.html)'''
 
@@ -1091,7 +1095,7 @@ class WakeLock:
 		_a.wakeLockRelease()
 
 
-class Misc:
+class Misc(_Facade):
 	'''Wrapper functions for Misc Facade
 	(SpeechRecognitionFacade, TextToSpeechFacade, ToneGeneratorFacade, AndroidFacade)'''
 

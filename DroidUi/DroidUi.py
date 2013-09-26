@@ -34,12 +34,12 @@ from sl4a import _a
 from DroidConstants import BACK, MENU, WRAP_CONTENT, FILL_PARENT, MATCH_PARENT, VERTICAL
 
 
-def noneHandler(data = None):
+def NoneHandler(data = None):
 	'''none handler, do nothing'''
 	return True
 
 
-class DroidUi:
+class DroidUi(object):
 	'''layout object, like layout resource in android project'''
 	NAMESPACE = 'http://schemas.android.com/apk/res/android'
 
@@ -55,7 +55,7 @@ class DroidUi:
 		self._xmlLayout = ''
 		self.title = None
 		self._click_cb = {}
-		self._key_cb = {BACK: self.quit, MENU: noneHandler}
+		self._key_cb = {BACK: self.quit, MENU: NoneHandler}
 		self._optionMenu = []
 		self._handler = {
 			'click': self._click,

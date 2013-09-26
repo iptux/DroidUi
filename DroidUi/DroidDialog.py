@@ -29,7 +29,7 @@ OK = 'OK'
 CANCEL = 'Cancel'
 
 
-class _Dialog:
+class _Dialog(object):
 	'''basic dialog for android'''
 	DialogType = {
 		'alert': 'dialogCreateAlert',
@@ -280,7 +280,7 @@ def notify(title, message):
 ###############################################################
 # progress dialog
 
-class _Progress:
+class _Progress(object):
 	def __init__(self, title, message, max, type):
 		self.d = _Dialog()
 		self.d.create(type, title, message, max)
