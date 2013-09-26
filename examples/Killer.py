@@ -9,27 +9,20 @@
 
 
 import sl4a
-from DroidUi import DroidDialog as Dialog
+import DroidUi as Ui
 
 
-class Killer:
-	def __init__(self):
-		self.a = sl4a.sl4a()
-	def kill(self, name):
-		print 'kill', name
-		self.a.forceStopPackage(name)
-	def get(self):
-		return self.a.getRunningPackages()
-	def main(self):
-		while True:
-			all = self.get()
-			one = Dialog.choose('Choose to kill', all)
-			if one is None:
-				break
-			for i in one:
-				self.kill(i)
+def Killer(self):
+	while True:
+		all = Ui.Package.running()
+		one = Ui.choose('Choose to kill', all)
+		if one is None:
+			break
+		for i in one:
+			print 'kill', name
+			Ui.Package(name).stop()
 
 
 if __name__ == '__main__':
-	Killer().main()
+	Killer()
 

@@ -8,7 +8,6 @@
 
 
 import DroidUi as Ui
-from DroidUi import DroidDialog as Dialog
 
 
 class Game:
@@ -143,9 +142,9 @@ class Game:
 	@staticmethod
 	def getkey(valid):
 		if 0 == len(valid):
-			Dialog.info('no moves')
+			Ui.info('no moves')
 			return None
-		return Dialog.pick('select', valid)
+		return Ui.pick('select', valid)
 	def click(self, x, y):
 		if self.array[x][y].origin: return
 		valid = self.tile(x, y).keys()
@@ -200,7 +199,7 @@ row,  each  column,  and  each  of  the  3x3  boxes
 		else:
 			self.play()
 	def play(self):
-		ret = Dialog.pick('New Game', ['easy', 'normal', 'hard'])
+		ret = Ui.pick('New Game', ['easy', 'normal', 'hard'])
 		if not ret:
 			return
 		self.game.setvalue(self.Puzzle[ret])
