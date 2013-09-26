@@ -36,3 +36,7 @@ class sl4a(Android):
 				raise sl4aError, r.error
 			return r.result
 		return rpc_call
+
+# used internally by DroidUi
+_a = sl4a()
+

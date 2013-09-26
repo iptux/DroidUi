@@ -25,11 +25,8 @@
 
 import warnings
 from base64 import b64encode, b64decode
-from sl4a import sl4a, sl4aError
+from sl4a import sl4a, sl4aError, _a
 from DroidConstants import SENSOR_ALL, BLUETOOTH_UUID, INBOX, CATEGORY_DEFAULT
-
-
-_a = sl4a()
 
 
 class Event:

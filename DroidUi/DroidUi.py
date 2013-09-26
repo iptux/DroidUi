@@ -30,7 +30,7 @@ under android.
 import warnings
 import StringIO
 import xml.etree.ElementTree as ET
-from sl4a import sl4a
+from sl4a import _a
 from DroidConstants import BACK, MENU, WRAP_CONTENT, FILL_PARENT, MATCH_PARENT, VERTICAL
 
 
@@ -63,7 +63,7 @@ class DroidUi:
 			'itemclick': self._itemclick,
 		}
 		if not hasattr(DroidUi, '_a'):
-			setattr(DroidUi, '_a', sl4a())
+			setattr(DroidUi, '_a', _a)
 		if source:
 			DroidUi._parse(ET.parse(source).getroot(), self)
 	@staticmethod
