@@ -42,6 +42,7 @@ def noneHandler(data = None):
 class DroidUi:
 	'''layout object, like layout resource in android project'''
 	NAMESPACE = 'http://schemas.android.com/apk/res/android'
+
 	def __init__(self, source = None):
 		'''init layout object with a xml file
 		SOURCE may be a filename or file object'''
@@ -66,6 +67,7 @@ class DroidUi:
 			setattr(DroidUi, '_a', _a)
 		if source:
 			DroidUi._parse(ET.parse(source).getroot(), self)
+
 	@staticmethod
 	def _parse(element, master):
 		'''build view object from xml Elememt'''
@@ -87,48 +89,58 @@ class DroidUi:
 			# iter children
 			DroidUi._parse(elem, view)
 		return master
+
 	@staticmethod
 	def fromxml(xml):
 		'''build layout object from a string contains xml data'''
 		return DroidUi._parse(ET.fromstring(xml), DroidUi())
+
 	@staticmethod
 	def fromfile(source):
 		'''build layout object from a xml file
 		SOURCE may be a filename or file object'''
 		return DroidUi._parse(ET.parse(source).getroot(), DroidUi())
+
 	def _screen(self, data):
 		'''screen event handler'''
 		if data == 'destroy':
 			# ignore it first
 			#self.quit()
 			return True
+
 	def _click(self, data):
 		'''click event handler'''
 		_id = data['id']
 		if self._click_cb.has_key(_id):
 			self._click_cb[_id]()
 			return True
+
 	def _key(self, data):
 		'''key event handler'''
 		key = int(data['key'])
 		if self._key_cb.has_key(key):
 			self._key_cb[key]()
 			return True
+
 	def _itemclick(self, data):
 		'''itemclick event handler'''
 		obj = self.objmap[data['id']]
 		return obj.itemclick(data)
+
 	def call(self, fun, *arg):
 		'''sl4a call wrapper'''
 		return getattr(self._a, fun)(*arg)
+
 	def reg_obj(self, id, obj):
 		'''register widget objects'''
 		if self.objmap.has_key(id): warnings.warn('two widget has same id(%s): %s, %s', id, str(obj), str(self.objmap[id]))
 		self.objmap[id] = obj
+
 	def unreg_obj(self, id):
 		'''unregister widget objects'''
 		if not self.objmap.has_key(id): warnings.warn('no widget has this id: %s', id)
 		else: del self.objmap[id]
+
 	def _setroot(self, root):
 		'''set root element of the layout'''
 		# the first root element
@@ -146,12 +158,14 @@ class DroidUi:
 		elif self._root is not self._oldroot:
 			root._setroot(self._root)
 			self._root.append(root)
+
 	def reg_click_cb(self, id, callback):
 		'''register click event handler
 		if widget with id ID is clicked, then CALLBACK will be called'''
 		assert callable(callback)
 		if self._click_cb.has_key(id): warnings.warn('click callback is override: id = %s' % id)
 		self._click_cb[id] = callback
+
 	def reg_key_cb(self, key, callback, override = False):
 		'''register key event handler
 		if key KEY is pressed, then CALLBACK will be called
@@ -162,6 +176,7 @@ class DroidUi:
 		if self._key_cb.has_key(key): warnings.warn('key callback is override: key = %d' % key)
 		self._key_cb[key] = callback
 		if override: self._a.fullKeyOverride([key])
+
 	def reg_event(self, name, handler):
 		'''register event handler
 		HANDLER should accept 1 param which contains event data
@@ -169,11 +184,13 @@ class DroidUi:
 		assert callable(handler)
 		if self._handler.has_key(name): warnings.warn('event handler is override: ev = %s' % name)
 		self._handler[name] = handler
+
 	def quit(self, data = None):
 		'''quit event loop
 		there is a DATA parameter, so quit can be used as a event handler as well as a click handler or key handler'''
 		self._loop = False
 		return True
+
 	def addOptionMenu(self, text, command, event = None, data = None, icon = None):
 		'''add an option menu item, after MENU key pressed
 		TEXT    - text of the menu
@@ -186,6 +203,7 @@ class DroidUi:
 		if not data: data = event
 		self.reg_event(event, command)
 		self._optionMenu.append((text, event, data, icon))
+
 	def _eventLoop(self, n):
 		'''event handling loop'''
 		if n == 0: self._a.eventClearBuffer()
@@ -199,9 +217,11 @@ class DroidUi:
 				warnings.warn('unknown event: %s' % str(event))
 		# allow reentry
 		self._loop = True
+
 	def _setdirty(self):
 		'''set the layout is dirty, so when show(), layout needs to be regenerated'''
 		self._isLayoutDirty = True
+
 	def updateLayout(self):
 		'''update the xml content stands for this layout'''
 		# no need to update layout
@@ -214,9 +234,11 @@ class DroidUi:
 		tree.write(layout)
 		self._xmlLayout = layout.getvalue()
 		self._isLayoutDirty = False
+
 	def showHook(self):
 		'''called right after layout showed'''
 		pass
+
 	def show(self):
 		'''show the layout on screen'''
 		self.updateLayout()
@@ -231,6 +253,7 @@ class DroidUi:
 		self._a.clearOptionsMenu()
 		for m in self._optionMenu:
 			self._a.addOptionsMenuItem(*m)
+
 	def mainloop(self, title = None):
 		'''main loop'''
 		# support serial call to mainloop
@@ -260,6 +283,7 @@ class _View(ET._Element):
 	'''View element'''
 	widgetName = ''
 	defaultConfig = {}
+
 	def __init__(self, master = None, cnf = {}, pos = None, **kw):
 		'''MASTER parent of the view
 		CNF view element configure
@@ -295,13 +319,16 @@ class _View(ET._Element):
 		else: self.setid('%s#%x' % (self.widgetName, id(self)) )
 
 		self.config(**cnf)
+
 	def set(self, key, value):
 		if key.find(':') == -1: key = "android:%s" % key
 		if not isinstance(value, unicode):
 			value = str(value)
 		ET._Element.set(self, key, value)
+
 	def get(self, key, default = None):
 		return ET._Element.get(self, "android:%s" % key, default)
+
 	def setid(self, id):
 		'''set widget id'''
 		if hasattr(self, 'id') and self.id:
@@ -309,6 +336,7 @@ class _View(ET._Element):
 		self.id = id
 		self.set('id', '@+id/' + id)
 		self.droid.reg_obj(id, self)
+
 	def setlist(self, list):
 		'''Attach a list to widget'''
 		if self.droid.showed:
@@ -316,30 +344,37 @@ class _View(ET._Element):
 			self._list = list
 		else:
 			warnings.warn('method called when layout not showed')
+
 	def selected(self):
 		'''get the selected items from the attached list'''
 		if self._list is not None:
 			pos = self.cget('selectedItemPosition')
 			if pos is not None:
 				return self._list[int(pos)]
+
 	def _setroot(self, root):
 		self.root = root
 		for child in self:
 			child._setroot(root)
+
 	def key(self, key, handler):
 		'''set key handler'''
 		self.droid.reg_key_cb(key, handler)
+
 	def itemclick(self, data):
 		'''default itemclick event handler, should be override'''
 		return False
+
 	def focus(self):
 		'''require focus on this view'''
 		if self.droid.showed: warnings.warn('focus required after showed: %s', str(self))
 		else: self.append(ET.Element('requestFocus', {}))
+
 	def _property(self, key, value):
 		if not self.droid.showed: return
 		if not isinstance(value, unicode): value = str(value)
 		self.droid.call('fullSetProperty', self.id, key, value)
+
 	def configure(self, **kw):
 		'''configure view properties'''
 		# command is used as click handler
@@ -356,6 +391,7 @@ class _View(ET._Element):
 				try: self._property(k, v)
 				except: pass
 	config = configure
+
 	def cget(self, key, default = None):
 		'''get property value'''
 		value = None
@@ -365,10 +401,13 @@ class _View(ET._Element):
 		if value is None:
 			value = self.get(key, default)
 		return value
+
 	def mainloop(self, title = None):
 		self.droid.mainloop(title)
+
 	def quit(self, data = None):
 		return self.droid.quit(data)
+
 	def show(self):
 		return self.droid.show()
 

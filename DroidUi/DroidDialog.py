@@ -41,52 +41,67 @@ class _Dialog:
 		'spinner': 'dialogCreateSpinnerProgress',
 		'time': 'dialogCreateTimePicker',
 	}
+
 	def __init__(self):
 		if not hasattr(_Dialog, '_a'):
 			setattr(_Dialog, '_a', sl4a())
 		self.result = None
+
 	def call(self, func, *args):
 		'''wrapper for sl4a.sl4a'''
 		return getattr(self._a, func)(*args)
+
 	def create(self, type, *args):
 		'''create dialog, for TYPE, see DialogType'''
 		self.call(self.DialogType[type], *args)
+
 	def buttons(self, yes = YES, no = NO, cancel = None):
 		'''set button text'''
 		if yes: self.call('dialogSetPositiveButtonText', str(yes))
 		if no: self.call('dialogSetNegativeButtonText', str(no))
 		if cancel: self.call('dialogSetNeutralButtonText', str(cancel))
+
 	def list(self, items, multi = False):
 		'''set list items for dialog'''
 		if multi: self.call('dialogSetMultiChoiceItems', items)
 		else: self.call('dialogSetSingleChoiceItems', items)
+
 	def update(self, value):
 		'''update progress'''
 		self.call('dialogSetCurrentProgress', value)
+
 	def show(self):
 		'''show dialog'''
 		self.call('dialogShow')
+
 	def response(self):
 		'''get dialog response'''
 		return self.call('dialogGetResponse')
+
 	def selected(self):
 		'''get select items'''
 		return self.call('dialogGetSelectedItems')
+
 	def dismiss(self):
 		'''dismiss dialog'''
 		self.call('dialogDismiss')
+
 	def yes(self, data):
 		'''Positive button click callback function'''
 		self.result = data
+
 	def no(self, data):
 		'''Negative button click callback function'''
 		pass
+
 	def cancel(self, data):
 		'''Neutral button click callback function'''
 		pass
+
 	def back(self, data):
 		'''BACK key click callback function'''
 		self.cancel(data)
+
 	def handle(self):
 		'''handle dialog event'''
 		_Handler = {
@@ -101,6 +116,7 @@ class _Dialog:
 			self.back(data)
 		else:
 			print 'Unknown response = ', data
+
 	def main(self):
 		self.handle()
 		self.dismiss()
@@ -220,13 +236,16 @@ def pick(title, items):
 # alert dialog
 
 class _Alert(_Dialog):
+
 	def __init__(self, title, message, yes, no, cancel = None):
 		_Dialog.__init__(self)
 		self.create('alert', title, message)
 		self.buttons(yes, no, cancel)
 		self.show()
+
 	def yes(self, data):
 		self.result = True
+
 	def no(self, data):
 		self.result = False
 
