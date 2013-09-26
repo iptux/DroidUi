@@ -41,7 +41,7 @@ def noneHandler(data = None):
 
 class DroidUi:
 	'''layout object, like layout resource in android project'''
-	namespace = 'http://schemas.android.com/apk/res/android'
+	NAMESPACE = 'http://schemas.android.com/apk/res/android'
 	def __init__(self, source = None):
 		'''init layout object with a xml file
 		SOURCE may be a filename or file object'''
@@ -74,8 +74,8 @@ class DroidUi:
 			id = None
 			for k, v in elem.items():
 				# remove namespace mark
-				if k.find(DroidUi.namespace) != -1:
-					k = k[len(DroidUi.namespace) + 2:]
+				if k.find(DroidUi.NAMESPACE) != -1:
+					k = k[len(DroidUi.NAMESPACE) + 2:]
 				# id
 				if k == 'id':
 					id = v = v[v.find('/') + 1:]
@@ -208,7 +208,7 @@ class DroidUi:
 		if not self._isLayoutDirty: return
 
 		if self._root is None: self._root = TextView(self, text = "You havn't set any View for this layout :(", padding = '30dp')
-		self._root.set('xmlns:android', DroidUi.namespace)
+		self._root.set('xmlns:android', DroidUi.NAMESPACE)
 		tree = ET.ElementTree(self._root)
 		layout = StringIO.StringIO()
 		tree.write(layout)
