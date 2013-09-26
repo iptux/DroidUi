@@ -12,13 +12,13 @@ import sl4a
 import DroidUi as Ui
 
 
-def Killer(self):
+def Killer():
 	while True:
 		all = Ui.Package.running()
 		one = Ui.choose('Choose to kill', all)
 		if one is None:
 			break
-		for i in one:
+		for name in one:
 			print 'kill', name
 			Ui.Package(name).stop()
 
