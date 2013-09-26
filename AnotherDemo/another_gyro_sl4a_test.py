@@ -54,6 +54,9 @@ class GyroTestLayout(Ui.DroidUi):
 
 		self.reg_event('sensors', self.gyro)
 
+		# start sensing
+		self.sensing = Ui.Sensing()
+
 	def _boxLayout(self, master):
 		return Ui.LinearLayout(master,
 			layout_width = Ui.FILL_PARENT,
@@ -104,7 +107,5 @@ class GyroTestLayout(Ui.DroidUi):
 
 if __name__ == '__main__':
 	gui = GyroTestLayout()
-	gui.call('startSensingTimed', 1, 200)
 	gui.mainloop()
-	gui.call('stopSensing')
 
