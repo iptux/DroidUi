@@ -19,6 +19,10 @@
 #########
 # DroidUi
 
+def stringlize(obj):
+	'''stringlize an object'''
+	return obj if isinstance(obj, basestring) else str(obj)
+
 def joinattr(*attrs):
 	'''join many attribute together'''
 	return '|'.join(attrs)

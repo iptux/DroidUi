@@ -32,6 +32,7 @@ import StringIO
 import xml.etree.ElementTree as ET
 from sl4a import _a
 from DroidConstants import BACK, MENU, WRAP_CONTENT, FILL_PARENT, MATCH_PARENT, VERTICAL
+from DroidConstants import stringlize
 
 
 def NoneHandler(data = None):
@@ -322,9 +323,7 @@ class _View(ET._Element):
 
 	def set(self, key, value):
 		if key.find(':') == -1: key = "android:%s" % key
-		if not isinstance(value, unicode):
-			value = str(value)
-		ET._Element.set(self, key, value)
+		ET._Element.set(self, key, stringlize(value))
 
 	def get(self, key, default = None):
 		return ET._Element.get(self, "android:%s" % key, default)
@@ -372,8 +371,7 @@ class _View(ET._Element):
 
 	def _property(self, key, value):
 		if not self.droid.showed: return
-		if not isinstance(value, unicode): value = str(value)
-		self.droid.call('fullSetProperty', self.id, key, value)
+		self.droid.call('fullSetProperty', self.id, key, stringlize(value))
 
 	def configure(self, **kw):
 		'''configure view properties'''

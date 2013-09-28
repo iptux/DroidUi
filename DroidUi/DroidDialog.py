@@ -20,6 +20,7 @@
 import datetime
 from sl4a import sl4a
 from DroidConstants import TEXT, TEXT_PASSWORD, NUMBER_SIGNED, NUMBER_DECIMAL
+from DroidConstants import stringlize
 
 
 # you can change them for custom Button text
@@ -57,9 +58,9 @@ class _Dialog(object):
 
 	def buttons(self, yes = YES, no = NO, cancel = None):
 		'''set button text'''
-		if yes: self.call('dialogSetPositiveButtonText', str(yes))
-		if no: self.call('dialogSetNegativeButtonText', str(no))
-		if cancel: self.call('dialogSetNeutralButtonText', str(cancel))
+		if yes: self.call('dialogSetPositiveButtonText', stringlize(yes))
+		if no: self.call('dialogSetNegativeButtonText', stringlize(no))
+		if cancel: self.call('dialogSetNeutralButtonText', stringlize(cancel))
 
 	def list(self, items, multi = False):
 		'''set list items for dialog'''
@@ -131,7 +132,7 @@ def _merge(d, **kw):
 
 def _askstring(title, message, default, type, **kw):
 	d = _Dialog()
-	d.create('input', title, message, str(default), type)
+	d.create('input', title, message, stringlize(default), type)
 	_merge(kw, yes = OK, no = CANCEL)
 	d.buttons(**kw)
 	d.show()
