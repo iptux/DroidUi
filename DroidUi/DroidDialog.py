@@ -148,10 +148,12 @@ def askpassword(title, message, default = '', **kw):
 	return _askstring(title, message, default, TEXT_PASSWORD, **kw)
 
 def askint(title, message, default = 0, **kw):
-	return int(_askstring(title, message, default, NUMBER_SIGNED, **kw))
+	ret = _askstring(title, message, default, NUMBER_SIGNED, **kw)
+	return None if ret is None else int(ret)
 
 def askfloat(title, message, default = 0.0, **kw):
-	return float(_askstring(title, message, default, NUMBER_DECIMAL, **kw))
+	ret = _askstring(title, message, default, NUMBER_DECIMAL, **kw)
+	return None if ret is None else float(ret)
 
 ###############################################################
 # seekbar
