@@ -271,6 +271,7 @@ def askyesnocancel(title, message, **kw):
 def info(what):
 	'''show information INFO to user'''
 	_Dialog().call('makeToast', what)
+toast = info
 
 def notify(title, message):
 	'''Displays a notification'''
