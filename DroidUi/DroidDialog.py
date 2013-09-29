@@ -137,9 +137,7 @@ def _askstring(title, message, default, type, **kw):
 	d.buttons(**kw)
 	d.show()
 	d.main()
-	r = None
-	if d.result: r = d.result['value']
-	return r
+	return d.result['value'] if d.result else None
 
 def askstring(title, message, default = '', **kw):
 	return _askstring(title, message, default, TEXT, **kw)
@@ -166,9 +164,7 @@ def askvalue(title, message, value = 50, max = 100, **kw):
 	d.buttons(**kw)
 	d.show()
 	d.main()
-	r = None
-	if d.result: r = d.result['progress']
-	return r
+	return d.result['progress'] if d.result else None
 
 ###############################################################
 # date dialog
