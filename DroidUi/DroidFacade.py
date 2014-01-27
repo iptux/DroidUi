@@ -606,8 +606,8 @@ class Contact(_Facade):
 
 
 class Sms(_Facade):
-	'''Wrapper functions for BluetoothFacade
-	(http://www.mithril.com.au/android/doc/BluetoothFacade.html)'''
+	'''Wrapper functions for SmsFacade
+	(http://www.mithril.com.au/android/doc/SmsFacade.html)'''
 
 	@classmethod
 	def attrs(cls):
