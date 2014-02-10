@@ -72,22 +72,23 @@ class DroidUi(object):
 	@staticmethod
 	def _parse(element, master):
 		'''build view object from xml Elememt'''
+		attrib = {}
+		id = None
+		for k, v in elem.items():
+			# remove namespace mark
+			if k.find(DroidUi.NAMESPACE) != -1:
+				k = k[len(DroidUi.NAMESPACE) + 2:]
+			# id
+			if k == 'id':
+				id = v = v[v.find('/') + 1:]
+			# set attrib
+			attrib[k] = v
+		exec 'view = %s(master, attrib)' % elem.tag
+		if id:
+			setattr(view.droid, id, view)
+
+		# iter children
 		for elem in element.getchildren():
-			attrib = {}
-			id = None
-			for k, v in elem.items():
-				# remove namespace mark
-				if k.find(DroidUi.NAMESPACE) != -1:
-					k = k[len(DroidUi.NAMESPACE) + 2:]
-				# id
-				if k == 'id':
-					id = v = v[v.find('/') + 1:]
-				# set attrib
-				attrib[k] = v
-			exec 'view = %s(master, attrib)' % elem.tag
-			if id:
-				setattr(view.droid, id, view)
-			# iter children
 			DroidUi._parse(elem, view)
 		return master
 
