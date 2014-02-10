@@ -25,8 +25,8 @@
 
 import warnings
 from base64 import b64encode, b64decode
-from sl4a import sl4a, sl4aError, _a
-from DroidConstants import SENSOR_ALL, BLUETOOTH_UUID, INBOX, CATEGORY_DEFAULT
+from .sl4a import sl4a, sl4aError, _a
+from .DroidConstants import SENSOR_ALL, BLUETOOTH_UUID, INBOX, CATEGORY_DEFAULT
 
 
 class _Facade(object):
@@ -42,7 +42,7 @@ class Event(_Facade):
 		self.droid = droid
 		self._handler = {}
 		self._loop = True
-		for e, h in handler.iteritems():
+		for e, h in handler.items():
 			self.reg(e, h)
 
 	def clear(self):
@@ -80,14 +80,14 @@ class Event(_Facade):
 		HANDLER should accept 1 param which contains event data
 		HANDLER should return True if the event is handled properly'''
 		assert callable(handler)
-		if self._handler.has_key(name): warnings.warn('event handler is override: ev = %s' % name)
+		if name in self._handler: warnings.warn('event handler is override: ev = %s' % name)
 		self._handler[name] = handler
 	reg = register
 
 	def unregister(self, name):
 		'''unregister event handler
 		NAME    the event name'''
-		if self._handler.has_key(name):
+		if name in self._handler:
 			handler = self._handler[name]
 			del self._handler[name]
 			return handler
@@ -106,7 +106,7 @@ class Event(_Facade):
 		while self._loop:
 			event = self.wait()
 			name = event["name"]
-			if self._handler.has_key(name):
+			if name in self._handler:
 				if not self._handler[name](event['data']):
 					warnings.warn('unhandled event: %s' % str(event))
 			else:
@@ -450,7 +450,7 @@ class Phone(_Facade):
 	@classmethod
 	def call(cls, uri):
 		'''Calls a contact/phone number by URI'''
-		if isinstance(uri, basestring) and uri.isnumeric():
+		if hasattr(uri, 'isdigit') and uri.isdigit():
 			_a.phoneCallNumber(uri)
 		else:
 			_a.phoneCall(uri)
@@ -458,7 +458,7 @@ class Phone(_Facade):
 	@classmethod
 	def dial(cls, uri):
 		'''Dials a contact/phone number by URI'''
-		if isinstance(uri, basestring) and uri.isnumeric():
+		if hasattr(uri, 'isdigit') and uri.isdigit():
 			_a.phoneDialNumber(uri)
 		else:
 			_a.phoneDial(uri)
@@ -816,7 +816,7 @@ class Bluetooth(_Facade):
 		timeout (Integer) How long to wait for a new connection, in millseconds'''
 		try: _a.bluetoothAccept(uuid, timeout)
 		except sl4aError: return None
-		for conn, address in self.connections().iteritems():
+		for conn, address in self.connections().items():
 			if self.remote(address) == self.name():
 				self.conn = conn
 				break
@@ -1153,14 +1153,14 @@ if __name__ == '__main__':
 		b = Bluetooth()
 		if not b.state(True): return
 		try:
-			print 'local:', b.local()
+			print('local:', b.local())
 			if server:
 				b.discover(120)
 				c = b.accept()
 			else:
 				c = b.connect()
 			if not c: return
-			print 'connection:', b.name(), c
+			print('connection:', b.name(), c)
 			if server:
 				msg = D.askstring('Chat', 'Enter a message')
 				if not msg:
@@ -1180,14 +1180,12 @@ if __name__ == '__main__':
 
 	def tests(cls, methods):
 		o = cls()
-		print cls.__name__
+		print(cls.__name__)
 		time.sleep(0.5)
 		for m in methods:
 			r = getattr(o, m)()
-			if isinstance(r, unicode):
-				r = r.encode('gb18030')
-			print '%s:' % m, r
-		print
+			print('%s:' % m, r)
+		print()
 		del o
 	tests(Sensing, ['read', 'accuracy', 'light', 'accelerometer', 'magnetometer', 'orientation'])
 	tests(Location, ['read', 'providers', 'last'])

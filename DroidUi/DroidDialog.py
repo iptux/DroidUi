@@ -18,9 +18,10 @@
 '''
 
 import datetime
-from sl4a import sl4a
-from DroidConstants import TEXT, TEXT_PASSWORD, NUMBER_SIGNED, NUMBER_DECIMAL
-from DroidConstants import stringlize
+import warnings
+from .sl4a import sl4a
+from .DroidConstants import TEXT, TEXT_PASSWORD, NUMBER_SIGNED, NUMBER_DECIMAL
+from .DroidConstants import stringlize
 
 
 # you can change them for custom Button text
@@ -111,12 +112,12 @@ class _Dialog(object):
 			'negative': self.no,
 		}
 		data = self.response()
-		if data.has_key('which'):
+		if 'which' in data:
 			_Handler[data['which']](data)
-		elif data.has_key('canceled'):
+		elif 'canceled' in data:
 			self.back(data)
 		else:
-			print 'Unknown response = ', data
+			warnings.warn('Unknown response: %s' % data)
 
 	def main(self):
 		self.handle()
@@ -124,7 +125,7 @@ class _Dialog(object):
 
 def _merge(d, **kw):
 	# set default value for dict
-	for k, v in kw.iteritems():
+	for k, v in kw.items():
 		d.setdefault(k, v)
 
 ###############################################################
@@ -229,7 +230,7 @@ def pick(title, items):
 	d.call('dialogSetItems', items)
 	d.show()
 	r = d.response()
-	return r.has_key('item') and items[r['item']] or None
+	return 'item' in r and items[r['item']] or None
 
 ###############################################################
 # alert dialog
@@ -311,5 +312,4 @@ if __name__ == '__main__':
 		time.sleep(0.1)
 		p.update(i * 10)
 	p.dismiss()
-	print 'done'
 

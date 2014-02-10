@@ -29,9 +29,9 @@ under android.
 
 import warnings
 import xml.etree.ElementTree as ET
-from sl4a import _a
-from DroidConstants import BACK, MENU, WRAP_CONTENT, FILL_PARENT, MATCH_PARENT, VERTICAL
-from DroidConstants import stringlize
+from .sl4a import _a
+from .DroidConstants import BACK, MENU, WRAP_CONTENT, FILL_PARENT, MATCH_PARENT, VERTICAL
+from .DroidConstants import stringlize, XML_ENCODING
 
 
 def NoneHandler(data = None):
@@ -73,7 +73,7 @@ class DroidUi(object):
 		'''build view object from xml Elememt'''
 		attrib = {}
 		id = None
-		for k, v in elem.items():
+		for k, v in element.items():
 			# remove namespace mark
 			if k.find(DroidUi.NAMESPACE) != -1:
 				k = k[len(DroidUi.NAMESPACE) + 2:]
@@ -82,7 +82,7 @@ class DroidUi(object):
 				id = v = v[v.find('/') + 1:]
 			# set attrib
 			attrib[k] = v
-		exec 'view = %s(master, attrib)' % elem.tag
+		view = eval('%s(master, attrib)' % element.tag)
 		if id:
 			setattr(view.droid, id, view)
 
@@ -112,14 +112,14 @@ class DroidUi(object):
 	def _click(self, data):
 		'''click event handler'''
 		_id = data['id']
-		if self._click_cb.has_key(_id):
+		if _id in self._click_cb:
 			self._click_cb[_id]()
 			return True
 
 	def _key(self, data):
 		'''key event handler'''
 		key = int(data['key'])
-		if self._key_cb.has_key(key):
+		if key in self._key_cb:
 			self._key_cb[key]()
 			return True
 
@@ -134,12 +134,12 @@ class DroidUi(object):
 
 	def reg_obj(self, id, obj):
 		'''register widget objects'''
-		if self.objmap.has_key(id): warnings.warn('two widget has same id(%s): %s, %s', id, str(obj), str(self.objmap[id]))
+		if id in self.objmap: warnings.warn('two widget has same id(%s): %s, %s', id, str(obj), str(self.objmap[id]))
 		self.objmap[id] = obj
 
 	def unreg_obj(self, id):
 		'''unregister widget objects'''
-		if not self.objmap.has_key(id): warnings.warn('no widget has this id: %s', id)
+		if not id in self.objmap: warnings.warn('no widget has this id: %s', id)
 		else: del self.objmap[id]
 
 	def _setroot(self, root):
@@ -164,7 +164,7 @@ class DroidUi(object):
 		'''register click event handler
 		if widget with id ID is clicked, then CALLBACK will be called'''
 		assert callable(callback)
-		if self._click_cb.has_key(id): warnings.warn('click callback is override: id = %s' % id)
+		if id in self._click_cb: warnings.warn('click callback is override: id = %s' % id)
 		self._click_cb[id] = callback
 
 	def reg_key_cb(self, key, callback, override = False):
@@ -174,7 +174,7 @@ class DroidUi(object):
 		if OVERRRIDE is True, the key's default behaviour will be overrided
 		by default, BACK key quit current layout, MENU key shows menu if there's one'''
 		assert callable(callback)
-		if self._key_cb.has_key(key): warnings.warn('key callback is override: key = %d' % key)
+		if key in self._key_cb: warnings.warn('key callback is override: key = %d' % key)
 		self._key_cb[key] = callback
 		if override: self._a.fullKeyOverride([key])
 
@@ -183,7 +183,7 @@ class DroidUi(object):
 		HANDLER should accept 1 param which contains event data
 		HANDLER should return True if the event is handled properly'''
 		assert callable(handler)
-		if self._handler.has_key(name): warnings.warn('event handler is override: ev = %s' % name)
+		if name in self._handler: warnings.warn('event handler is override: ev = %s' % name)
 		self._handler[name] = handler
 
 	def quit(self, data = None):
@@ -211,7 +211,7 @@ class DroidUi(object):
 		while self._loop:
 			event = self._a.eventWait()
 			name = event["name"]
-			if self._handler.has_key(name):
+			if name in self._handler:
 				if not self._handler[name](event['data']):
 					warnings.warn('unhandled event: %s' % str(event))
 			else:
@@ -230,7 +230,7 @@ class DroidUi(object):
 
 		if self._root is None: self._root = TextView(self, text = "You havn't set any View for this layout :(", padding = '30dp')
 		self._root.set('xmlns:android', DroidUi.NAMESPACE)
-		self._xmlLayout = ET.tostring(self._root)
+		self._xmlLayout = ET.tostring(self._root, XML_ENCODING)
 		self._isLayoutDirty = False
 
 	def showHook(self):
@@ -293,7 +293,7 @@ class _View(ET._Element):
 
 		# combine all configure together
 		cnf = cnf.copy()
-		for k, v in self.defaultConfig.iteritems():
+		for k, v in self.defaultConfig.items():
 			cnf.setdefault(k, v)
 		if len(kw): cnf.update(kw)
 
@@ -311,7 +311,7 @@ class _View(ET._Element):
 		self.master = master
 		self.droid._setdirty()
 
-		if cnf.has_key('id'):
+		if 'id' in cnf:
 			self.setid(cnf['id'])
 			del cnf['id']
 		else: self.setid('%s#%x' % (self.widgetName, id(self)) )
@@ -373,7 +373,7 @@ class _View(ET._Element):
 	def configure(self, **kw):
 		'''configure view properties'''
 		# command is used as click handler
-		if kw.has_key('command'):
+		if 'command' in kw:
 			self.droid.reg_click_cb(self.id, kw['command'])
 			del kw['command']
 		showed = self.droid.showed
@@ -683,7 +683,7 @@ class ViewStub(View):
 
 if __name__ == '__main__':
 	def callback(data = 'hello'):
-		print data
+		print(data)
 		return True
 	droid = DroidUi()
 	layout = TextView(droid, text = 'Hello')

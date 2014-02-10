@@ -19,6 +19,13 @@
 #########
 # DroidUi
 
+try:
+	type(basestring)
+	XML_ENCODING = 'utf-8'
+except NameError:	# basestring is removed in python 3
+	basestring = str
+	XML_ENCODING = 'unicode'
+
 def stringlize(obj):
 	'''stringlize an object'''
 	return obj if isinstance(obj, basestring) else str(obj)
