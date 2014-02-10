@@ -135,13 +135,13 @@ FLAG = (
 def intent():
 	def write(file, dict, keys = None):
 		if keys is None:
-			keys = dict.keys()
+			keys = list(dict.keys())
 			keys.sort()
 		for k in keys:
 			try:
 				v = dict[k]
 			except KeyError:
-				print 'no such key:', k
+				print('no such key:', k)
 				continue
 			try:
 				v = int(v)

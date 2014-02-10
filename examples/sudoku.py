@@ -78,8 +78,8 @@ class Game:
 				self._hint(i, y)
 			for j in range(self.size):
 				self._hint(x, j)
-			x1 = (x / 3) * 3
-			y1 = (y / 3) * 3
+			x1 = (x // 3) * 3
+			y1 = (y // 3) * 3
 			for i in range(x1, x1 + 3):
 				for j in range(y1, y1 + 3):
 					self._hint(i, j)
@@ -89,11 +89,11 @@ class Game:
 				self._hint(i, j)
 	def setvalue(self, value):
 		if len(value) != self.size * self.size:
-			print 'invalid puzzle:', value
+			print('invalid puzzle:', value)
 			return
 		for i in range(self.size * self.size):
 			v = int(value[i])
-			w = self.array[i / self.size][i % self.size]
+			w = self.array[i // self.size][i % self.size]
 			self.value[i] = v
 			w.origin = v
 			if v:
@@ -118,8 +118,8 @@ class Game:
 			v = self.get(x, j)
 			if v: d[v] = False
 		# same cell block
-		x1 = (x / 3) * 3
-		y1 = (y / 3) * 3
+		x1 = (x // 3) * 3
+		y1 = (y // 3) * 3
 		for i in range(x1, x1 + 3):
 			for j in range(y1, y1 + 3):
 				if i == x and j == y: continue
@@ -127,7 +127,7 @@ class Game:
 				if v: d[v] = False
 		# 
 		r = {}
-		for v, b in d.iteritems():
+		for v, b in d.items():
 			if b: r[v] = True
 		return r
 	def get(self, x, y):
@@ -147,7 +147,7 @@ class Game:
 		return Ui.pick('select', valid)
 	def click(self, x, y):
 		if self.array[x][y].origin: return
-		valid = self.tile(x, y).keys()
+		valid = list(self.tile(x, y).keys())
 		valid.sort()
 		ret = self.getkey(valid)
 		self.set(x, y, ret)
@@ -186,7 +186,7 @@ row,  each  column,  and  each  of  the  3x3  boxes
 		self.inner = Ui.LinearLayout(self.outer, gravity = Ui.CENTER)
 		Ui.TextView(self.inner,
 			text = 'Android Sudoku',
-			textSize = '24.5dip',
+			textSize = '20dip',
 			layout_marginBottom = '25dip',
 		)
 		Ui.Button(self.inner, text = 'Continue', command = self.resume)

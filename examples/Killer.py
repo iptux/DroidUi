@@ -8,7 +8,6 @@
 # Create: 2012-10-07 21:47
 
 
-import sl4a
 import DroidUi as Ui
 
 
@@ -19,7 +18,7 @@ def Killer():
 		if one is None:
 			break
 		for name in one:
-			print 'kill', name
+			print('kill', name)
 			Ui.Package(name).stop()
 
 

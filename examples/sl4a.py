@@ -33,6 +33,6 @@ class sl4a(Android):
 		def rpc_call(*args):
 			r = self._rpc(name, *args)
 			if r.error:
-				raise sl4aError, r.error
+				raise sl4aError(r.error)
 			return r.result
 		return rpc_call
