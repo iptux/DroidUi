@@ -28,7 +28,6 @@ under android.
 
 
 import warnings
-import StringIO
 import xml.etree.ElementTree as ET
 from sl4a import _a
 from DroidConstants import BACK, MENU, WRAP_CONTENT, FILL_PARENT, MATCH_PARENT, VERTICAL
@@ -231,10 +230,7 @@ class DroidUi(object):
 
 		if self._root is None: self._root = TextView(self, text = "You havn't set any View for this layout :(", padding = '30dp')
 		self._root.set('xmlns:android', DroidUi.NAMESPACE)
-		tree = ET.ElementTree(self._root)
-		layout = StringIO.StringIO()
-		tree.write(layout)
-		self._xmlLayout = layout.getvalue()
+		self._xmlLayout = ET.tostring(self._root)
 		self._isLayoutDirty = False
 
 	def showHook(self):
