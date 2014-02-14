@@ -135,8 +135,7 @@ FLAG = (
 def intent():
 	def write(file, dict, keys = None):
 		if keys is None:
-			keys = list(dict.keys())
-			keys.sort()
+			keys = sorted(dict)
 		for k in keys:
 			try:
 				v = dict[k]

@@ -147,8 +147,7 @@ class Game:
 		return Ui.pick('select', valid)
 	def click(self, x, y):
 		if self.array[x][y].origin: return
-		valid = list(self.tile(x, y).keys())
-		valid.sort()
+		valid = sorted(self.tile(x, y))
 		ret = self.getkey(valid)
 		self.set(x, y, ret)
 	def main(self):
