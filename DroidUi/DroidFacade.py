@@ -1133,9 +1133,12 @@ class Misc(_Facade):
 		return _a.recognizeSpeech(prompt)
 
 	@classmethod
-	def tts(cls, msg):
+	def tts(cls, msg = None):
 		'''Speaks the provided message via TTS'''
-		return _a.ttsSpeak(msg)
+		if msg is None:
+			return _a.ttsIsSpeaking()
+		else:
+			return _a.ttsSpeak(msg)
 
 	@classmethod
 	def dtmf(cls, number, duration):
@@ -1201,6 +1204,6 @@ if __name__ == '__main__':
 	tests(Bluetooth, ['address', 'local', 'scanMode', 'state', 'discover', 'connections'])
 	tests(Wifi, ['state', 'acquire', 'scan', 'connect', 'associate', 'result', 'release', 'info', 'close'])
 	tests(WakeLock, ['bright', 'dim', 'full', 'partial', 'release'])
-	tests(Misc, ['env', 'clipboard', 'barcode'])
+	tests(Misc, ['env', 'clipboard', 'barcode', 'tts'])
 	bluetooth()
 
