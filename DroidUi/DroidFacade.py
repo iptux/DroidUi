@@ -1120,7 +1120,7 @@ class Misc(_Facade):
 	@classmethod
 	def log(cls, msg):
 		'''Writes message to logcat'''
-		return _a.log()
+		return _a.log(msg)
 
 	@classmethod
 	def barcode(cls):
