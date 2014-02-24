@@ -314,7 +314,7 @@ class Battery(_Facade):
 		'''Returns the most recently recorded battery data'''
 		return _a.readBatteryData()
 
-	def prensent(self):
+	def present(self):
 		'''Returns the most recently received battery presence data
 		Min SDK level=5'''
 		return _a.batteryCheckPresent()
