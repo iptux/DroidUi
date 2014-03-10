@@ -247,7 +247,7 @@ class main_screen(Ui.DroidUi):
 		)
 
 	def showHook(self):
-		self.call('fullSetList', self.lst_list.id, self.show_list)
+		self.lst_list.setlist(self.show_list)
 
 	def _button(self, master, **kw):
 		Ui.Button(master,

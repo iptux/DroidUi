@@ -702,12 +702,12 @@ class Package(_Facade):
 		return _a.getPackageVersionCode(self.pkg)
 
 	def stop(self):
-		'''Acquires a full Wifi lock'''
+		'''Force stops a package'''
 		_a.forceStopPackage(self.pkg)
 
 	@classmethod
 	def launchable(cls):
-		'''Returns a list of all launchable application class names'''
+		'''Returns a dict of all launchable application class names'''
 		return _a.getLaunchableApplications()
 
 	@classmethod
@@ -1206,7 +1206,7 @@ if __name__ == '__main__':
 		del o
 	tests(Sensing, ['read', 'accuracy', 'light', 'accelerometer', 'magnetometer', 'orientation'])
 	tests(Location, ['read', 'providers', 'last'])
-	tests(Battery, ['read', 'prensent', 'health', 'level', 'plugType', 'status', 'technology', 'temperature', 'voltage'])
+	tests(Battery, ['read', 'present', 'health', 'level', 'plugType', 'status', 'technology', 'temperature', 'voltage'])
 	tests(Signal, ['read'])
 	tests(Phone, ['roaming', 'cellLocation', 'id', 'version', 'number', 'neighboring', 'operator', 'operatorName', 'network', 'type', 'subscriber', 'voiceMailNumber', 'voiceMailAlphaTag', 'volume', 'maxVolume', 'airplane', 'silent', 'vibrate', 'brightness', 'screen',])
 	tests(PhoneState, ['read'])
