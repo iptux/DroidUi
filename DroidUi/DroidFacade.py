@@ -680,8 +680,18 @@ class Package(_Facade):
 	'''Wrapper functions for ApplicationManagerFacade
 	(http://www.mithril.com.au/android/doc/ApplicationManagerFacade.html)'''
 
-	def __init__(self, pkg):
-		self.pkg = pkg
+	def __init__(self, classname):
+		# try to find package name from a class name
+		l = classname.split('.')
+		for i in range(len(l), 0, -1):
+			name = '.'.join(l[:i])
+			if -1 != _a.getPackageVersionCode(name):
+				self.pkg = name
+				return
+		self.pkg = classname
+
+	def __str__(self):
+		return 'package: %s, version: %s, code: %s' % (self.pkg, self.version(), self.code())
 
 	def version(self):
 		'''Returns package version name'''
