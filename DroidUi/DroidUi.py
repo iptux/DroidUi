@@ -125,8 +125,15 @@ class DroidUi(object):
 
 	def _itemclick(self, data):
 		'''itemclick event handler'''
-		obj = self.objmap[data['id']]
-		return obj.itemclick(data)
+		_id = data['id']
+		obj = self.objmap[_id]
+		item = obj._list[int(data['position'])]
+		ret = obj.itemclick(item)
+		# if not handled, try click callback handler
+		if not ret and _id in self._click_cb:
+			self._click_cb[_id](item)
+			ret = True
+		return ret
 
 	def call(self, fun, *arg):
 		'''sl4a call wrapper'''
@@ -357,7 +364,7 @@ class _View(ET._Element):
 		'''set key handler'''
 		self.droid.reg_key_cb(key, handler)
 
-	def itemclick(self, data):
+	def itemclick(self, item):
 		'''default itemclick event handler, should be override'''
 		return False
 
