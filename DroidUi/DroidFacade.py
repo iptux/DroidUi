@@ -706,24 +706,29 @@ class Package(_Facade):
 		_a.forceStopPackage(self.pkg)
 
 	@classmethod
-	def launchable(cls):
-		'''Returns a dict of all launchable application class names'''
-		return _a.getLaunchableApplications()
-
-	@classmethod
 	def running(cls):
 		'''Returns a list of packages running activities or services'''
 		return _a.getRunningPackages()
 
-	@classmethod
-	def launch(cls, name):
+
+# java class is different from Android package
+class Class(_Facade):
+
+	def __init__(self, name):
+		self.name = name
+
+	def launch(self):
 		'''Start activity with the given class name'''
-		_a.launch(name)
+		_a.launch(self.name)
+
+	def consts(self):
+		'''Get list of constants (static final fields) for a class'''
+		return _a.getConstants(self.name)
 
 	@classmethod
-	def consts(cls, name):
-		'''Get list of constants (static final fields) for a class'''
-		return _a.getConstants(name)
+	def launchable(cls):
+		'''Returns a dict of all launchable application class names'''
+		return _a.getLaunchableApplications()
 
 
 class Preference(_Facade):

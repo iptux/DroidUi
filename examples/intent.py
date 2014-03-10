@@ -151,7 +151,7 @@ def intent():
 			del dict[k]
 		file.write('\n')
 	f = open('intent.txt', 'w+')
-	consts = Ui.Package.consts('android.content.Intent')
+	consts = Ui.Class('android.content.Intent').consts()
 	for i in (ACTION, BROADCAST, CATEGORY, EXTRA, FLAG):
 		write(f, consts, i)
 	write(f, consts)
