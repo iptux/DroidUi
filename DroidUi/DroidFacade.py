@@ -251,19 +251,23 @@ class Location(_Facade):
 		'''Returns the current location as indicated by all available providers'''
 		return _a.readLocation()
 
-	def providers(self):
+	@classmethod
+	def providers(cls):
 		'''Returns availables providers on the phone'''
 		return _a.locationProviders()
 
-	def enabled(self, provider):
+	@classmethod
+	def enabled(cls, provider):
 		'''Ask if provider is enabled'''
 		return _a.locationProviderEnabled(provider)
 
-	def last(self):
+	@classmethod
+	def last(cls):
 		'''Returns the last known location of the device'''
 		return _a.getLastKnownLocation()
 
-	def geocode(self, latitude, longitude, maxResults):
+	@classmethod
+	def geocode(cls, latitude, longitude, maxResults = 1):
 		'''Returns a list of addresses for the given latitude and longitude
 		latitude (Double)
 		longitude (Double)
