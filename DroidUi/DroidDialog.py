@@ -21,7 +21,7 @@ import datetime
 import warnings
 from .sl4a import sl4a
 from .DroidConstants import TEXT, TEXT_PASSWORD, NUMBER_SIGNED, NUMBER_DECIMAL
-from .DroidConstants import stringlize
+from .DroidConstants import stringlize, isstring
 
 
 # you can change them for custom Button text
@@ -277,6 +277,79 @@ toast = info
 def notify(title, message):
 	'''Displays a notification'''
 	_Dialog().call('notify', title, message)
+
+###############################################################
+# the final dialog api
+
+# button meta data holder
+class _btnMeta(object):
+	def __init__(self, meta, text, ret):
+		self.text = text
+		self.ret = ret
+		self.callback = None
+		if meta is not None:
+			self._set(meta)
+
+	def _set(self, meta):
+		if isstring(meta):
+			self.text = stringlize(meta)
+			self.ret = meta
+		elif callable(meta):
+			self.callback = meta
+		elif isinstance(meta, list):
+			self.text = stringlize(meta[0])
+			if callable(meta[1]):
+				self.callback = meta[1]
+				self.ret = meta[0]
+			else:
+				self.ret = meta[1]
+		else:
+			self.ret = meta
+
+class _Dialog2(_Dialog):
+	def __init__(self, title, message, **kw):
+		_Dialog.__init__(self)
+		self._yes = _btnMeta(kw['yes'], YES, True)
+		self._no = _btnMeta(kw['no'], NO, False)
+		self._cancel = _btnMeta(kw['cancel'], CANCEL, None)
+		self.create('alert', title, message)
+		self.buttons(self._yes.text, self._no.text, self._cancel.text)
+		self.show()
+
+	def handler(self, meta, data):
+		self.result = meta.ret
+		if meta.callback:
+			meta.callback(data)
+
+	def yes(self, data):
+		self.handler(self._yes, data)
+
+	def no(self, data):
+		self.handler(self._no, data)
+
+	def cancel(self, data):
+		self.handler(self._cancel, data)
+
+	def back(self):
+		pass
+
+def dialog(title, message, **kw):
+	'''The final dialog API
+	TITLE: dialog title
+	MESSAGE: dialog body message
+	you can set `yes', `no' and `cancel' button behaviour with keyword param
+	value for the keyword can be
+	1. a string, will be the button text and the result of the dialog
+	2. a callable object, will be called if the button clicked
+	3. a list with to two element.
+	  a. the first element will be the button text.
+	  b. the second will be called if callable, or the result of the dialog
+	4. all other situation, the value will be the result of the dialog
+	'''
+	_merge(kw, yes = None, no = None, cancel = None)
+	d = _Dialog2(title, message, **kw)
+	d.main()
+	return d.result
 
 ###############################################################
 # progress dialog

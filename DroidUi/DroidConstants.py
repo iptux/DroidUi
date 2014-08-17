@@ -26,6 +26,9 @@ except NameError:	# basestring is removed in python 3
 	basestring = str
 	XML_ENCODING = 'unicode'
 
+def isstring(obj):
+	return isinstance(obj, basestring)
+
 def stringlize(obj):
 	'''stringlize an object'''
 	return obj if isinstance(obj, basestring) else str(obj)
