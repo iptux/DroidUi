@@ -1,20 +1,19 @@
 @echo off
 
-REM Copyright 2012-2013 by Tommy Alex. All Rights Reserved.
+REM Copyright (C) 2012-2014 Tommy Alex. All Rights Reserved.
 REM
-REM Permission to use, copy, modify, and distribute this software and its
-REM documentation for any purpose and without fee is hereby granted,
-REM provided that the above copyright notice appear in all copies and that
-REM both that copyright notice and this permission notice appear in
-REM supporting documentation, and that the name of Vinay Sajip
-REM not be used in advertising or publicity pertaining to distribution
-REM of the software without specific, written prior permission.
-REM VINAY SAJIP DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING
-REM ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL
-REM VINAY SAJIP BE LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR
-REM ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER
-REM IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
-REM OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+REM This program is free software: you can redistribute it and/or modify
+REM it under the terms of the GNU General Public License as published by
+REM the Free Software Foundation, either version 3 of the License, or
+REM (at your option) any later version.
+REM
+REM This program is distributed in the hope that it will be useful,
+REM but WITHOUT ANY WARRANTY; without even the implied warranty of
+REM MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+REM GNU General Public License for more details.
+REM
+REM You should have received a copy of the GNU General Public License
+REM along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 REM install.bat
 REM install DroidUi in your Android device
