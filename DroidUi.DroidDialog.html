@@ -1,0 +1,118 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module DroidDialog</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>DroidDialog</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/storage/sdcard0/sl4a/scripts/DroidUi/DroidDialog.py">/storage/sdcard0/sl4a/scripts/DroidUi/DroidDialog.py</a></font></td></tr></table>
+    <p><tt>dialog&nbsp;wrapper&nbsp;function&nbsp;for&nbsp;UiFacade</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="warnings.html">warnings</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-Loading"><strong>Loading</strong></a>(title, message, max<font color="#909090">=100</font>)</dt><dd><tt>get&nbsp;a&nbsp;Spinner&nbsp;Progress&nbsp;dialog<br>
+TITLE&nbsp;-&nbsp;the&nbsp;title&nbsp;of&nbsp;the&nbsp;dialog<br>
+MESSAGE&nbsp;-&nbsp;the&nbsp;message&nbsp;of&nbsp;the&nbsp;dialog<br>
+MAX&nbsp;-&nbsp;max&nbsp;value&nbsp;(100&nbsp;by&nbsp;default)<br>
+&nbsp;<br>
+the&nbsp;dialog&nbsp;object&nbsp;support&nbsp;these&nbsp;methods<br>
+show()&nbsp;-&nbsp;show&nbsp;the&nbsp;dialog<br>
+update(value)&nbsp;-&nbsp;set&nbsp;the&nbsp;progress&nbsp;of&nbsp;the&nbsp;dialog&nbsp;to&nbsp;value<br>
+dismiss()&nbsp;-&nbsp;dismiss&nbsp;the&nbsp;dialog</tt></dd></dl>
+ <dl><dt><a name="-Progress"><strong>Progress</strong></a>(title, message, max<font color="#909090">=100</font>)</dt><dd><tt>get&nbsp;a&nbsp;Horizontal&nbsp;Progress&nbsp;dialog<br>
+TITLE&nbsp;-&nbsp;the&nbsp;title&nbsp;of&nbsp;the&nbsp;dialog<br>
+MESSAGE&nbsp;-&nbsp;the&nbsp;message&nbsp;of&nbsp;the&nbsp;dialog<br>
+MAX&nbsp;-&nbsp;max&nbsp;value&nbsp;(100&nbsp;by&nbsp;default)<br>
+&nbsp;<br>
+the&nbsp;dialog&nbsp;object&nbsp;support&nbsp;these&nbsp;methods<br>
+show()&nbsp;-&nbsp;show&nbsp;the&nbsp;dialog<br>
+update(value)&nbsp;-&nbsp;set&nbsp;the&nbsp;progress&nbsp;of&nbsp;the&nbsp;dialog&nbsp;to&nbsp;value<br>
+dismiss()&nbsp;-&nbsp;dismiss&nbsp;the&nbsp;dialog</tt></dd></dl>
+ <dl><dt><a name="-askdate"><strong>askdate</strong></a>(date<font color="#909090">=None</font>)</dt><dd><tt>get&nbsp;a&nbsp;date,&nbsp;if&nbsp;DATE&nbsp;is&nbsp;None,&nbsp;using&nbsp;today&nbsp;as&nbsp;default</tt></dd></dl>
+ <dl><dt><a name="-askfloat"><strong>askfloat</strong></a>(title, message, default<font color="#909090">=0.0</font>, **kw)</dt><dd><tt>show&nbsp;a&nbsp;dialog&nbsp;to&nbsp;ask&nbsp;for&nbsp;float&nbsp;input.<br>
+TITLE&nbsp;-&nbsp;the&nbsp;title&nbsp;of&nbsp;the&nbsp;dialog<br>
+MESSAGE&nbsp;-&nbsp;the&nbsp;message&nbsp;of&nbsp;the&nbsp;dialog<br>
+DEFAULT&nbsp;-&nbsp;default&nbsp;value&nbsp;of&nbsp;the&nbsp;float&nbsp;(0.0&nbsp;by&nbsp;default)<br>
+KW&nbsp;-&nbsp;same&nbsp;as&nbsp;KW&nbsp;in&nbsp;<a href="#-askstring">askstring</a>()</tt></dd></dl>
+ <dl><dt><a name="-askint"><strong>askint</strong></a>(title, message, default<font color="#909090">=0</font>, **kw)</dt><dd><tt>show&nbsp;a&nbsp;dialog&nbsp;to&nbsp;ask&nbsp;for&nbsp;int&nbsp;input.<br>
+TITLE&nbsp;-&nbsp;the&nbsp;title&nbsp;of&nbsp;the&nbsp;dialog<br>
+MESSAGE&nbsp;-&nbsp;the&nbsp;message&nbsp;of&nbsp;the&nbsp;dialog<br>
+DEFAULT&nbsp;-&nbsp;default&nbsp;value&nbsp;of&nbsp;the&nbsp;int&nbsp;(0&nbsp;by&nbsp;default)<br>
+KW&nbsp;-&nbsp;same&nbsp;as&nbsp;KW&nbsp;in&nbsp;<a href="#-askstring">askstring</a>()</tt></dd></dl>
+ <dl><dt><a name="-askpassword"><strong>askpassword</strong></a>(title, message, default<font color="#909090">=''</font>, **kw)</dt><dd><tt>show&nbsp;a&nbsp;dialog&nbsp;to&nbsp;ask&nbsp;for&nbsp;password&nbsp;input.<br>
+TITLE&nbsp;-&nbsp;the&nbsp;title&nbsp;of&nbsp;the&nbsp;dialog<br>
+MESSAGE&nbsp;-&nbsp;the&nbsp;message&nbsp;of&nbsp;the&nbsp;dialog<br>
+DEFAULT&nbsp;-&nbsp;default&nbsp;value&nbsp;of&nbsp;the&nbsp;password&nbsp;(empty&nbsp;string&nbsp;by&nbsp;default)<br>
+KW&nbsp;-&nbsp;same&nbsp;as&nbsp;KW&nbsp;in&nbsp;<a href="#-askstring">askstring</a>()</tt></dd></dl>
+ <dl><dt><a name="-askstring"><strong>askstring</strong></a>(title, message, default<font color="#909090">=''</font>, **kw)</dt><dd><tt>show&nbsp;a&nbsp;dialog&nbsp;to&nbsp;ask&nbsp;for&nbsp;string&nbsp;input.<br>
+TITLE&nbsp;-&nbsp;the&nbsp;title&nbsp;of&nbsp;the&nbsp;dialog<br>
+MESSAGE&nbsp;-&nbsp;the&nbsp;message&nbsp;of&nbsp;the&nbsp;dialog<br>
+DEFAULT&nbsp;-&nbsp;default&nbsp;value&nbsp;of&nbsp;the&nbsp;string&nbsp;(empty&nbsp;string&nbsp;by&nbsp;default)<br>
+KW&nbsp;-&nbsp;the&nbsp;keyword&nbsp;argument,&nbsp;used&nbsp;to&nbsp;set&nbsp;the&nbsp;button&nbsp;text&nbsp;on&nbsp;the&nbsp;dialog<br>
+&nbsp;&nbsp;`yes'&nbsp;-&nbsp;set&nbsp;the&nbsp;YES&nbsp;button&nbsp;text&nbsp;("Yes"&nbsp;if&nbsp;not&nbsp;set)<br>
+&nbsp;&nbsp;`no'&nbsp;-&nbsp;set&nbsp;the&nbsp;NO&nbsp;button&nbsp;text&nbsp;("Cancel"&nbsp;if&nbsp;not&nbsp;set)</tt></dd></dl>
+ <dl><dt><a name="-asktime"><strong>asktime</strong></a>(time<font color="#909090">=None</font>)</dt><dd><tt>get&nbsp;a&nbsp;time,&nbsp;if&nbsp;TIME&nbsp;is&nbsp;None,&nbsp;using&nbsp;now&nbsp;as&nbsp;default<br>
+NOTE:&nbsp;only&nbsp;hour&nbsp;and&nbsp;minute&nbsp;is&nbsp;supported</tt></dd></dl>
+ <dl><dt><a name="-askvalue"><strong>askvalue</strong></a>(title, message, value<font color="#909090">=50</font>, max<font color="#909090">=100</font>, **kw)</dt><dd><tt>get&nbsp;a&nbsp;value&nbsp;using&nbsp;seekbar<br>
+TITLE&nbsp;-&nbsp;the&nbsp;title&nbsp;of&nbsp;the&nbsp;dialog<br>
+MESSAGE&nbsp;-&nbsp;the&nbsp;message&nbsp;of&nbsp;the&nbsp;dialog<br>
+VALUE&nbsp;-&nbsp;default&nbsp;value&nbsp;(50&nbsp;by&nbsp;default)<br>
+MAX&nbsp;-&nbsp;max&nbsp;value&nbsp;(100&nbsp;by&nbsp;default)<br>
+KW&nbsp;-&nbsp;same&nbsp;as&nbsp;KW&nbsp;in&nbsp;<a href="#-askstring">askstring</a>()</tt></dd></dl>
+ <dl><dt><a name="-askyesno"><strong>askyesno</strong></a>(title, message, **kw)</dt><dd><tt>ask&nbsp;yes&nbsp;or&nbsp;no<br>
+RETURN:&nbsp;True&nbsp;on&nbsp;Yes,&nbsp;False&nbsp;on&nbsp;No,&nbsp;or&nbsp;None&nbsp;if&nbsp;cancelled</tt></dd></dl>
+ <dl><dt><a name="-askyesnocancel"><strong>askyesnocancel</strong></a>(title, message, **kw)</dt><dd><tt>ask&nbsp;yes&nbsp;or&nbsp;no&nbsp;or&nbsp;cancel<br>
+RETURN:&nbsp;True&nbsp;on&nbsp;Yes,&nbsp;False&nbsp;on&nbsp;No,&nbsp;or&nbsp;None&nbsp;if&nbsp;cancelled</tt></dd></dl>
+ <dl><dt><a name="-choose"><strong>choose</strong></a>(title, items, **kw)</dt><dd><tt>choose&nbsp;one&nbsp;or&nbsp;more&nbsp;items&nbsp;from&nbsp;ITEMS<br>
+RETURN:&nbsp;a&nbsp;tuple&nbsp;of&nbsp;chosen&nbsp;items,&nbsp;or&nbsp;None&nbsp;if&nbsp;cancelled</tt></dd></dl>
+ <dl><dt><a name="-dialog"><strong>dialog</strong></a>(title, message, **kw)</dt><dd><tt>The&nbsp;final&nbsp;dialog&nbsp;API<br>
+TITLE:&nbsp;dialog&nbsp;title<br>
+MESSAGE:&nbsp;dialog&nbsp;body&nbsp;message<br>
+you&nbsp;can&nbsp;set&nbsp;`yes',&nbsp;`no'&nbsp;and&nbsp;`cancel'&nbsp;button&nbsp;behaviour&nbsp;with&nbsp;keyword&nbsp;param<br>
+value&nbsp;for&nbsp;the&nbsp;keyword&nbsp;can&nbsp;be<br>
+1.&nbsp;a&nbsp;string,&nbsp;will&nbsp;be&nbsp;the&nbsp;button&nbsp;text&nbsp;and&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;dialog<br>
+2.&nbsp;a&nbsp;callable&nbsp;object,&nbsp;will&nbsp;be&nbsp;called&nbsp;if&nbsp;the&nbsp;button&nbsp;clicked<br>
+3.&nbsp;a&nbsp;list&nbsp;with&nbsp;to&nbsp;two&nbsp;element.<br>
+&nbsp;&nbsp;a.&nbsp;the&nbsp;first&nbsp;element&nbsp;will&nbsp;be&nbsp;the&nbsp;button&nbsp;text.<br>
+&nbsp;&nbsp;b.&nbsp;the&nbsp;second&nbsp;will&nbsp;be&nbsp;called&nbsp;if&nbsp;callable,&nbsp;or&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;dialog<br>
+4.&nbsp;all&nbsp;other&nbsp;situation,&nbsp;the&nbsp;value&nbsp;will&nbsp;be&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;dialog</tt></dd></dl>
+ <dl><dt><a name="-info"><strong>info</strong></a>(what)</dt><dd><tt>show&nbsp;information&nbsp;INFO&nbsp;to&nbsp;user</tt></dd></dl>
+ <dl><dt><a name="-message"><strong>message</strong></a>(title, message, text<font color="#909090">='OK'</font>)</dt><dd><tt>show&nbsp;a&nbsp;message</tt></dd></dl>
+ <dl><dt><a name="-notify"><strong>notify</strong></a>(title, message)</dt><dd><tt>Displays&nbsp;a&nbsp;notification</tt></dd></dl>
+ <dl><dt><a name="-pick"><strong>pick</strong></a>(title, items)</dt><dd><tt>choose&nbsp;one&nbsp;items&nbsp;from&nbsp;ITEMS<br>
+RETURN:&nbsp;&nbsp;the&nbsp;selected&nbsp;item,&nbsp;or&nbsp;None&nbsp;if&nbsp;cancelled</tt></dd></dl>
+ <dl><dt><a name="-select"><strong>select</strong></a>(title, items, **kw)</dt><dd><tt>select&nbsp;one&nbsp;item&nbsp;from&nbsp;ITEMS<br>
+RETURN:&nbsp;the&nbsp;selected&nbsp;item,&nbsp;or&nbsp;None&nbsp;if&nbsp;cancelled</tt></dd></dl>
+ <dl><dt><a name="-toast"><strong>toast</strong></a> = info(what)</dt><dd><tt>show&nbsp;information&nbsp;INFO&nbsp;to&nbsp;user</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>CANCEL</strong> = 'Cancel'<br>
+<strong>NO</strong> = 'No'<br>
+<strong>NUMBER_DECIMAL</strong> = 'numberDecimal'<br>
+<strong>NUMBER_SIGNED</strong> = 'numberSigned'<br>
+<strong>OK</strong> = 'OK'<br>
+<strong>TEXT</strong> = 'text'<br>
+<strong>TEXT_PASSWORD</strong> = 'textPassword'<br>
+<strong>YES</strong> = 'Yes'</td></tr></table>
+</body></html>

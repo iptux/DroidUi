@@ -1,0 +1,1180 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module DroidFacade</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>DroidFacade</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/storage/sdcard0/sl4a/scripts/DroidUi/DroidFacade.py">/storage/sdcard0/sl4a/scripts/DroidUi/DroidFacade.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;Copyright&nbsp;(C)&nbsp;2012-2014&nbsp;Tommy&nbsp;Alex.&nbsp;All&nbsp;Rights&nbsp;Reserved.<br>
+#<br>
+#&nbsp;This&nbsp;program&nbsp;is&nbsp;free&nbsp;software:&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or&nbsp;modify<br>
+#&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;as&nbsp;published&nbsp;by<br>
+#&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation,&nbsp;either&nbsp;version&nbsp;3&nbsp;of&nbsp;the&nbsp;License,&nbsp;or<br>
+#&nbsp;(at&nbsp;your&nbsp;option)&nbsp;any&nbsp;later&nbsp;version.<br>
+#<br>
+#&nbsp;This&nbsp;program&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,<br>
+#&nbsp;but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of<br>
+#&nbsp;MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the<br>
+#&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.<br>
+#<br>
+#&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License<br>
+#&nbsp;along&nbsp;with&nbsp;this&nbsp;program.&nbsp;&nbsp;If&nbsp;not,&nbsp;see&nbsp;&lt;<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="warnings.html">warnings</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="DroidFacade.html#_Facade">_Facade</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="DroidFacade.html#Battery">Battery</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Bluetooth">Bluetooth</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Camera">Camera</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Class">Class</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Contact">Contact</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Event">Event</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="DroidFacade.html#Broadcast">Broadcast</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="DroidFacade.html#Intent">Intent</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Location">Location</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Misc">Misc</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Package">Package</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Phone">Phone</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#PhoneState">PhoneState</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Player">Player</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Preference">Preference</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Recorder">Recorder</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Sensing">Sensing</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Signal">Signal</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Sim">Sim</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Sms">Sms</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Uri">Uri</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#WakeLock">WakeLock</a>
+</font></dt><dt><font face="helvetica, arial"><a href="DroidFacade.html#Wifi">Wifi</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="DroidFacade.html#Count">Count</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Battery">class <strong>Battery</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;BatteryManagerFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/BatteryManagerFacade.html">http://www.mithril.com.au/android/doc/BatteryManagerFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Battery">Battery</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Battery-__del__"><strong>__del__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Battery-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Battery-health"><strong>health</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;battery&nbsp;health&nbsp;data</tt></dd></dl>
+
+<dl><dt><a name="Battery-level"><strong>level</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;battery&nbsp;level&nbsp;(percentage)<br>
+Min&nbsp;SDK&nbsp;level=5</tt></dd></dl>
+
+<dl><dt><a name="Battery-plugType"><strong>plugType</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;plug&nbsp;type&nbsp;data</tt></dd></dl>
+
+<dl><dt><a name="Battery-present"><strong>present</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;battery&nbsp;presence&nbsp;data<br>
+Min&nbsp;SDK&nbsp;level=5</tt></dd></dl>
+
+<dl><dt><a name="Battery-read"><strong>read</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;recorded&nbsp;battery&nbsp;data</tt></dd></dl>
+
+<dl><dt><a name="Battery-status"><strong>status</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;battery&nbsp;status&nbsp;data</tt></dd></dl>
+
+<dl><dt><a name="Battery-technology"><strong>technology</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;battery&nbsp;technology&nbsp;data<br>
+Min&nbsp;SDK&nbsp;level=5</tt></dd></dl>
+
+<dl><dt><a name="Battery-temperature"><strong>temperature</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;battery&nbsp;temperature<br>
+Min&nbsp;SDK&nbsp;level=5</tt></dd></dl>
+
+<dl><dt><a name="Battery-voltage"><strong>voltage</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;battery&nbsp;voltage<br>
+Min&nbsp;SDK&nbsp;level=5</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>HEALTH</strong> = ('invaild', 'unknown', 'good', 'overheat', 'dead', 'over voltage', 'unspecified failure')</dl>
+
+<dl><dt><strong>PLUG_TYPE</strong> = ('unplugged', 'AC charger', 'USB port', 'unknown')</dl>
+
+<dl><dt><strong>STATUS</strong> = ('invalid', 'unknown', 'charging', 'discharging', 'not charging', 'full')</dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Bluetooth">class <strong>Bluetooth</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;BluetoothFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/BluetoothFacade.html">http://www.mithril.com.au/android/doc/BluetoothFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Bluetooth">Bluetooth</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Bluetooth-__init__"><strong>__init__</strong></a>(self, conn<font color="#909090">=''</font>)</dt></dl>
+
+<dl><dt><a name="Bluetooth-accept"><strong>accept</strong></a>(self, timeout<font color="#909090">=30000</font>, uuid<font color="#909090">='457807c0-4897-11df-9879-0800200c9a66'</font>)</dt><dd><tt>Listens&nbsp;for&nbsp;and&nbsp;accepts&nbsp;a&nbsp;<a href="#Bluetooth">Bluetooth</a>&nbsp;connection.&nbsp;Blocks&nbsp;until&nbsp;the&nbsp;connection&nbsp;is&nbsp;established&nbsp;or&nbsp;fails<br>
+uuid&nbsp;(String)&nbsp;(default=457807c0-4897-11df-9879-0800200c9a66)<br>
+timeout&nbsp;(Integer)&nbsp;How&nbsp;long&nbsp;to&nbsp;wait&nbsp;for&nbsp;a&nbsp;new&nbsp;connection,&nbsp;in&nbsp;millseconds</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-connect"><strong>connect</strong></a>(self, address<font color="#909090">=None</font>, uuid<font color="#909090">='457807c0-4897-11df-9879-0800200c9a66'</font>)</dt><dd><tt>Connect&nbsp;to&nbsp;a&nbsp;device&nbsp;over&nbsp;<a href="#Bluetooth">Bluetooth</a>.&nbsp;Blocks&nbsp;until&nbsp;the&nbsp;connection&nbsp;is&nbsp;established&nbsp;or&nbsp;fails<br>
+uuid&nbsp;(String)&nbsp;The&nbsp;UUID&nbsp;passed&nbsp;here&nbsp;must&nbsp;match&nbsp;the&nbsp;UUID&nbsp;used&nbsp;by&nbsp;the&nbsp;server&nbsp;device.</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-name"><strong>name</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;connected&nbsp;device</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-read"><strong>read</strong></a>(self, buffer<font color="#909090">=4096</font>)</dt><dd><tt>Read&nbsp;up&nbsp;to&nbsp;bufferSize&nbsp;ASCII&nbsp;characters</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-readbin"><strong>readbin</strong></a>(self, buffer<font color="#909090">=4096</font>)</dt><dd><tt>Read&nbsp;up&nbsp;to&nbsp;bufferSize&nbsp;Binary&nbsp;bytes</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-readline"><strong>readline</strong></a>(self)</dt><dd><tt>Read&nbsp;the&nbsp;next&nbsp;line</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-ready"><strong>ready</strong></a>(self)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;next&nbsp;read&nbsp;is&nbsp;guaranteed&nbsp;not&nbsp;to&nbsp;block</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-stop"><strong>stop</strong></a>(self)</dt><dd><tt>Stops&nbsp;<a href="#Bluetooth">Bluetooth</a>&nbsp;connection</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-write"><strong>write</strong></a>(self, data)</dt><dd><tt>Sends&nbsp;ASCII&nbsp;characters&nbsp;over&nbsp;the&nbsp;currently&nbsp;open&nbsp;<a href="#Bluetooth">Bluetooth</a>&nbsp;connection</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-writebin"><strong>writebin</strong></a>(self, data)</dt><dd><tt>Send&nbsp;bytes&nbsp;over&nbsp;the&nbsp;currently&nbsp;open&nbsp;<a href="#Bluetooth">Bluetooth</a>&nbsp;connection</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Bluetooth-address"><strong>address</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;hardware&nbsp;address&nbsp;of&nbsp;the&nbsp;local&nbsp;<a href="#Bluetooth">Bluetooth</a>&nbsp;adapter</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-cancel"><strong>cancel</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Cancel&nbsp;the&nbsp;current&nbsp;device&nbsp;discovery&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-connections"><strong>connections</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;active&nbsp;<a href="#Bluetooth">Bluetooth</a>&nbsp;connections</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-discover"><strong>discover</strong></a>(cls, duration<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Requests&nbsp;that&nbsp;the&nbsp;device&nbsp;be&nbsp;discoverable&nbsp;for&nbsp;<a href="#Bluetooth">Bluetooth</a>&nbsp;connections<br>
+duration&nbsp;(Integer)&nbsp;period&nbsp;of&nbsp;time,&nbsp;in&nbsp;seconds,&nbsp;during&nbsp;which&nbsp;the&nbsp;device&nbsp;should&nbsp;be&nbsp;discoverable</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-local"><strong>local</strong></a>(cls, name<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Gets&nbsp;or&nbsp;Sets&nbsp;the&nbsp;<a href="#Bluetooth">Bluetooth</a>&nbsp;Visible&nbsp;device&nbsp;name<br>
+name&nbsp;(String)&nbsp;New&nbsp;local&nbsp;name</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-remote"><strong>remote</strong></a>(cls, address)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Queries&nbsp;a&nbsp;remote&nbsp;device&nbsp;for&nbsp;it's&nbsp;name&nbsp;or&nbsp;null&nbsp;if&nbsp;it&nbsp;can't&nbsp;be&nbsp;resolved</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-scanMode"><strong>scanMode</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Gets&nbsp;the&nbsp;scan&nbsp;mode&nbsp;for&nbsp;the&nbsp;local&nbsp;dongle</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-start"><strong>start</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Start&nbsp;the&nbsp;remote&nbsp;device&nbsp;discovery&nbsp;process</tt></dd></dl>
+
+<dl><dt><a name="Bluetooth-state"><strong>state</strong></a>(cls, enabled<font color="#909090">=None</font>, prompt<font color="#909090">=True</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Toggle&nbsp;<a href="#Bluetooth">Bluetooth</a>&nbsp;on&nbsp;and&nbsp;off<br>
+prompt&nbsp;(Boolean)&nbsp;Prompt&nbsp;the&nbsp;user&nbsp;to&nbsp;confirm&nbsp;changing&nbsp;the&nbsp;<a href="#Bluetooth">Bluetooth</a>&nbsp;state</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>SCAN_MODE</strong> = ('non discoverable, non connectable', 'connectable, non discoverable', 'invaild scan mode', 'connectable, discoverable', 'Bluetooth is disabled')</dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Broadcast">class <strong>Broadcast</strong></a>(<a href="DroidFacade.html#Event">Event</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Broadcast">Broadcast</a></dd>
+<dd><a href="DroidFacade.html#Event">Event</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Broadcast-categories"><strong>categories</strong></a>(self)</dt><dd><tt>Lists&nbsp;all&nbsp;the&nbsp;broadcast&nbsp;signals&nbsp;we&nbsp;are&nbsp;listening&nbsp;for</tt></dd></dl>
+
+<dl><dt><a name="Broadcast-reg"><strong>reg</strong></a> = <a href="#Broadcast-register">register</a>(self, category, enqueue<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="Broadcast-register"><strong>register</strong></a>(self, category, enqueue<font color="#909090">=True</font>)</dt><dd><tt>Registers&nbsp;a&nbsp;listener&nbsp;for&nbsp;a&nbsp;new&nbsp;broadcast&nbsp;signal<br>
+category&nbsp;(String)<br>
+enqueue&nbsp;(Boolean)&nbsp;Should&nbsp;this&nbsp;events&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;event&nbsp;queue&nbsp;or&nbsp;only&nbsp;dispatched</tt></dd></dl>
+
+<dl><dt><a name="Broadcast-unreg"><strong>unreg</strong></a> = <a href="#Broadcast-unregister">unregister</a>(self, category)</dt></dl>
+
+<dl><dt><a name="Broadcast-unregister"><strong>unregister</strong></a>(self, category)</dt><dd><tt>Stop&nbsp;listening&nbsp;for&nbsp;a&nbsp;broadcast&nbsp;signal</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="DroidFacade.html#Event">Event</a>:<br>
+<dl><dt><a name="Broadcast-__init__"><strong>__init__</strong></a>(self, droid, **handler)</dt></dl>
+
+<dl><dt><a name="Broadcast-clear"><strong>clear</strong></a>(self)</dt><dd><tt>Clears&nbsp;all&nbsp;events&nbsp;from&nbsp;the&nbsp;event&nbsp;buffer</tt></dd></dl>
+
+<dl><dt><a name="Broadcast-loop"><strong>loop</strong></a>(self)</dt><dd><tt>event&nbsp;hanlding&nbsp;loop</tt></dd></dl>
+
+<dl><dt><a name="Broadcast-poll"><strong>poll</strong></a>(self, count<font color="#909090">=1</font>)</dt><dd><tt>Returns&nbsp;and&nbsp;removes&nbsp;the&nbsp;oldest&nbsp;COUNT&nbsp;events<br>
+(i.e.&nbsp;location&nbsp;or&nbsp;sensor&nbsp;update,&nbsp;etc.)&nbsp;from&nbsp;the&nbsp;event&nbsp;buffer</tt></dd></dl>
+
+<dl><dt><a name="Broadcast-post"><strong>post</strong></a>(self, name, data, enqueue<font color="#909090">=False</font>)</dt><dd><tt>Post&nbsp;an&nbsp;event&nbsp;to&nbsp;the&nbsp;event&nbsp;queue<br>
+name&nbsp;(String)&nbsp;Name&nbsp;of&nbsp;event<br>
+data&nbsp;(String)&nbsp;Data&nbsp;contained&nbsp;in&nbsp;event<br>
+enqueue&nbsp;(Boolean)&nbsp;Set&nbsp;to&nbsp;False&nbsp;if&nbsp;you&nbsp;don't&nbsp;want&nbsp;your&nbsp;events&nbsp;to&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;event&nbsp;queue,&nbsp;just&nbsp;dispatched</tt></dd></dl>
+
+<dl><dt><a name="Broadcast-quit"><strong>quit</strong></a>(self, data<font color="#909090">=None</font>)</dt><dd><tt>quit&nbsp;event&nbsp;loop<br>
+there&nbsp;is&nbsp;a&nbsp;DATA&nbsp;parameter,&nbsp;so&nbsp;quit&nbsp;can&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;event&nbsp;handler&nbsp;as&nbsp;well&nbsp;as&nbsp;a&nbsp;click&nbsp;handler&nbsp;or&nbsp;key&nbsp;handler</tt></dd></dl>
+
+<dl><dt><a name="Broadcast-wait"><strong>wait</strong></a>(self, timeout<font color="#909090">=None</font>)</dt><dd><tt>Blocks&nbsp;until&nbsp;an&nbsp;event&nbsp;occurs.&nbsp;The&nbsp;returned&nbsp;event&nbsp;is&nbsp;removed&nbsp;from&nbsp;the&nbsp;buffer<br>
+timeout&nbsp;(Integer)&nbsp;the&nbsp;maximum&nbsp;time&nbsp;to&nbsp;wait&nbsp;(in&nbsp;ms)<br>
+returns:&nbsp;(<a href="#Event">Event</a>)&nbsp;Map&nbsp;of&nbsp;event&nbsp;properties</tt></dd></dl>
+
+<dl><dt><a name="Broadcast-waitFor"><strong>waitFor</strong></a>(self, name, timeout<font color="#909090">=None</font>)</dt><dd><tt>Blocks&nbsp;until&nbsp;an&nbsp;event&nbsp;with&nbsp;the&nbsp;supplied&nbsp;name&nbsp;occurs.&nbsp;The&nbsp;returned&nbsp;event&nbsp;is&nbsp;not&nbsp;removed&nbsp;from&nbsp;the&nbsp;buffer<br>
+name&nbsp;(String)<br>
+timeout&nbsp;(Integer)&nbsp;the&nbsp;maximum&nbsp;time&nbsp;to&nbsp;wait&nbsp;(in&nbsp;ms)<br>
+returns:&nbsp;(<a href="#Event">Event</a>)&nbsp;Map&nbsp;of&nbsp;event&nbsp;properties</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Camera">class <strong>Camera</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;CameraFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/CameraFacade.html">http://www.mithril.com.au/android/doc/CameraFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Camera">Camera</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Camera-capture"><strong>capture</strong></a>(cls, path, autoFocus<font color="#909090">=True</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Take&nbsp;a&nbsp;picture&nbsp;and&nbsp;save&nbsp;it&nbsp;to&nbsp;the&nbsp;specified&nbsp;path<br>
+path&nbsp;(String)<br>
+autoFocus&nbsp;(Boolean)&nbsp;(default=true)<br>
+returns:&nbsp;(Bundle)&nbsp;A&nbsp;map&nbsp;of&nbsp;Booleans&nbsp;autoFocus&nbsp;and&nbsp;takePicture&nbsp;where&nbsp;True&nbsp;indicates&nbsp;success.</tt></dd></dl>
+
+<dl><dt><a name="Camera-interactive"><strong>interactive</strong></a>(cls, path)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Starts&nbsp;the&nbsp;image&nbsp;capture&nbsp;application&nbsp;to&nbsp;take&nbsp;a&nbsp;picture&nbsp;and&nbsp;saves&nbsp;it&nbsp;to&nbsp;the&nbsp;specified&nbsp;path<br>
+targetPath&nbsp;(String)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Class">class <strong>Class</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>#&nbsp;java&nbsp;class&nbsp;is&nbsp;different&nbsp;from&nbsp;Android&nbsp;package<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Class">Class</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Class-__init__"><strong>__init__</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="Class-consts"><strong>consts</strong></a>(self)</dt><dd><tt>Get&nbsp;list&nbsp;of&nbsp;constants&nbsp;(static&nbsp;final&nbsp;fields)&nbsp;for&nbsp;a&nbsp;class</tt></dd></dl>
+
+<dl><dt><a name="Class-launch"><strong>launch</strong></a>(self)</dt><dd><tt>Start&nbsp;activity&nbsp;with&nbsp;the&nbsp;given&nbsp;class&nbsp;name</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Class-launchable"><strong>launchable</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;dict&nbsp;of&nbsp;all&nbsp;launchable&nbsp;application&nbsp;class&nbsp;names</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Contact">class <strong>Contact</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;ContactsFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/ContactsFacade.html">http://www.mithril.com.au/android/doc/ContactsFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Contact">Contact</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Contact-attrs"><strong>attrs</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;List&nbsp;of&nbsp;all&nbsp;possible&nbsp;attributes&nbsp;for&nbsp;contacts</tt></dd></dl>
+
+<dl><dt><a name="Contact-count"><strong>count</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;number&nbsp;of&nbsp;contacts</tt></dd></dl>
+
+<dl><dt><a name="Contact-get"><strong>get</strong></a>(cls, id<font color="#909090">=None</font>, *attributes)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;contacts&nbsp;by&nbsp;ID&nbsp;or&nbsp;a&nbsp;List&nbsp;of&nbsp;all&nbsp;contacts</tt></dd></dl>
+
+<dl><dt><a name="Contact-ids"><strong>ids</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;List&nbsp;of&nbsp;all&nbsp;contact&nbsp;IDs</tt></dd></dl>
+
+<dl><dt><a name="Contact-pick"><strong>pick</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Displays&nbsp;a&nbsp;list&nbsp;of&nbsp;contacts&nbsp;to&nbsp;pick&nbsp;from</tt></dd></dl>
+
+<dl><dt><a name="Contact-view"><strong>view</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Opens&nbsp;the&nbsp;list&nbsp;of&nbsp;contacts</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Count">class <strong>Count</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>reference&nbsp;count<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Count-__init__"><strong>__init__</strong></a>(self, init<font color="#909090">=0</font>)</dt></dl>
+
+<dl><dt><a name="Count-clear"><strong>clear</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Count-dec"><strong>dec</strong></a>(self, value<font color="#909090">=1</font>)</dt></dl>
+
+<dl><dt><a name="Count-dec_if_zero"><strong>dec_if_zero</strong></a>(self, callback, *args, **kwargs)</dt><dd><tt>dec&nbsp;the&nbsp;count&nbsp;first,<br>
+the&nbsp;check&nbsp;if&nbsp;count&nbsp;is&nbsp;zero,&nbsp;call&nbsp;the&nbsp;CALLBACK&nbsp;with&nbsp;ARGS&nbsp;and&nbsp;KWARGS</tt></dd></dl>
+
+<dl><dt><a name="Count-get"><strong>get</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Count-inc"><strong>inc</strong></a>(self, value<font color="#909090">=1</font>)</dt></dl>
+
+<dl><dt><a name="Count-inc_if_zero"><strong>inc_if_zero</strong></a>(self, callback, *args, **kwargs)</dt><dd><tt>if&nbsp;count&nbsp;is&nbsp;zero,&nbsp;call&nbsp;the&nbsp;CALLBACK&nbsp;with&nbsp;ARGS&nbsp;and&nbsp;KWARGS<br>
+then&nbsp;inc&nbsp;the&nbsp;count</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Event">class <strong>Event</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;EventFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/EventFacade.html">http://www.mithril.com.au/android/doc/EventFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Event">Event</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Event-__init__"><strong>__init__</strong></a>(self, droid, **handler)</dt></dl>
+
+<dl><dt><a name="Event-clear"><strong>clear</strong></a>(self)</dt><dd><tt>Clears&nbsp;all&nbsp;events&nbsp;from&nbsp;the&nbsp;event&nbsp;buffer</tt></dd></dl>
+
+<dl><dt><a name="Event-loop"><strong>loop</strong></a>(self)</dt><dd><tt>event&nbsp;hanlding&nbsp;loop</tt></dd></dl>
+
+<dl><dt><a name="Event-poll"><strong>poll</strong></a>(self, count<font color="#909090">=1</font>)</dt><dd><tt>Returns&nbsp;and&nbsp;removes&nbsp;the&nbsp;oldest&nbsp;COUNT&nbsp;events<br>
+(i.e.&nbsp;location&nbsp;or&nbsp;sensor&nbsp;update,&nbsp;etc.)&nbsp;from&nbsp;the&nbsp;event&nbsp;buffer</tt></dd></dl>
+
+<dl><dt><a name="Event-post"><strong>post</strong></a>(self, name, data, enqueue<font color="#909090">=False</font>)</dt><dd><tt>Post&nbsp;an&nbsp;event&nbsp;to&nbsp;the&nbsp;event&nbsp;queue<br>
+name&nbsp;(String)&nbsp;Name&nbsp;of&nbsp;event<br>
+data&nbsp;(String)&nbsp;Data&nbsp;contained&nbsp;in&nbsp;event<br>
+enqueue&nbsp;(Boolean)&nbsp;Set&nbsp;to&nbsp;False&nbsp;if&nbsp;you&nbsp;don't&nbsp;want&nbsp;your&nbsp;events&nbsp;to&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;event&nbsp;queue,&nbsp;just&nbsp;dispatched</tt></dd></dl>
+
+<dl><dt><a name="Event-quit"><strong>quit</strong></a>(self, data<font color="#909090">=None</font>)</dt><dd><tt>quit&nbsp;event&nbsp;loop<br>
+there&nbsp;is&nbsp;a&nbsp;DATA&nbsp;parameter,&nbsp;so&nbsp;quit&nbsp;can&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;event&nbsp;handler&nbsp;as&nbsp;well&nbsp;as&nbsp;a&nbsp;click&nbsp;handler&nbsp;or&nbsp;key&nbsp;handler</tt></dd></dl>
+
+<dl><dt><a name="Event-reg"><strong>reg</strong></a> = <a href="#Event-register">register</a>(self, name, handler)</dt></dl>
+
+<dl><dt><a name="Event-register"><strong>register</strong></a>(self, name, handler)</dt><dd><tt>register&nbsp;event&nbsp;handler<br>
+NAME&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;event&nbsp;name<br>
+HANDLER&nbsp;should&nbsp;accept&nbsp;1&nbsp;param&nbsp;which&nbsp;contains&nbsp;event&nbsp;data<br>
+HANDLER&nbsp;should&nbsp;return&nbsp;True&nbsp;if&nbsp;the&nbsp;event&nbsp;is&nbsp;handled&nbsp;properly</tt></dd></dl>
+
+<dl><dt><a name="Event-unreg"><strong>unreg</strong></a> = <a href="#Event-unregister">unregister</a>(self, name)</dt></dl>
+
+<dl><dt><a name="Event-unregister"><strong>unregister</strong></a>(self, name)</dt><dd><tt>unregister&nbsp;event&nbsp;handler<br>
+NAME&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;event&nbsp;name</tt></dd></dl>
+
+<dl><dt><a name="Event-wait"><strong>wait</strong></a>(self, timeout<font color="#909090">=None</font>)</dt><dd><tt>Blocks&nbsp;until&nbsp;an&nbsp;event&nbsp;occurs.&nbsp;The&nbsp;returned&nbsp;event&nbsp;is&nbsp;removed&nbsp;from&nbsp;the&nbsp;buffer<br>
+timeout&nbsp;(Integer)&nbsp;the&nbsp;maximum&nbsp;time&nbsp;to&nbsp;wait&nbsp;(in&nbsp;ms)<br>
+returns:&nbsp;(<a href="#Event">Event</a>)&nbsp;Map&nbsp;of&nbsp;event&nbsp;properties</tt></dd></dl>
+
+<dl><dt><a name="Event-waitFor"><strong>waitFor</strong></a>(self, name, timeout<font color="#909090">=None</font>)</dt><dd><tt>Blocks&nbsp;until&nbsp;an&nbsp;event&nbsp;with&nbsp;the&nbsp;supplied&nbsp;name&nbsp;occurs.&nbsp;The&nbsp;returned&nbsp;event&nbsp;is&nbsp;not&nbsp;removed&nbsp;from&nbsp;the&nbsp;buffer<br>
+name&nbsp;(String)<br>
+timeout&nbsp;(Integer)&nbsp;the&nbsp;maximum&nbsp;time&nbsp;to&nbsp;wait&nbsp;(in&nbsp;ms)<br>
+returns:&nbsp;(<a href="#Event">Event</a>)&nbsp;Map&nbsp;of&nbsp;event&nbsp;properties</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Intent">class <strong>Intent</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;AndroidFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/AndroidFacade.html">http://www.mithril.com.au/android/doc/AndroidFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Intent">Intent</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Intent-__init__"><strong>__init__</strong></a>(self, action, uri<font color="#909090">=None</font>, type<font color="#909090">=None</font>, package<font color="#909090">=None</font>, clsname<font color="#909090">=None</font>, flags<font color="#909090">=0</font>, *categories, **extras)</dt><dd><tt>Create&nbsp;an&nbsp;<a href="#Intent">Intent</a></tt></dd></dl>
+
+<dl><dt><a name="Intent-broadcast"><strong>broadcast</strong></a>(self)</dt><dd><tt>Send&nbsp;<a href="#Broadcast">Broadcast</a>&nbsp;<a href="#Intent">Intent</a></tt></dd></dl>
+
+<dl><dt><a name="Intent-start"><strong>start</strong></a>(self, wait<font color="#909090">=False</font>)</dt><dd><tt>Starts&nbsp;an&nbsp;activity&nbsp;and&nbsp;returns&nbsp;the&nbsp;result</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Location">class <strong>Location</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;LocationFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/LocationFacade.html">http://www.mithril.com.au/android/doc/LocationFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Location">Location</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Location-__del__"><strong>__del__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Location-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Location-read"><strong>read</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;current&nbsp;location&nbsp;as&nbsp;indicated&nbsp;by&nbsp;all&nbsp;available&nbsp;providers</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Location-enabled"><strong>enabled</strong></a>(cls, provider)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Ask&nbsp;if&nbsp;provider&nbsp;is&nbsp;enabled</tt></dd></dl>
+
+<dl><dt><a name="Location-geocode"><strong>geocode</strong></a>(cls, latitude, longitude, maxResults<font color="#909090">=1</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;addresses&nbsp;for&nbsp;the&nbsp;given&nbsp;latitude&nbsp;and&nbsp;longitude<br>
+latitude&nbsp;(Double)<br>
+longitude&nbsp;(Double)<br>
+maxResults&nbsp;(Integer)&nbsp;maximum&nbsp;number&nbsp;of&nbsp;results&nbsp;(default=1)<br>
+returns:&nbsp;(List)&nbsp;A&nbsp;list&nbsp;of&nbsp;addresses</tt></dd></dl>
+
+<dl><dt><a name="Location-last"><strong>last</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;last&nbsp;known&nbsp;location&nbsp;of&nbsp;the&nbsp;device</tt></dd></dl>
+
+<dl><dt><a name="Location-providers"><strong>providers</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;availables&nbsp;providers&nbsp;on&nbsp;the&nbsp;phone</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Misc">class <strong>Misc</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;<a href="#Misc">Misc</a>&nbsp;Facade<br>
+(SpeechRecognitionFacade,&nbsp;TextToSpeechFacade,&nbsp;ToneGeneratorFacade,&nbsp;AndroidFacade)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Misc">Misc</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Misc-barcode"><strong>barcode</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Starts&nbsp;the&nbsp;barcode&nbsp;scanner</tt></dd></dl>
+
+<dl><dt><a name="Misc-clipboard"><strong>clipboard</strong></a>(cls, text<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Read/Put&nbsp;text&nbsp;from/to&nbsp;the&nbsp;clipboard</tt></dd></dl>
+
+<dl><dt><a name="Misc-dtmf"><strong>dtmf</strong></a>(cls, number, duration)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Generate&nbsp;DTMF&nbsp;tones&nbsp;for&nbsp;the&nbsp;given&nbsp;phone&nbsp;number<br>
+number&nbsp;(String)<br>
+duration&nbsp;(Integer)&nbsp;duration&nbsp;of&nbsp;each&nbsp;tone&nbsp;in&nbsp;milliseconds&nbsp;(default=100)</tt></dd></dl>
+
+<dl><dt><a name="Misc-email"><strong>email</strong></a>(cls, to, subject, body, attach<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Launches&nbsp;an&nbsp;activity&nbsp;that&nbsp;sends&nbsp;an&nbsp;e-mail&nbsp;message&nbsp;to&nbsp;a&nbsp;given&nbsp;recipient</tt></dd></dl>
+
+<dl><dt><a name="Misc-env"><strong>env</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>A&nbsp;map&nbsp;of&nbsp;various&nbsp;useful&nbsp;environment&nbsp;details</tt></dd></dl>
+
+<dl><dt><a name="Misc-log"><strong>log</strong></a>(cls, msg)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Writes&nbsp;message&nbsp;to&nbsp;logcat</tt></dd></dl>
+
+<dl><dt><a name="Misc-recognize"><strong>recognize</strong></a>(cls, prompt<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Recognizes&nbsp;user's&nbsp;speech&nbsp;and&nbsp;returns&nbsp;the&nbsp;most&nbsp;likely&nbsp;result</tt></dd></dl>
+
+<dl><dt><a name="Misc-tts"><strong>tts</strong></a>(cls, msg<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Speaks&nbsp;the&nbsp;provided&nbsp;message&nbsp;via&nbsp;TTS</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Package">class <strong>Package</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;ApplicationManagerFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/ApplicationManagerFacade.html">http://www.mithril.com.au/android/doc/ApplicationManagerFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Package">Package</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Package-__init__"><strong>__init__</strong></a>(self, classname)</dt></dl>
+
+<dl><dt><a name="Package-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Package-code"><strong>code</strong></a>(self)</dt><dd><tt>Returns&nbsp;package&nbsp;version&nbsp;code</tt></dd></dl>
+
+<dl><dt><a name="Package-stop"><strong>stop</strong></a>(self)</dt><dd><tt>Force&nbsp;stops&nbsp;a&nbsp;package</tt></dd></dl>
+
+<dl><dt><a name="Package-version"><strong>version</strong></a>(self)</dt><dd><tt>Returns&nbsp;package&nbsp;version&nbsp;name</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Package-running"><strong>running</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;packages&nbsp;running&nbsp;activities&nbsp;or&nbsp;services</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Phone">class <strong>Phone</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;PhoneFacade&nbsp;and&nbsp;SettingsFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/PhoneFacade.html">http://www.mithril.com.au/android/doc/PhoneFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Phone">Phone</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Phone-airplane"><strong>airplane</strong></a>(cls, enabled<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Toggles&nbsp;airplane&nbsp;mode&nbsp;on&nbsp;and&nbsp;off</tt></dd></dl>
+
+<dl><dt><a name="Phone-brightness"><strong>brightness</strong></a>(cls, bright<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Gets&nbsp;or&nbsp;Sets&nbsp;the&nbsp;the&nbsp;screen&nbsp;backlight&nbsp;brightness<br>
+bright&nbsp;(Integer)&nbsp;brightness&nbsp;value&nbsp;between&nbsp;0&nbsp;and&nbsp;255</tt></dd></dl>
+
+<dl><dt><a name="Phone-call"><strong>call</strong></a>(cls, uri)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Calls&nbsp;a&nbsp;contact/phone&nbsp;number&nbsp;by&nbsp;URI</tt></dd></dl>
+
+<dl><dt><a name="Phone-cellLocation"><strong>cellLocation</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;current&nbsp;cell&nbsp;location</tt></dd></dl>
+
+<dl><dt><a name="Phone-dial"><strong>dial</strong></a>(cls, uri)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Dials&nbsp;a&nbsp;contact/phone&nbsp;number&nbsp;by&nbsp;URI</tt></dd></dl>
+
+<dl><dt><a name="Phone-id"><strong>id</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;unique&nbsp;device&nbsp;ID<br>
+for&nbsp;example,&nbsp;the&nbsp;IMEI&nbsp;for&nbsp;GSM&nbsp;and&nbsp;the&nbsp;MEID&nbsp;for&nbsp;CDMA&nbsp;phones.<br>
+Return&nbsp;null&nbsp;if&nbsp;device&nbsp;ID&nbsp;is&nbsp;not&nbsp;available</tt></dd></dl>
+
+<dl><dt><a name="Phone-maxVolume"><strong>maxVolume</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;maximum&nbsp;ringer&nbsp;volume</tt></dd></dl>
+
+<dl><dt><a name="Phone-neighboring"><strong>neighboring</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;neighboring&nbsp;cell&nbsp;information&nbsp;of&nbsp;the&nbsp;device</tt></dd></dl>
+
+<dl><dt><a name="Phone-network"><strong>network</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;the&nbsp;radio&nbsp;technology&nbsp;(network&nbsp;type)&nbsp;currently&nbsp;in&nbsp;use&nbsp;on&nbsp;the&nbsp;device</tt></dd></dl>
+
+<dl><dt><a name="Phone-number"><strong>number</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;phone&nbsp;number&nbsp;string&nbsp;for&nbsp;line&nbsp;1<br>
+for&nbsp;example,&nbsp;the&nbsp;MSISDN&nbsp;for&nbsp;a&nbsp;GSM&nbsp;phone<br>
+Return&nbsp;null&nbsp;if&nbsp;it&nbsp;is&nbsp;unavailable</tt></dd></dl>
+
+<dl><dt><a name="Phone-operator"><strong>operator</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;numeric&nbsp;name&nbsp;(MCC+MNC)&nbsp;of&nbsp;current&nbsp;registered&nbsp;operator</tt></dd></dl>
+
+<dl><dt><a name="Phone-operatorName"><strong>operatorName</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;alphabetic&nbsp;name&nbsp;of&nbsp;current&nbsp;registered&nbsp;operator</tt></dd></dl>
+
+<dl><dt><a name="Phone-roaming"><strong>roaming</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;device&nbsp;is&nbsp;considered&nbsp;roaming&nbsp;on&nbsp;the&nbsp;current&nbsp;network,&nbsp;for&nbsp;GSM&nbsp;purposes</tt></dd></dl>
+
+<dl><dt><a name="Phone-screen"><strong>screen</strong></a>(cls, timeout<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Gets&nbsp;or&nbsp;Sets&nbsp;the&nbsp;screen&nbsp;timeout&nbsp;to&nbsp;this&nbsp;number&nbsp;of&nbsp;seconds</tt></dd></dl>
+
+<dl><dt><a name="Phone-silent"><strong>silent</strong></a>(cls, enabled<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Toggles&nbsp;ringer&nbsp;silent&nbsp;mode&nbsp;on&nbsp;and&nbsp;off</tt></dd></dl>
+
+<dl><dt><a name="Phone-subscriber"><strong>subscriber</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;unique&nbsp;subscriber&nbsp;ID<br>
+for&nbsp;example,&nbsp;the&nbsp;IMSI&nbsp;for&nbsp;a&nbsp;GSM&nbsp;phone<br>
+Return&nbsp;null&nbsp;if&nbsp;it&nbsp;is&nbsp;unavailable</tt></dd></dl>
+
+<dl><dt><a name="Phone-type"><strong>type</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;device&nbsp;phone&nbsp;type</tt></dd></dl>
+
+<dl><dt><a name="Phone-version"><strong>version</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;software&nbsp;version&nbsp;number&nbsp;for&nbsp;the&nbsp;device<br>
+for&nbsp;example,&nbsp;the&nbsp;IMEI/SV&nbsp;for&nbsp;GSM&nbsp;phones<br>
+Return&nbsp;null&nbsp;if&nbsp;the&nbsp;software&nbsp;version&nbsp;is&nbsp;not&nbsp;available</tt></dd></dl>
+
+<dl><dt><a name="Phone-vibrate"><strong>vibrate</strong></a>(cls, enabled<font color="#909090">=None</font>, ringer<font color="#909090">=True</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Toggles&nbsp;vibrate&nbsp;mode&nbsp;on&nbsp;and&nbsp;off<br>
+If&nbsp;ringer=true&nbsp;then&nbsp;set&nbsp;Ringer&nbsp;setting,&nbsp;else&nbsp;set&nbsp;Notification&nbsp;setting</tt></dd></dl>
+
+<dl><dt><a name="Phone-voiceMailAlphaTag"><strong>voiceMailAlphaTag</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Retrieves&nbsp;the&nbsp;alphabetic&nbsp;identifier&nbsp;associated&nbsp;with&nbsp;the&nbsp;voice&nbsp;mail&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="Phone-voiceMailNumber"><strong>voiceMailNumber</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;voice&nbsp;mail&nbsp;number<br>
+Return&nbsp;null&nbsp;if&nbsp;it&nbsp;is&nbsp;unavailable</tt></dd></dl>
+
+<dl><dt><a name="Phone-volume"><strong>volume</strong></a>(cls, volume<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Gets&nbsp;or&nbsp;Sets&nbsp;the&nbsp;ringer&nbsp;volume</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PhoneState">class <strong>PhoneState</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;PhoneFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/PhoneFacade.html">http://www.mithril.com.au/android/doc/PhoneFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#PhoneState">PhoneState</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PhoneState-__del__"><strong>__del__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PhoneState-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PhoneState-read"><strong>read</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;current&nbsp;phone&nbsp;state&nbsp;and&nbsp;incoming&nbsp;number</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Player">class <strong>Player</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;MediaPlayerFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/MediaPlayerFacade.html">http://www.mithril.com.au/android/doc/MediaPlayerFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Player">Player</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Player-close"><strong>close</strong></a>(cls, tag<font color="#909090">='default'</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Close&nbsp;media&nbsp;file<br>
+tag&nbsp;(String)&nbsp;string&nbsp;identifying&nbsp;resource&nbsp;(default=default)<br>
+returns:&nbsp;(boolean)&nbsp;true&nbsp;if&nbsp;successful</tt></dd></dl>
+
+<dl><dt><a name="Player-info"><strong>info</strong></a>(cls, tag<font color="#909090">='default'</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Information&nbsp;on&nbsp;current&nbsp;media<br>
+tag&nbsp;(String)&nbsp;string&nbsp;identifying&nbsp;resource&nbsp;(default=default)<br>
+returns:&nbsp;(Map)&nbsp;Media&nbsp;Information</tt></dd></dl>
+
+<dl><dt><a name="Player-list"><strong>list</strong></a>(cls, tag<font color="#909090">='default'</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Lists&nbsp;currently&nbsp;loaded&nbsp;media<br>
+returns:&nbsp;(Set)&nbsp;List&nbsp;of&nbsp;Media&nbsp;Tags</tt></dd></dl>
+
+<dl><dt><a name="Player-loop"><strong>loop</strong></a>(cls, enabled<font color="#909090">=True</font>, tag<font color="#909090">='default'</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Set&nbsp;Looping<br>
+enabled&nbsp;(Boolean)&nbsp;(default=true)<br>
+tag&nbsp;(String)&nbsp;string&nbsp;identifying&nbsp;resource&nbsp;(default=default)<br>
+returns:&nbsp;(boolean)&nbsp;True&nbsp;if&nbsp;successful</tt></dd></dl>
+
+<dl><dt><a name="Player-maxVolume"><strong>maxVolume</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;maximum&nbsp;media&nbsp;volume</tt></dd></dl>
+
+<dl><dt><a name="Player-pause"><strong>pause</strong></a>(cls, tag<font color="#909090">='default'</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>pause&nbsp;playing&nbsp;media&nbsp;file<br>
+tag&nbsp;(String)&nbsp;string&nbsp;identifying&nbsp;resource&nbsp;(default=default)<br>
+returns:&nbsp;(boolean)&nbsp;true&nbsp;if&nbsp;successful</tt></dd></dl>
+
+<dl><dt><a name="Player-play"><strong>play</strong></a>(cls, url, tag<font color="#909090">='default'</font>, start<font color="#909090">=True</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Open&nbsp;a&nbsp;media&nbsp;file<br>
+url&nbsp;(String)&nbsp;url&nbsp;of&nbsp;media&nbsp;resource<br>
+tag&nbsp;(String)&nbsp;string&nbsp;identifying&nbsp;resource&nbsp;(default=default)<br>
+start&nbsp;(Boolean)&nbsp;start&nbsp;playing&nbsp;immediately&nbsp;(default=true)<br>
+returns:&nbsp;(boolean)&nbsp;true&nbsp;if&nbsp;play&nbsp;successful</tt></dd></dl>
+
+<dl><dt><a name="Player-playing"><strong>playing</strong></a>(cls, tag<font color="#909090">='default'</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Checks&nbsp;if&nbsp;media&nbsp;file&nbsp;is&nbsp;playing<br>
+tag&nbsp;(String)&nbsp;string&nbsp;identifying&nbsp;resource&nbsp;(default=default)<br>
+returns:&nbsp;(boolean)&nbsp;true&nbsp;if&nbsp;playing</tt></dd></dl>
+
+<dl><dt><a name="Player-seek"><strong>seek</strong></a>(cls, msec, tag<font color="#909090">='default'</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Seek&nbsp;To&nbsp;Position<br>
+msec&nbsp;(Integer)&nbsp;Position&nbsp;in&nbsp;millseconds<br>
+tag&nbsp;(String)&nbsp;string&nbsp;identifying&nbsp;resource&nbsp;(default=default)<br>
+returns:&nbsp;(int)&nbsp;New&nbsp;Position&nbsp;(in&nbsp;ms)</tt></dd></dl>
+
+<dl><dt><a name="Player-start"><strong>start</strong></a>(cls, tag<font color="#909090">='default'</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>start&nbsp;playing&nbsp;media&nbsp;file<br>
+tag&nbsp;(String)&nbsp;string&nbsp;identifying&nbsp;resource&nbsp;(default=default)<br>
+returns:&nbsp;(boolean)&nbsp;true&nbsp;if&nbsp;successful</tt></dd></dl>
+
+<dl><dt><a name="Player-volume"><strong>volume</strong></a>(cls, volume<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Gets&nbsp;or&nbsp;Sets&nbsp;the&nbsp;media&nbsp;volume</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Preference">class <strong>Preference</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;PreferencesFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/PreferencesFacade.html">http://www.mithril.com.au/android/doc/PreferencesFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Preference">Preference</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Preference-__init__"><strong>__init__</strong></a>(self, file<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Preference-all"><strong>all</strong></a>(self)</dt><dd><tt>Get&nbsp;list&nbsp;of&nbsp;Shared&nbsp;<a href="#Preference">Preference</a>&nbsp;Values</tt></dd></dl>
+
+<dl><dt><a name="Preference-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Read&nbsp;a&nbsp;value&nbsp;from&nbsp;shared&nbsp;preferences</tt></dd></dl>
+
+<dl><dt><a name="Preference-put"><strong>put</strong></a>(self, key, value)</dt><dd><tt>Write&nbsp;a&nbsp;value&nbsp;to&nbsp;shared&nbsp;preferences</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Recorder">class <strong>Recorder</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;MediaRecorderFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/MediaRecorderFacade.html">http://www.mithril.com.au/android/doc/MediaRecorderFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Recorder">Recorder</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Recorder-audio"><strong>audio</strong></a>(cls, path)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Records&nbsp;audio&nbsp;from&nbsp;the&nbsp;microphone&nbsp;and&nbsp;saves&nbsp;it&nbsp;to&nbsp;the&nbsp;given&nbsp;location<br>
+path&nbsp;(String)</tt></dd></dl>
+
+<dl><dt><a name="Recorder-capture"><strong>capture</strong></a>(cls, path, audio<font color="#909090">=True</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Records&nbsp;video&nbsp;(and&nbsp;optionally&nbsp;audio)&nbsp;from&nbsp;the&nbsp;camera&nbsp;and&nbsp;saves&nbsp;it&nbsp;to&nbsp;the&nbsp;given&nbsp;location<br>
+Duration&nbsp;specifies&nbsp;the&nbsp;maximum&nbsp;duration&nbsp;of&nbsp;the&nbsp;recording&nbsp;session<br>
+If&nbsp;duration&nbsp;is&nbsp;not&nbsp;provided&nbsp;this&nbsp;method&nbsp;will&nbsp;return&nbsp;immediately&nbsp;and&nbsp;the&nbsp;recording&nbsp;will&nbsp;only&nbsp;be&nbsp;stopped<br>
+when&nbsp;recorderStop&nbsp;is&nbsp;called&nbsp;or&nbsp;when&nbsp;a&nbsp;scripts&nbsp;exits<br>
+Otherwise&nbsp;it&nbsp;will&nbsp;block&nbsp;for&nbsp;the&nbsp;time&nbsp;period&nbsp;equal&nbsp;to&nbsp;the&nbsp;duration&nbsp;argument<br>
+path&nbsp;(String)<br>
+audio&nbsp;(Boolean)&nbsp;(default=true)</tt></dd></dl>
+
+<dl><dt><a name="Recorder-interactive"><strong>interactive</strong></a>(cls, path)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Starts&nbsp;the&nbsp;video&nbsp;capture&nbsp;application&nbsp;to&nbsp;record&nbsp;a&nbsp;video&nbsp;and&nbsp;saves&nbsp;it&nbsp;to&nbsp;the&nbsp;specified&nbsp;path<br>
+path&nbsp;(String)</tt></dd></dl>
+
+<dl><dt><a name="Recorder-stop"><strong>stop</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Stops&nbsp;a&nbsp;previously&nbsp;started&nbsp;recording</tt></dd></dl>
+
+<dl><dt><a name="Recorder-video"><strong>video</strong></a>(cls, path, duration<font color="#909090">=0</font>, size<font color="#909090">=1</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Records&nbsp;video&nbsp;from&nbsp;the&nbsp;camera&nbsp;and&nbsp;saves&nbsp;it&nbsp;to&nbsp;the&nbsp;given&nbsp;location<br>
+Duration&nbsp;specifies&nbsp;the&nbsp;maximum&nbsp;duration&nbsp;of&nbsp;the&nbsp;recording&nbsp;session<br>
+If&nbsp;duration&nbsp;is&nbsp;0&nbsp;this&nbsp;method&nbsp;will&nbsp;return&nbsp;and&nbsp;the&nbsp;recording&nbsp;will&nbsp;only&nbsp;be&nbsp;stopped<br>
+when&nbsp;recorderStop&nbsp;is&nbsp;called&nbsp;or&nbsp;when&nbsp;a&nbsp;scripts&nbsp;exits<br>
+Otherwise&nbsp;it&nbsp;will&nbsp;block&nbsp;for&nbsp;the&nbsp;time&nbsp;period&nbsp;equal&nbsp;to&nbsp;the&nbsp;duration&nbsp;argument<br>
+size:&nbsp;0=160x120,&nbsp;1=320x240,&nbsp;2=352x288,&nbsp;3=640x480,&nbsp;4=800x480<br>
+path&nbsp;(String)<br>
+duration&nbsp;(Integer)&nbsp;(default=0)<br>
+size&nbsp;(Integer)&nbsp;(default=1)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Sensing">class <strong>Sensing</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;SensorManagerFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/SensorManagerFacade.html">http://www.mithril.com.au/android/doc/SensorManagerFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Sensing">Sensing</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Sensing-__del__"><strong>__del__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Sensing-__init__"><strong>__init__</strong></a>(self, sensorNumber<font color="#909090">=1</font>, delayTime<font color="#909090">=250</font>)</dt></dl>
+
+<dl><dt><a name="Sensing-accelerometer"><strong>accelerometer</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;accelerometer&nbsp;values<br>
+returns:&nbsp;(List)&nbsp;a&nbsp;List&nbsp;of&nbsp;Floats&nbsp;[(acceleration&nbsp;on&nbsp;the)&nbsp;X&nbsp;axis,&nbsp;Y&nbsp;axis,&nbsp;Z&nbsp;axis]</tt></dd></dl>
+
+<dl><dt><a name="Sensing-accuracy"><strong>accuracy</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;accuracy&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="Sensing-light"><strong>light</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;light&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="Sensing-magnetometer"><strong>magnetometer</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;magnetic&nbsp;field&nbsp;values<br>
+returns:&nbsp;(List)&nbsp;a&nbsp;List&nbsp;of&nbsp;Floats&nbsp;[(magnetic&nbsp;field&nbsp;value&nbsp;for)&nbsp;X&nbsp;axis,&nbsp;Y&nbsp;axis,&nbsp;Z&nbsp;axis]</tt></dd></dl>
+
+<dl><dt><a name="Sensing-orientation"><strong>orientation</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;received&nbsp;orientation&nbsp;values<br>
+returns:&nbsp;(List)&nbsp;a&nbsp;List&nbsp;of&nbsp;Doubles&nbsp;[azimuth,&nbsp;pitch,&nbsp;roll]</tt></dd></dl>
+
+<dl><dt><a name="Sensing-read"><strong>read</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;most&nbsp;recently&nbsp;recorded&nbsp;sensor&nbsp;data</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Signal">class <strong>Signal</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;SignalStrengthFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/SignalStrengthFacade.html">http://www.mithril.com.au/android/doc/SignalStrengthFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Signal">Signal</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Signal-__del__"><strong>__del__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Signal-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Signal-read"><strong>read</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;current&nbsp;signal&nbsp;strengths</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Sim">class <strong>Sim</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;PhoneFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/PhoneFacade.html">http://www.mithril.com.au/android/doc/PhoneFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Sim">Sim</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Sim-country"><strong>country</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;ISO&nbsp;country&nbsp;code&nbsp;equivalent&nbsp;for&nbsp;the&nbsp;SIM&nbsp;provider's&nbsp;country&nbsp;code</tt></dd></dl>
+
+<dl><dt><a name="Sim-operator"><strong>operator</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;MCC+MNC&nbsp;(mobile&nbsp;country&nbsp;code&nbsp;+&nbsp;mobile&nbsp;network&nbsp;code)&nbsp;of&nbsp;the&nbsp;provider&nbsp;of&nbsp;the&nbsp;SIM.&nbsp;5&nbsp;or&nbsp;6&nbsp;decimal&nbsp;digits</tt></dd></dl>
+
+<dl><dt><a name="Sim-operatorName"><strong>operatorName</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;Service&nbsp;Provider&nbsp;Name&nbsp;(SPN)</tt></dd></dl>
+
+<dl><dt><a name="Sim-serial"><strong>serial</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;serial&nbsp;number&nbsp;of&nbsp;the&nbsp;SIM,&nbsp;if&nbsp;applicable<br>
+Return&nbsp;null&nbsp;if&nbsp;it&nbsp;is&nbsp;unavailable</tt></dd></dl>
+
+<dl><dt><a name="Sim-state"><strong>state</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;state&nbsp;of&nbsp;the&nbsp;device&nbsp;SIM&nbsp;card</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Sms">class <strong>Sms</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;SmsFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/SmsFacade.html">http://www.mithril.com.au/android/doc/SmsFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Sms">Sms</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Sms-attrs"><strong>attrs</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;List&nbsp;of&nbsp;all&nbsp;possible&nbsp;message&nbsp;attributes</tt></dd></dl>
+
+<dl><dt><a name="Sms-count"><strong>count</strong></a>(cls, unread<font color="#909090">=True</font>, folder<font color="#909090">='inbox'</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;List&nbsp;of&nbsp;all&nbsp;message&nbsp;IDs</tt></dd></dl>
+
+<dl><dt><a name="Sms-delete"><strong>delete</strong></a>(cls, id)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Deletes&nbsp;a&nbsp;message</tt></dd></dl>
+
+<dl><dt><a name="Sms-get"><strong>get</strong></a>(cls, id, *attrs)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;message&nbsp;attributes</tt></dd></dl>
+
+<dl><dt><a name="Sms-gets"><strong>gets</strong></a>(cls, unread<font color="#909090">=True</font>, folder<font color="#909090">='inbox'</font>, *attrs)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;List&nbsp;of&nbsp;all&nbsp;message&nbsp;IDs</tt></dd></dl>
+
+<dl><dt><a name="Sms-ids"><strong>ids</strong></a>(cls, unread<font color="#909090">=True</font>, folder<font color="#909090">='inbox'</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;List&nbsp;of&nbsp;all&nbsp;message&nbsp;IDs</tt></dd></dl>
+
+<dl><dt><a name="Sms-mark"><strong>mark</strong></a>(cls, read<font color="#909090">=True</font>, *id)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Marks&nbsp;messages&nbsp;as&nbsp;read</tt></dd></dl>
+
+<dl><dt><a name="Sms-send"><strong>send</strong></a>(cls, address, text)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Sends&nbsp;an&nbsp;SMS</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Uri">class <strong>Uri</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Uri">Uri</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Uri-__init__"><strong>__init__</strong></a>(self, init<font color="#909090">=''</font>)</dt></dl>
+
+<dl><dt><a name="Uri-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Uri-attr"><strong>attr</strong></a>(self)</dt><dd><tt>Content&nbsp;Resolver&nbsp;Query&nbsp;Attributes</tt></dd></dl>
+
+<dl><dt><a name="Uri-content"><strong>content</strong></a>(self)</dt><dd><tt>Content&nbsp;Resolver&nbsp;Query</tt></dd></dl>
+
+<dl><dt><a name="Uri-pick"><strong>pick</strong></a>(self)</dt><dd><tt>Display&nbsp;content&nbsp;to&nbsp;be&nbsp;picked&nbsp;by&nbsp;URI&nbsp;(e.g.&nbsp;contacts)</tt></dd></dl>
+
+<dl><dt><a name="Uri-set"><strong>set</strong></a>(self, uri)</dt></dl>
+
+<dl><dt><a name="Uri-view"><strong>view</strong></a>(self, type, **extras)</dt><dd><tt>Start&nbsp;activity&nbsp;with&nbsp;view&nbsp;action&nbsp;by&nbsp;URI&nbsp;(i.e.&nbsp;browser,&nbsp;contacts,&nbsp;etc.)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="WakeLock">class <strong>WakeLock</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;WakeLockFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/WakeLockFacade.html">http://www.mithril.com.au/android/doc/WakeLockFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#WakeLock">WakeLock</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="WakeLock-bright"><strong>bright</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Acquires&nbsp;a&nbsp;bright&nbsp;wake&nbsp;lock&nbsp;(CPU&nbsp;on,&nbsp;screen&nbsp;bright)</tt></dd></dl>
+
+<dl><dt><a name="WakeLock-dim"><strong>dim</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Acquires&nbsp;a&nbsp;dim&nbsp;wake&nbsp;lock&nbsp;(CPU&nbsp;on,&nbsp;screen&nbsp;dim)</tt></dd></dl>
+
+<dl><dt><a name="WakeLock-full"><strong>full</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Acquires&nbsp;a&nbsp;full&nbsp;wake&nbsp;lock&nbsp;(CPU&nbsp;on,&nbsp;screen&nbsp;bright,&nbsp;keyboard&nbsp;bright)</tt></dd></dl>
+
+<dl><dt><a name="WakeLock-partial"><strong>partial</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Acquires&nbsp;a&nbsp;partial&nbsp;wake&nbsp;lock&nbsp;(CPU&nbsp;on)</tt></dd></dl>
+
+<dl><dt><a name="WakeLock-release"><strong>release</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Releases&nbsp;the&nbsp;wake&nbsp;lock</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Wifi">class <strong>Wifi</strong></a>(<a href="DroidFacade.html#_Facade">_Facade</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wrapper&nbsp;functions&nbsp;for&nbsp;WifiFacade<br>
+(<a href="http://www.mithril.com.au/android/doc/WifiFacade.html">http://www.mithril.com.au/android/doc/WifiFacade.html</a>)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="DroidFacade.html#Wifi">Wifi</a></dd>
+<dd><a href="DroidFacade.html#_Facade">_Facade</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Wifi-acquire"><strong>acquire</strong></a>(cls, full<font color="#909090">=False</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Acquires&nbsp;a&nbsp;full&nbsp;<a href="#Wifi">Wifi</a>&nbsp;lock</tt></dd></dl>
+
+<dl><dt><a name="Wifi-associate"><strong>associate</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Reassociates&nbsp;with&nbsp;the&nbsp;currently&nbsp;active&nbsp;access&nbsp;point</tt></dd></dl>
+
+<dl><dt><a name="Wifi-close"><strong>close</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Disconnects&nbsp;from&nbsp;the&nbsp;currently&nbsp;active&nbsp;access&nbsp;point</tt></dd></dl>
+
+<dl><dt><a name="Wifi-connect"><strong>connect</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Reconnects&nbsp;to&nbsp;the&nbsp;currently&nbsp;active&nbsp;access&nbsp;point</tt></dd></dl>
+
+<dl><dt><a name="Wifi-info"><strong>info</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;information&nbsp;about&nbsp;the&nbsp;currently&nbsp;active&nbsp;access&nbsp;point</tt></dd></dl>
+
+<dl><dt><a name="Wifi-release"><strong>release</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Releases&nbsp;a&nbsp;previously&nbsp;acquired&nbsp;<a href="#Wifi">Wifi</a>&nbsp;lock</tt></dd></dl>
+
+<dl><dt><a name="Wifi-result"><strong>result</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;the&nbsp;list&nbsp;of&nbsp;access&nbsp;points&nbsp;found&nbsp;during&nbsp;the&nbsp;most&nbsp;recent&nbsp;<a href="#Wifi">Wifi</a>&nbsp;scan</tt></dd></dl>
+
+<dl><dt><a name="Wifi-scan"><strong>scan</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Starts&nbsp;a&nbsp;scan&nbsp;for&nbsp;<a href="#Wifi">Wifi</a>&nbsp;access&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="Wifi-state"><strong>state</strong></a>(cls, enabled<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Toggle&nbsp;<a href="#Wifi">Wifi</a>&nbsp;on&nbsp;and&nbsp;off</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="DroidFacade.html#_Facade">_Facade</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>BLUETOOTH_UUID</strong> = '457807c0-4897-11df-9879-0800200c9a66'<br>
+<strong>CATEGORY_DEFAULT</strong> = 'android.intent.category.DEFAULT'<br>
+<strong>INBOX</strong> = 'inbox'<br>
+<strong>SENSOR_ALL</strong> = 1</td></tr></table>
+</body></html>
