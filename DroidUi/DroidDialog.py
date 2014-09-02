@@ -142,16 +142,38 @@ def _askstring(title, message, default, type, **kw):
 	return d.result['value'] if d.result else None
 
 def askstring(title, message, default = '', **kw):
+	'''show a dialog to ask for string input.
+	TITLE - the title of the dialog
+	MESSAGE - the message of the dialog
+	DEFAULT - default value of the string (empty string by default)
+	KW - the keyword argument, used to set the button text on the dialog
+	  `yes' - set the YES button text ("Yes" if not set)
+	  `no' - set the NO button text ("Cancel" if not set)'''
 	return _askstring(title, message, default, TEXT, **kw)
 
 def askpassword(title, message, default = '', **kw):
+	'''show a dialog to ask for password input.
+	TITLE - the title of the dialog
+	MESSAGE - the message of the dialog
+	DEFAULT - default value of the password (empty string by default)
+	KW - same as KW in askstring()'''
 	return _askstring(title, message, default, TEXT_PASSWORD, **kw)
 
 def askint(title, message, default = 0, **kw):
+	'''show a dialog to ask for int input.
+	TITLE - the title of the dialog
+	MESSAGE - the message of the dialog
+	DEFAULT - default value of the int (0 by default)
+	KW - same as KW in askstring()'''
 	ret = _askstring(title, message, default, NUMBER_SIGNED, **kw)
 	return None if ret is None else int(ret)
 
 def askfloat(title, message, default = 0.0, **kw):
+	'''show a dialog to ask for float input.
+	TITLE - the title of the dialog
+	MESSAGE - the message of the dialog
+	DEFAULT - default value of the float (0.0 by default)
+	KW - same as KW in askstring()'''
 	ret = _askstring(title, message, default, NUMBER_DECIMAL, **kw)
 	return None if ret is None else float(ret)
 
@@ -159,7 +181,12 @@ def askfloat(title, message, default = 0.0, **kw):
 # seekbar
 
 def askvalue(title, message, value = 50, max = 100, **kw):
-	'''get a value using seekbar'''
+	'''get a value using seekbar
+	TITLE - the title of the dialog
+	MESSAGE - the message of the dialog
+	VALUE - default value (50 by default)
+	MAX - max value (100 by default)
+	KW - same as KW in askstring()'''
 	d = _Dialog()
 	d.create('seekbar', value, max, title, message)
 	_merge(kw, yes = OK, no = CANCEL)
@@ -367,11 +394,27 @@ class _Progress(object):
 		self.d.dismiss()
 
 def Progress(title, message, max = 100):
-	'''get a Horizontal Progress dialog'''
+	'''get a Horizontal Progress dialog
+	TITLE - the title of the dialog
+	MESSAGE - the message of the dialog
+	MAX - max value (100 by default)
+
+	the dialog object support these methods
+	show() - show the dialog
+	update(value) - set the progress of the dialog to value
+	dismiss() - dismiss the dialog'''
 	return _Progress(title, message, max, 'progress')
 
 def Loading(title, message, max = 100):
-	'''get a Spinner Progress dialog'''
+	'''get a Spinner Progress dialog
+	TITLE - the title of the dialog
+	MESSAGE - the message of the dialog
+	MAX - max value (100 by default)
+
+	the dialog object support these methods
+	show() - show the dialog
+	update(value) - set the progress of the dialog to value
+	dismiss() - dismiss the dialog'''
 	return _Progress(title, message, max, 'spinner')
 
 ###############################################################

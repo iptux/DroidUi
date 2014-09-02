@@ -327,10 +327,12 @@ class _View(ET._Element):
 		self.config(**cnf)
 
 	def set(self, key, value):
+		'''Override the default set(). DON NOT call this'''
 		if key.find(':') == -1: key = "android:%s" % key
 		ET._Element.set(self, key, stringlize(value))
 
 	def get(self, key, default = None):
+		'''Override the default get(). DON NOT call this'''
 		return ET._Element.get(self, "android:%s" % key, default)
 
 	def setid(self, id):

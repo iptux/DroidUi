@@ -28,6 +28,7 @@ class sl4aError(Exception):
 
 
 class sl4a(Android):
+	'''make the android.Android class more pythonic'''
 	def __getattr__(self, name):
 		def rpc_call(*args):
 			r = self._rpc(name, *args)
