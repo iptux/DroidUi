@@ -54,6 +54,12 @@ Install
 * then DroidUi installed.
 
 
+License
+-------
+
+DroidUi is licensed under [GPLv3][] by Tommy Alex
+
+
 Links
 -----
 
@@ -74,4 +80,5 @@ Links
 [Py4A_r5]: https://code.google.com/p/python-for-android/downloads/detail?name=PythonForAndroid_r5.apk
 [adb]: http://developer.android.com/tools/help/adb.html
 [Wiki]: https://github.com/iptux/DroidUi/wiki
+[GPLv3]: http://www.gnu.org/copyleft/gpl.html
 
