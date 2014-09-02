@@ -1,57 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <title>DroidUi by iptux</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>DroidUi by iptux</title>
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <div class="wrapper">
+      <header>
+        <h1 class="header">DroidUi</h1>
+        <p class="header">a Python UI library for Android</p>
 
-        <header>
-          <h1>DroidUi</h1>
-          <h2>a Python UI library for Android</h2>
-        </header>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/iptux/DroidUi/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/iptux/DroidUi/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/iptux/DroidUi">View On GitHub</a></li>
+        </ul>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/iptux/DroidUi/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/iptux/DroidUi/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/iptux/DroidUi" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/iptux">iptux</a></p>
 
-        <hr>
 
-        <section id="main_content">
-          <h1>DroidUi - a Python UI library for Android</h1>
+      </header>
+      <section>
+        <h1>
+<a name="droidui---a-python-ui-library-for-android" class="anchor" href="#droidui---a-python-ui-library-for-android"><span class="octicon octicon-link"></span></a>DroidUi - a Python UI library for Android</h1>
 
 <p>Now Python is able to run on Android platform thanks to
-<a href="https://code.google.com/p/android-scripting/">Scripting Layer for Android</a>
-and <a href="https://code.google.com/p/python-for-android/">python for android</a>
+<a href="https://code.google.com/p/android-scripting/">Scripting Layer for Android</a> and <a href="https://code.google.com/p/python-for-android/">Python for Android</a>
 project. But the <a href="http://www.mithril.com.au/android/doc/UiFacade.html">User Interface Facade</a>
 is hard to use. Most of the time, more than one call is needed to
 achieve your simplest goal. And the 
-<a href="https://code.google.com/p/android-scripting/wiki/ApiReference#fullShow">fullShow</a>
-call in <a href="https://code.google.com/p/android-scripting/wiki/FullScreenUI">FullScreenUI</a>
+<a href="https://code.google.com/p/android-scripting/wiki/ApiReference#fullShow">fullShow</a> call in <a href="https://code.google.com/p/android-scripting/wiki/FullScreenUI">FullScreenUI</a>
 need a XML style layout.</p>
 
 <p>But what if you want to control the layout by programming,
 or change the layout dynamically at run time?
 I need a more elegant UI library, that is why <a href="http://iptux.github.com/DroidUi/">DroidUi</a>.</p>
 
-<h2>Quick Start</h2>
+<h2>
+<a name="quick-start" class="anchor" href="#quick-start"><span class="octicon octicon-link"></span></a>Quick Start</h2>
 
-<p>Let start with <code>Hello world</code> example,</p>
+<p>Let's start with <code>Hello world</code> example,</p>
 
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">DroidUi</span>                                     <span class="c"># yes, you need it</span>
+<div class="highlight highlight-python"><pre><span class="kn">import</span> <span class="nn">DroidUi</span>                                     <span class="c"># yes, you need it</span>
 
 <span class="n">layout</span> <span class="o">=</span> <span class="n">DroidUi</span><span class="o">.</span><span class="n">DroidUi</span><span class="p">()</span>                         <span class="c"># layout object comes first</span>
 <span class="n">hello</span> <span class="o">=</span> <span class="n">DroidUi</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">layout</span><span class="p">,</span>                     <span class="c"># add this Button to the layout</span>
@@ -73,38 +72,43 @@ click button will quit this example.</p>
 </ul><p>DroidUi also support showing a layout from a existing XML layout,
 use <code>DroidUi.DroidUi.fromxml()</code> and <code>DroidUi.DroidUi.fromfile()</code> to get the layout object</p>
 
-<h2>Requirement</h2>
+<h2>
+<a name="requirement" class="anchor" href="#requirement"><span class="octicon octicon-link"></span></a>Requirement</h2>
 
 <ul>
 <li>an Android device.</li>
 <li>
-<a href="https://code.google.com/p/android-scripting/">Scripting Layer for Android</a> <a href="https://code.google.com/p/android-scripting/downloads/detail?name=sl4a_r6.apk">r6</a> and above installed.</li>
+<a href="https://code.google.com/p/android-scripting/">Scripting Layer for Android</a> <a href="https://code.google.com/p/android-scripting/downloads/detail?name=sl4a_r6.apk">r6</a> or above installed.</li>
 <li>
-<a href="https://code.google.com/p/python-for-android/">python for android</a> <a href="https://code.google.com/p/python-for-android/downloads/detail?name=PythonForAndroid_r5.apk">r5</a> and above installed.</li>
-</ul><h2>Install</h2>
+<a href="https://code.google.com/p/python-for-android/">Python for Android</a> <a href="https://code.google.com/p/python-for-android/downloads/detail?name=PythonForAndroid_r5.apk">r5</a> or above installed.</li>
+</ul><h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
 
 <ul>
 <li>make sure <a href="http://developer.android.com/tools/help/adb.html">adb</a> is installed on your computer.</li>
 <li>connect your Android device to your computer.</li>
 <li>run <em>install.bat</em>(on Windows) or <em>install.sh</em>(on Linux).</li>
 <li>then DroidUi installed.</li>
-</ul><h2>Links</h2>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>DroidUi is licensed under <a href="http://www.gnu.org/copyleft/gpl.html">GPLv3</a> by Tommy Alex</p>
+
+<h2>
+<a name="links" class="anchor" href="#links"><span class="octicon octicon-link"></span></a>Links</h2>
 
 <ul>
 <li><a href="http://iptux.github.com/DroidUi/">DroidUi</a></li>
 <li><a href="https://github.com/iptux/DroidUi/wiki">DroidUi Wiki</a></li>
-<li><a href="https://code.google.com/p/python-for-android/">python for android</a></li>
+<li><a href="https://code.google.com/p/python-for-android/">Python for Android</a></li>
 <li><a href="https://code.google.com/p/android-scripting/">Scripting Layer for Android</a></li>
 </ul>
-        </section>
-
-        <footer>
-          DroidUi is maintained by <a href="https://github.com/iptux">iptux</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
     </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
   </body>
 </html>
