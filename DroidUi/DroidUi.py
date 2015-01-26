@@ -128,7 +128,7 @@ class DroidUi(object):
 		'''itemclick event handler'''
 		_id = data['id']
 		obj = self.objmap[_id]
-		item = obj._list[int(data['position'])]
+		item = obj._selected(data['position'])
 		ret = obj.itemclick(item)
 		# if not handled, try click callback handler
 		if not ret and _id in self._click_cb:
@@ -298,6 +298,7 @@ class _View(ET._Element):
 
 		# used by fullSetList
 		self._list = None
+		self._list2 = None
 
 		# combine all configure together
 		cnf = cnf.copy()
@@ -343,20 +344,27 @@ class _View(ET._Element):
 		self.set('id', '@+id/' + id)
 		self.droid.reg_obj(id, self)
 
-	def setlist(self, list):
+	def setlist(self, iterable):
 		'''Attach a list to widget'''
 		if self.droid.showed:
+			list = [i for i in iterable]
 			self.droid.call('fullSetList', self.id, list)
 			self._list = list
+			if isinstance(iterable, dict):
+				self._list2 = iterable
 		else:
 			warnings.warn('method called when layout not showed')
+
+	def _selected(self, index):
+		if self._list is not None and index:
+			item = self._list[int(index)]
+			return self._list2[item] if self._list2 else item
 
 	def selected(self):
 		'''get the selected items from the attached list'''
 		if self._list is not None:
 			pos = self.cget('selectedItemPosition')
-			if pos is not None:
-				return self._list[int(pos)]
+			return self._selected(pos)
 
 	def _setroot(self, root):
 		self.root = root
