@@ -25,13 +25,24 @@ import DroidUi as Ui
 
 
 def display_event(data):
-	text = 'Key %s is pressed' % data['key']
+	key = int(data['key'])
+	text = '%s: %s' % (keys[key], data['key'])
 	view.config(text = text)
 	return True
 
 
+def get_keycodes():
+	global keys
+	keys = [None] * 512
+	for k, v in Ui.Class('android.view.KeyEvent').consts().items():
+		if k.startswith('KEYCODE'):
+			keys[v] = k
+	return keys
+
+
 def main():
 	global view
+	get_keycodes()
 	gui = Ui.DroidUi()
 	view = Ui.TextView(gui,
 		text = 'Press any key',
