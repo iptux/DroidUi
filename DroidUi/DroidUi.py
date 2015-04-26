@@ -287,14 +287,13 @@ class DroidUi(object):
 
 class _View(ET._Element):
 	'''View element'''
-	widgetName = ''
 	defaultConfig = {}
 
 	def __init__(self, master = None, cnf = {}, pos = None, **kw):
 		'''MASTER parent of the view
 		CNF view element configure
 		POS position to insert in the parent view, at the end if None'''
-		ET._Element.__init__(self, self.widgetName, {})
+		ET._Element.__init__(self, self.__class__.__name__, {})
 
 		# used by fullSetList
 		self._list = None
@@ -323,7 +322,7 @@ class _View(ET._Element):
 		if 'id' in cnf:
 			self.setid(cnf['id'])
 			del cnf['id']
-		else: self.setid('%s#%x' % (self.widgetName, id(self)) )
+		else: self.setid('%s#%x' % (self.__class__.__name__, id(self)) )
 
 		self.config(**cnf)
 
@@ -429,269 +428,264 @@ class _View(ET._Element):
 # View classes, the inherit tree is same as android
 
 class View(_View):
-	widgetName = 'View'
 	defaultConfig = {
 		'layout_width': WRAP_CONTENT,
 		'layout_height': WRAP_CONTENT,
 	}
 
 class AnalogClock(View):
-	widgetName = 'AnalogClock'
+	pass
 
 class ImageView(View):
-	widgetName = 'ImageView'
+	pass
 
 class ImageButton(ImageView):
-	widgetName = 'ImageButton'
+	pass
 
 class ZoomButton(ImageButton):
-	widgetName = 'ZoomButton'
+	pass
 
 class QuickContactBadge(ImageView):
-	widgetName = 'QuickContactBadge'
+	pass
 
 class KeyboardView(View):
-	widgetName = 'KeyboardView'
+	pass
 
 class MediaRouteButton(View):
-	widgetName = 'MediaRouteButton'
+	pass
 
 class ProgressBar(View):
-	widgetName = 'ProgressBar'
+	pass
 
 class _AbsSeekBar(ProgressBar):
-	widgetName = 'AbsSeekBar'
+	pass
 
 class RatingBar(_AbsSeekBar):
-	widgetName = 'RatingBar'
+	pass
 
 class SeekBar(_AbsSeekBar):
-	widgetName = 'SeekBar'
+	pass
 
 class ContentLoadingProgressBar(ProgressBar):
-	widgetName = 'ContentLoadingProgressBar'
+	pass
 
 class Space(View):
-	widgetName = 'Space'
+	pass
 
 class SurfaceView(View):
-	widgetName = 'SurfaceView'
+	pass
 
 class GLSurfaceView(SurfaceView):
-	widgetName = 'GLSurfaceView'
+	pass
 
 class VideoView(SurfaceView):
-	widgetName = 'VideoView'
+	pass
 
 class TextureView(View):
-	widgetName = 'TextureView'
+	pass
 
 class TextView(View):
-	widgetName = 'TextView'
+	pass
 
 class Button(TextView):
-	widgetName = 'Button'
 	defaultConfig = {
 		'layout_width': FILL_PARENT,
 		'layout_height': WRAP_CONTENT,
 	}
 
 class CompoundButton(Button):
-	widgetName = 'CompoundButton'
+	pass
 
 class CheckBox(CompoundButton):
-	widgetName = 'CheckBox'
+	pass
 
 class TintCheckBox(CheckBox):
-	widgetName = 'TintCheckBox'
+	pass
 
 class RadioButton(CompoundButton):
-	widgetName = 'RadioButton'
+	pass
 
 class TintRadioButton(RadioButton):
-	widgetName = 'TintRadioButton'
+	pass
 
 class Switch(CompoundButton):
-	widgetName = 'Switch'
+	pass
 
 class SwitchCompat(CompoundButton):
-	widgetName = 'SwitchCompat'
+	pass
 
 class ToggleButton(CompoundButton):
-	widgetName = 'ToggleButton'
+	pass
 
 class TintButton(Button):
-	widgetName = 'TintButton'
+	pass
 
 class CheckedTextView(TextView):
-	widgetName = 'CheckedTextView'
+	pass
 
 class Chronometer(TextView):
-	widgetName = 'Chronometer'
+	pass
 
 class DigitalClock(TextView):
-	widgetName = 'DigitalClock'
+	pass
 
 class EditText(TextView):
-	widgetName = 'EditText'
 	defaultConfig = {
 		'layout_width': MATCH_PARENT,
 		'layout_height': WRAP_CONTENT,
 	}
 
 class AutoCompleteTextView(EditText):
-	widgetName = 'AutoCompleteTextView'
+	pass
 
 class MultiAutoCompleteTextView(AutoCompleteTextView):
-	widgetName = 'MultiAutoCompleteTextView'
+	pass
 
 class TintMultiAutoCompleteTextView(MultiAutoCompleteTextView):
-	widgetName = 'TintMultiAutoCompleteTextView'
+	pass
 
 class TintAutoCompleteTextView(AutoCompleteTextView):
-	widgetName = 'TintAutoCompleteTextView'
+	pass
 
 class ExtractEditText(EditText):
-	widgetName = 'ExtractEditText'
+	pass
 
 class SearchEditText(EditText):
-	widgetName = 'SearchEditText'
+	pass
 
 class TintEditText(EditText):
-	widgetName = 'TintEditText'
+	pass
 
 class RowHeaderView(TextView):
-	widgetName = 'RowHeaderView'
+	pass
 
 class TextClock(TextView):
-	widgetName = 'TextClock'
+	pass
 
 class ViewGroup(View):
-	widgetName = 'ViewGroup'
 	defaultConfig = {
 		'layout_width': MATCH_PARENT,
 		'layout_height': MATCH_PARENT,
 	}
 
 class AbsoluteLayout(ViewGroup):
-	widgetName = 'AbsoluteLayout'
+	pass
 
 class WebView(AbsoluteLayout):
-	widgetName = 'WebView'
+	pass
 
 class AdapterView(ViewGroup):
-	widgetName = 'AdapterView'
+	pass
 
 class _AbsListView(AdapterView):
-	widgetName = 'AbsListView'
+	pass
 
 class GridView(_AbsListView):
-	widgetName = 'GridView'
+	pass
 
 class ListView(_AbsListView):
-	widgetName = 'ListView'
+	pass
 
 class ExpandableListView(ListView):
-	widgetName = 'ExpandableListView'
+	pass
 
 class _AbsSpinner(AdapterView):
-	widgetName = 'AbsSpinner'
+	pass
 
 class Gallery(_AbsSpinner):
-	widgetName = 'Gallery'
+	pass
 
 class Spinner(_AbsSpinner):
-	widgetName = 'Spinner'
+	pass
 
 class TintSpinner(Spinner):
-	widgetName = 'TintSpinner'
+	pass
 
 class AdapterViewAnimator(AdapterView):
-	widgetName = 'AdapterViewAnimator'
+	pass
 
 class AdapterViewFlipper(AdapterViewAnimator):
-	widgetName = 'AdapterViewFlipper'
+	pass
 
 class StackView(AdapterViewAnimator):
-	widgetName = 'StackView'
+	pass
 
 class DrawerLayout(ViewGroup):
-	widgetName = 'DrawerLayout'
+	pass
 
 class FragmentBreadCrumbs(ViewGroup):
-	widgetName = 'FragmentBreadCrumbs'
+	pass
 
 class FrameLayout(ViewGroup):
-	widgetName = 'FrameLayout'
+	pass
 
 class AppWidgetHostView(FrameLayout):
-	widgetName = 'AppWidgetHostView'
+	pass
 
 class BaseCardView(FrameLayout):
-	widgetName = 'BaseCardView'
+	pass
 
 class ImageCardView(BaseCardView):
-	widgetName = 'ImageCardView'
+	pass
 
 class CalendarView(FrameLayout):
-	widgetName = 'CalendarView'
+	pass
 
 class CardView(FrameLayout):
-	widgetName = 'CardView'
+	pass
 
 class DatePicker(FrameLayout):
-	widgetName = 'DatePicker'
+	pass
 
 class GestureOverlayView(FrameLayout):
-	widgetName = 'GestureOverlayView'
+	pass
 
 class HorizontalScrollView(FrameLayout):
-	widgetName = 'HorizontalScrollView'
+	pass
 
 class MediaController(FrameLayout):
-	widgetName = 'MediaController'
+	pass
 
 class NestedScrollView(FrameLayout):
-	widgetName = 'NestedScrollView'
+	pass
 
 class ScrollView(FrameLayout):
-	widgetName = 'ScrollView'
+	pass
 
 class SearchOrbView(FrameLayout):
-	widgetName = 'SearchOrbView'
+	pass
 
 class SpeechOrbView(SearchOrbView):
-	widgetName = 'SpeechOrbView'
+	pass
 
 class TabHost(FrameLayout):
-	widgetName = 'TabHost'
+	pass
 
 class FragmentTabHost(TabHost):
-	widgetName = 'FragmentTabHost'
+	pass
 
 class TimePicker(FrameLayout):
-	widgetName = 'TimePicker'
+	pass
 
 class ViewAnimator(FrameLayout):
-	widgetName = 'ViewAnimator'
+	pass
 
 class ViewFlipper(ViewAnimator):
-	widgetName = 'ViewFlipper'
+	pass
 
 class ViewSwitcher(ViewAnimator):
-	widgetName = 'ViewSwitcher'
+	pass
 
 class ImageSwitcher(ViewSwitcher):
-	widgetName = 'ImageSwitcher'
+	pass
 
 class TextSwitcher(ViewSwitcher):
-	widgetName = 'TextSwitcher'
+	pass
 
 class GridLayout(ViewGroup):
-	widgetName = 'GridLayout'
+	pass
 
 class LinearLayout(ViewGroup):
-	widgetName = 'LinearLayout'
 	defaultConfig = {
 		'orientation': VERTICAL,
 		'layout_width': MATCH_PARENT,
@@ -699,94 +693,94 @@ class LinearLayout(ViewGroup):
 	}
 
 class ActionMenuView(LinearLayout):
-	widgetName = 'ActionMenuView'
+	pass
 
 class ListRowHoverCardView(LinearLayout):
-	widgetName = 'ListRowHoverCardView'
+	pass
 
 class ListRowView(LinearLayout):
-	widgetName = 'ListRowView'
+	pass
 
 class NumberPicker(LinearLayout):
-	widgetName = 'NumberPicker'
+	pass
 
 class RadioGroup(LinearLayout):
-	widgetName = 'RadioGroup'
+	pass
 
 class SearchView(LinearLayout):
-	widgetName = 'SearchView'
+	pass
 
 class TableLayout(LinearLayout):
-	widgetName = 'TableLayout'
+	pass
 
 class TableRow(LinearLayout):
-	widgetName = 'TableRow'
+	pass
 
 class TabWidget(LinearLayout):
-	widgetName = 'TabWidget'
+	pass
 
 class ZoomControls(LinearLayout):
-	widgetName = 'ZoomControls'
+	pass
 
 class LinearLayoutCompat(ViewGroup):
-	widgetName = 'LinearLayoutCompat'
+	pass
 
 class ActionMenuView(LinearLayoutCompat):
-	widgetName = 'ActionMenuView'
+	pass
 
 class SearchView(LinearLayoutCompat):
-	widgetName = 'SearchView'
+	pass
 
 class PagerTitleStrip(ViewGroup):
-	widgetName = 'PagerTitleStrip'
+	pass
 
 class PagerTabStrip(PagerTitleStrip):
-	widgetName = 'PagerTabStrip'
+	pass
 
 class RecyclerView(ViewGroup):
-	widgetName = 'RecyclerView'
+	pass
 
 class HorizontalGridView(RecyclerView):
-	widgetName = 'HorizontalGridView'
+	pass
 
 class VerticalGridView(RecyclerView):
-	widgetName = 'VerticalGridView'
+	pass
 
 class RelativeLayout(ViewGroup):
-	widgetName = 'RelativeLayout'
+	pass
 
 class DialerFilter(RelativeLayout):
-	widgetName = 'DialerFilter'
+	pass
 
 class SearchBar(RelativeLayout):
-	widgetName = 'SearchBar'
+	pass
 
 class TwoLineListItem(RelativeLayout):
-	widgetName = 'TwoLineListItem'
+	pass
 
 class ShadowOverlayContainer(ViewGroup):
-	widgetName = 'ShadowOverlayContainer'
+	pass
 
 class SlidingDrawer(ViewGroup):
-	widgetName = 'SlidingDrawer'
+	pass
 
 class SlidingPaneLayout(ViewGroup):
-	widgetName = 'SlidingPaneLayout'
+	pass
 
 class SwipeRefreshLayout(ViewGroup):
-	widgetName = 'SwipeRefreshLayout'
+	pass
 
 class Toolbar(ViewGroup):
-	widgetName = 'Toolbar'
+	pass
 
 class TvView(ViewGroup):
-	widgetName = 'TvView'
+	pass
 
 class ViewPager(ViewGroup):
-	widgetName = 'ViewPager'
+	pass
 
 class ViewStub(View):
-	widgetName = 'ViewStub'
+	pass
 
 
 #####################################################################
