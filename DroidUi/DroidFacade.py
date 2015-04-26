@@ -1159,7 +1159,7 @@ class Misc(_Facade):
 			return _a.ttsSpeak(msg)
 
 	@classmethod
-	def dtmf(cls, number, duration):
+	def dtmf(cls, number, duration = 100):
 		'''Generate DTMF tones for the given phone number
 		number (String)
 		duration (Integer) duration of each tone in milliseconds (default=100)'''
