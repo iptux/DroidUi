@@ -468,6 +468,9 @@ class RatingBar(_AbsSeekBar):
 class SeekBar(_AbsSeekBar):
 	widgetName = 'SeekBar'
 
+class ContentLoadingProgressBar(ProgressBar):
+	widgetName = 'ContentLoadingProgressBar'
+
 class Space(View):
 	widgetName = 'Space'
 
@@ -499,14 +502,26 @@ class CompoundButton(Button):
 class CheckBox(CompoundButton):
 	widgetName = 'CheckBox'
 
+class TintCheckBox(CheckBox):
+	widgetName = 'TintCheckBox'
+
 class RadioButton(CompoundButton):
 	widgetName = 'RadioButton'
+
+class TintRadioButton(RadioButton):
+	widgetName = 'TintRadioButton'
 
 class Switch(CompoundButton):
 	widgetName = 'Switch'
 
+class SwitchCompat(CompoundButton):
+	widgetName = 'SwitchCompat'
+
 class ToggleButton(CompoundButton):
 	widgetName = 'ToggleButton'
+
+class TintButton(Button):
+	widgetName = 'TintButton'
 
 class CheckedTextView(TextView):
 	widgetName = 'CheckedTextView'
@@ -530,8 +545,23 @@ class AutoCompleteTextView(EditText):
 class MultiAutoCompleteTextView(AutoCompleteTextView):
 	widgetName = 'MultiAutoCompleteTextView'
 
+class TintMultiAutoCompleteTextView(MultiAutoCompleteTextView):
+	widgetName = 'TintMultiAutoCompleteTextView'
+
+class TintAutoCompleteTextView(AutoCompleteTextView):
+	widgetName = 'TintAutoCompleteTextView'
+
 class ExtractEditText(EditText):
 	widgetName = 'ExtractEditText'
+
+class SearchEditText(EditText):
+	widgetName = 'SearchEditText'
+
+class TintEditText(EditText):
+	widgetName = 'TintEditText'
+
+class RowHeaderView(TextView):
+	widgetName = 'RowHeaderView'
 
 class TextClock(TextView):
 	widgetName = 'TextClock'
@@ -573,6 +603,9 @@ class Gallery(_AbsSpinner):
 class Spinner(_AbsSpinner):
 	widgetName = 'Spinner'
 
+class TintSpinner(Spinner):
+	widgetName = 'TintSpinner'
+
 class AdapterViewAnimator(AdapterView):
 	widgetName = 'AdapterViewAnimator'
 
@@ -594,8 +627,17 @@ class FrameLayout(ViewGroup):
 class AppWidgetHostView(FrameLayout):
 	widgetName = 'AppWidgetHostView'
 
+class BaseCardView(FrameLayout):
+	widgetName = 'BaseCardView'
+
+class ImageCardView(BaseCardView):
+	widgetName = 'ImageCardView'
+
 class CalendarView(FrameLayout):
 	widgetName = 'CalendarView'
+
+class CardView(FrameLayout):
+	widgetName = 'CardView'
 
 class DatePicker(FrameLayout):
 	widgetName = 'DatePicker'
@@ -609,8 +651,17 @@ class HorizontalScrollView(FrameLayout):
 class MediaController(FrameLayout):
 	widgetName = 'MediaController'
 
+class NestedScrollView(FrameLayout):
+	widgetName = 'NestedScrollView'
+
 class ScrollView(FrameLayout):
 	widgetName = 'ScrollView'
+
+class SearchOrbView(FrameLayout):
+	widgetName = 'SearchOrbView'
+
+class SpeechOrbView(SearchOrbView):
+	widgetName = 'SpeechOrbView'
 
 class TabHost(FrameLayout):
 	widgetName = 'TabHost'
@@ -647,6 +698,15 @@ class LinearLayout(ViewGroup):
 		'layout_height': WRAP_CONTENT,
 	}
 
+class ActionMenuView(LinearLayout):
+	widgetName = 'ActionMenuView'
+
+class ListRowHoverCardView(LinearLayout):
+	widgetName = 'ListRowHoverCardView'
+
+class ListRowView(LinearLayout):
+	widgetName = 'ListRowView'
+
 class NumberPicker(LinearLayout):
 	widgetName = 'NumberPicker'
 
@@ -668,11 +728,29 @@ class TabWidget(LinearLayout):
 class ZoomControls(LinearLayout):
 	widgetName = 'ZoomControls'
 
+class LinearLayoutCompat(ViewGroup):
+	widgetName = 'LinearLayoutCompat'
+
+class ActionMenuView(LinearLayoutCompat):
+	widgetName = 'ActionMenuView'
+
+class SearchView(LinearLayoutCompat):
+	widgetName = 'SearchView'
+
 class PagerTitleStrip(ViewGroup):
 	widgetName = 'PagerTitleStrip'
 
 class PagerTabStrip(PagerTitleStrip):
 	widgetName = 'PagerTabStrip'
+
+class RecyclerView(ViewGroup):
+	widgetName = 'RecyclerView'
+
+class HorizontalGridView(RecyclerView):
+	widgetName = 'HorizontalGridView'
+
+class VerticalGridView(RecyclerView):
+	widgetName = 'VerticalGridView'
 
 class RelativeLayout(ViewGroup):
 	widgetName = 'RelativeLayout'
@@ -680,14 +758,29 @@ class RelativeLayout(ViewGroup):
 class DialerFilter(RelativeLayout):
 	widgetName = 'DialerFilter'
 
+class SearchBar(RelativeLayout):
+	widgetName = 'SearchBar'
+
 class TwoLineListItem(RelativeLayout):
 	widgetName = 'TwoLineListItem'
+
+class ShadowOverlayContainer(ViewGroup):
+	widgetName = 'ShadowOverlayContainer'
 
 class SlidingDrawer(ViewGroup):
 	widgetName = 'SlidingDrawer'
 
 class SlidingPaneLayout(ViewGroup):
 	widgetName = 'SlidingPaneLayout'
+
+class SwipeRefreshLayout(ViewGroup):
+	widgetName = 'SwipeRefreshLayout'
+
+class Toolbar(ViewGroup):
+	widgetName = 'Toolbar'
+
+class TvView(ViewGroup):
+	widgetName = 'TvView'
 
 class ViewPager(ViewGroup):
 	widgetName = 'ViewPager'

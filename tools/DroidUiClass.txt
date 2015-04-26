@@ -10,6 +10,7 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 		_AbsSeekBar
 			RatingBar
 			SeekBar
+		ContentLoadingProgressBar
 	Space
 	SurfaceView
 		GLSurfaceView
@@ -19,16 +20,25 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 		Button layout_width FILL_PARENT layout_height WRAP_CONTENT
 			CompoundButton
 				CheckBox
+					TintCheckBox
 				RadioButton
+					TintRadioButton
 				Switch
+				SwitchCompat
 				ToggleButton
+			TintButton
 		CheckedTextView
 		Chronometer
 		DigitalClock
 		EditText layout_width MATCH_PARENT layout_height WRAP_CONTENT
 			AutoCompleteTextView
 				MultiAutoCompleteTextView
+					TintMultiAutoCompleteTextView
+				TintAutoCompleteTextView
 			ExtractEditText
+			SearchEditText
+			TintEditText
+		RowHeaderView
 		TextClock
 	ViewGroup layout_width MATCH_PARENT layout_height MATCH_PARENT
 		AbsoluteLayout
@@ -41,6 +51,7 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 			_AbsSpinner
 				Gallery
 				Spinner
+					TintSpinner
 			AdapterViewAnimator
 				AdapterViewFlipper
 				StackView
@@ -48,12 +59,18 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 		FragmentBreadCrumbs
 		FrameLayout
 			AppWidgetHostView
+			BaseCardView
+				ImageCardView
 			CalendarView
+			CardView
 			DatePicker
 			GestureOverlayView
 			HorizontalScrollView
 			MediaController
+			NestedScrollView
 			ScrollView
+			SearchOrbView
+				SpeechOrbView
 			TabHost
 				FragmentTabHost
 			TimePicker
@@ -64,6 +81,9 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 					TextSwitcher
 		GridLayout
 		LinearLayout orientation VERTICAL layout_width MATCH_PARENT layout_height WRAP_CONTENT
+			ActionMenuView
+			ListRowHoverCardView
+			ListRowView
 			NumberPicker
 			RadioGroup
 			SearchView
@@ -71,12 +91,23 @@ View layout_width WRAP_CONTENT layout_height WRAP_CONTENT
 			TableRow
 			TabWidget
 			ZoomControls
+		LinearLayoutCompat
+			ActionMenuView
+			SearchView
 		PagerTitleStrip
 			PagerTabStrip
+		RecyclerView
+			HorizontalGridView
+			VerticalGridView
 		RelativeLayout
 			DialerFilter
+			SearchBar
 			TwoLineListItem
+		ShadowOverlayContainer
 		SlidingDrawer
 		SlidingPaneLayout
+		SwipeRefreshLayout
+		Toolbar
+		TvView
 		ViewPager
 	ViewStub
