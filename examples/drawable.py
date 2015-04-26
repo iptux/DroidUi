@@ -3,7 +3,7 @@
 # drawable.py
 # show all drawable from android.R.drawable
 #
-# Copyright (C) 2012-2014 Tommy Alex. All Rights Reserved.
+# Copyright (C) 2012-2015 Tommy Alex. All Rights Reserved.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
