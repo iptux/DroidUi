@@ -184,7 +184,7 @@ class DroidUi(object):
 		assert callable(callback)
 		if key in self._key_cb: warnings.warn('key callback is override: key = %d' % key)
 		self._key_cb[key] = callback
-		if override: self._a.fullKeyOverride([key])
+		if override: self.call('fullKeyOverride', [key])
 
 	def reg_event(self, name, handler):
 		'''register event handler
@@ -215,9 +215,9 @@ class DroidUi(object):
 
 	def _eventLoop(self, clear):
 		'''event handling loop'''
-		if clear: self._a.eventClearBuffer()
+		if clear: self.call('eventClearBuffer')
 		while self._loop:
-			event = self._a.eventWait()
+			event = self.call('eventWait')
 			name = event["name"]
 			if name in self._handler:
 				if not self._handler[name](event['data']):
@@ -250,15 +250,15 @@ class DroidUi(object):
 		self.updateLayout()
 
 		if self.title is not None:
-			self._a.fullShow(self._xmlLayout, self.title)
+			self.call('fullShow', self._xmlLayout, self.title)
 		else:
-			self._a.fullShow(self._xmlLayout)
+			self.call('fullShow', self._xmlLayout)
 		self.showed = True
 		self.showHook()
 
-		self._a.clearOptionsMenu()
+		self.call('clearOptionsMenu')
 		for m in self._optionMenu:
-			self._a.addOptionsMenuItem(*m)
+			self.call('addOptionsMenuItem', *m)
 
 	def mainloop(self, title = None):
 		'''main loop'''
@@ -277,7 +277,7 @@ class DroidUi(object):
 			del DroidUi._queue[-1]
 			# if this is the last screen, just quit
 			if 0 == len(DroidUi._queue):
-				self._a.fullDismiss()
+				self.call('fullDismiss')
 			# or, show previous screen
 			else:
 				DroidUi._queue[-1].show()
