@@ -213,9 +213,9 @@ class DroidUi(object):
 		self.reg_event(event, command)
 		self._optionMenu.append((text, event, data, icon))
 
-	def _eventLoop(self, n):
+	def _eventLoop(self, clear):
 		'''event handling loop'''
-		if n == 0: self._a.eventClearBuffer()
+		if clear: self._a.eventClearBuffer()
 		while self._loop:
 			event = self._a.eventWait()
 			name = event["name"]
@@ -263,26 +263,24 @@ class DroidUi(object):
 	def mainloop(self, title = None):
 		'''main loop'''
 		# support serial call to mainloop
-		if not hasattr(DroidUi, 'n'):
-			setattr(DroidUi, 'n', 0)
-			setattr(DroidUi, 'queue', [self])
+		if not hasattr(DroidUi, '_queue'):
+			setattr(DroidUi, '_queue', [self])
 		else:
-			DroidUi.n += 1
-			DroidUi.queue.append(self)
+			DroidUi._queue.append(self)
 
 		if title is not None: self.title = title
 		self.show()
 
-		try: self._eventLoop(DroidUi.n)
+		try: self._eventLoop(1 == len(DroidUi._queue))
 		finally:
 			self.showed = False
+			del DroidUi._queue[-1]
 			# if this is the last screen, just quit
-			if 0 == DroidUi.n:
+			if 0 == len(DroidUi._queue):
 				self._a.fullDismiss()
 			# or, show previous screen
 			else:
-				DroidUi.queue[DroidUi.n - 1].show()
-			DroidUi.n -= 1
+				DroidUi._queue[-1].show()
 
 
 class _View(ET._Element):
